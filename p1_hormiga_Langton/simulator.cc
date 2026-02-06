@@ -11,6 +11,12 @@
 
 #include "simulator.h"
 
+void Simulator::PrintTape() {
+  std::cout << tape_;
+
+}
+
+
 void Simulator::Step() {
   
   std::pair<int, int> current_position = ant_.GetPosition();
@@ -31,11 +37,12 @@ void Simulator::Step() {
   counter++;
 
   // The ant is in the correct cell, so print the new tape
-  PrintTape();
 }
 
 void Simulator::Simulation() {
   while(true) {
+    std::cout << counter << std::endl << std::endl;
     Step();
+
   }
 }

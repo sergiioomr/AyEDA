@@ -70,3 +70,22 @@ void Ant::Move(const Color &color) {
       break;
   }
 }
+
+std::ostream& operator<<(std::ostream& os, const Ant &ant) {
+  switch (ant.GetDirection()) {
+    case Direction::UP :
+      os << "^";
+      break;
+    case Direction::DOWN :
+      os << "v";
+      break;
+    case Direction::RIGHT : 
+      os << ">";
+      break;
+    case Direction::LEFT :
+      os << "<";
+      break;
+  }
+
+  return os;
+}

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "colors.h"
+#include "ant.h"
 
 // Guardar los códigos que corresponden a cada color
 enum class Color {
@@ -19,6 +20,7 @@ class Tape {
 		int GetSizeX() const { return size_x_; }
 		int GetSizeY() const { return size_y_; }
 
+		void PrintTapeAnt(const Ant &ant);
 		Color CheckColor(const std::pair<int, int> &cell) const;
 		void SetColor(const Color &color, const std::pair<int, int> &cell);
 

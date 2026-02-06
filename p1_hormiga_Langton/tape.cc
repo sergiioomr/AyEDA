@@ -22,7 +22,7 @@ void Tape::SetColor(const Color &color, const std::pair<int , int> &cell) {
 std::ostream &operator<<(std::ostream &os, const Tape &tape) {
   for (int i = 0; i < tape.GetSizeX(); i++) {
     for (int j = 0; j < tape.GetSizeY(); j++) {
-      os << BG_BLACK << " " << RESET << " "; 
+      os << BG_LBLUE << " " << RESET << " "; 
     }
 
     os << std::endl << std::endl;
@@ -31,6 +31,9 @@ std::ostream &operator<<(std::ostream &os, const Tape &tape) {
   return os;
 }
 
+void Tape::PrintTapeAnt(const Ant &ant) {
+  for (int i = 0; i < size_x_)
+}
 
 int main() {
   std::vector<std::vector<Color>> v(8, std::vector<Color>(20));
