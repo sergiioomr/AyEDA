@@ -46,7 +46,7 @@ void Ant::TurnRight() {
 }
 
 void Ant::Move(const Color &color) {
-  if (color == Color::WHITE) {
+  if (color == Color::WHITE_CELL) {
     // If white, turn left
     TurnLeft();
   } else {

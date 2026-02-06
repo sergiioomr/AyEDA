@@ -11,6 +11,7 @@
             
 #include "tape.h"
 #include "ant.h"
+#include "./AyEDA/colors.h"
 
 class Simulator {
   public:

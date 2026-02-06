@@ -18,10 +18,10 @@ void Simulator::Step() {
 
   // Now, the ant change the cell color, and move
   // If the color is white, it always changes to black, and vice versa
-  if (current_color == Color::WHITE) {
-    tape_.SetColor(Color::BLACK, current_position);
-  } else if (current_color == Color::BLACK) {
-    tape_.SetColor(Color::WHITE, current_position);
+  if (current_color == Color::WHITE_CELL) {
+    tape_.SetColor(Color::BLACK_CELL, current_position);
+  } else if (current_color == Color::BLACK_CELL) {
+    tape_.SetColor(Color::WHITE_CELL, current_position);
   }
 
   // The ant move to the next cell

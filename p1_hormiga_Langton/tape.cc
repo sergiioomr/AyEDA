@@ -18,3 +18,23 @@ Color Tape::CheckColor(const std::pair<int, int> &cell) const{
 void Tape::SetColor(const Color &color, const std::pair<int , int> &cell) {
   tape_[cell.first][cell.second] = color;
 }
+
+std::ostream &operator<<(std::ostream &os, const Tape &tape) {
+  for (int i = 0; i < tape.GetSizeX(); i++) {
+    for (int j = 0; j < tape.GetSizeY(); j++) {
+      os << BG_BLACK << " " << RESET << " "; 
+    }
+
+    os << std::endl << std::endl;
+  }
+
+  return os;
+}
+
+
+int main() {
+  std::vector<std::vector<Color>> v(8, std::vector<Color>(20));
+  Tape tape(v, 8, 20);
+  std::cout << tape << std::endl;
+  return 0;
+}
