@@ -71,7 +71,32 @@ void Simulator::PrintTapeAnt() {
 
 void Simulator::Simulation() {
   int step_counter = 0;
+/*
+  while (step_counter != 14000) {
+    std::system("clear");
+    std::cout << "Paso número: " << step_counter << "\n\n";
+    PrintTapeAnt();
 
+    step_counter++;
+    Color cell_current_color = tape_.CheckColor(ant_.GetPosition());
+    
+    // Now, the ant's cell color is saved to do the step, so before, change the ant's cell color to the oposite
+    if (cell_current_color == Color::BLACK_CELL) {
+      tape_.SetColor(Color::WHITE_CELL, ant_.GetPosition());
+    } else {
+      tape_.SetColor(Color::BLACK_CELL, ant_.GetPosition());
+    }
+
+    // Do the step
+    ant_.Step(cell_current_color);
+    if (ant_.GetPosition().first < 0 || ant_.GetPosition().first >= tape_.GetSizeX() || ant_.GetPosition().second < 0 || ant_.GetPosition().second >= tape_.GetSizeY()) {
+      std::system("clear");
+      std::cout << "The ant has gone outside the limits of the tape" << std::endl;
+      std::cout << "Step number: " << step_counter + 1 << std::endl;
+      break;
+    }
+  }
+*/
   while(true) {  
     std::system("clear");
     std::cout << "Paso número: " << step_counter << "\n\n";
@@ -80,6 +105,7 @@ void Simulator::Simulation() {
     std::cout << "Press N(Next Step) or S(Save current state)" << std::endl;
     char answer;
     std::cin >> answer;
+    
     if (answer == 'N' || answer == 'n') {
       step_counter++;
       Color cell_current_color = tape_.CheckColor(ant_.GetPosition());
@@ -93,6 +119,15 @@ void Simulator::Simulation() {
 
       // Do the step
       ant_.Step(cell_current_color);
+
+      // check if the ant went out of limits
+      if (ant_.GetPosition().first < 0 || ant_.GetPosition().first >= tape_.GetSizeX() || ant_.GetPosition().second < 0 || ant_.GetPosition().second >= tape_.GetSizeY()) {
+        std::system("clear");
+        std::cout << "The ant has gone outside the limits of the tape" << std::endl;
+        std::cout << "Step number: " << step_counter + 1 << std::endl;
+        break;
+      }
+
       continue;
     } else  if (answer == 'S' || answer == 's') {
       // ExportFile();
@@ -102,6 +137,7 @@ void Simulator::Simulation() {
       std::cout << "ERROR: incorrect option, try again" << std::endl;
     }
   }
+
 }
 
 void Simulator::Export() {
