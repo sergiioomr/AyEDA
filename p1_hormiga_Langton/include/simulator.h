@@ -9,19 +9,28 @@
  * @brief 
  */
             
-#include "tape.h"
-#include "ant.h"
-#include "colors.h"
+#ifndef SIMULATOR_H
+#define SIMULATOR_H
+
+#include "../include/ant.h"
+#include "../include/tape.h"
+#include "../include/colors.h"
+#include "../include/enum_class.h"
+#include <string>
+#include <fstream>
+#include <sstream>
 
 class Simulator {
   public:
-    Simulator(Tape &tape, Ant &ant) : tape_(tape), ant_(ant) {}
+    Simulator(const std::string &filename);
     void PrintTapeAnt();
-    void Step();
     void Simulation();
 
   private:
-    int counter;
     Tape tape_;
     Ant ant_;
+
+    void Export();
 };
+
+#endif // SIMULATOR_H

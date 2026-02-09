@@ -9,7 +9,7 @@
  * @brief 
  */
 
-#include "ant.h"
+#include "../include/ant.h"
 
 void Ant::TurnLeft() {
   switch (direction_) {
@@ -45,16 +45,9 @@ void Ant::TurnRight() {
   }
 }
 
-void Ant::Move(const Color &color) {
-  if (color == Color::WHITE_CELL) {
-    // If white, turn left
-    TurnLeft();
-  } else {
-    // If black, turn right
-    TurnRight();
-  }
+void Ant::Move() {
 
-  // Then, move one cell in the actual direction
+  // Move one cell in the actual direction
   switch (direction_) {
     case Direction::UP :
       position_.second--;
@@ -88,4 +81,16 @@ std::ostream& operator<<(std::ostream& os, const Ant &ant) {
   }
 
   return os;
+}
+
+void Ant::Step(const Color &color) {
+  // First, the ant has to turn
+  if (color == Color::BLACK_CELL) {
+    TurnRight();
+  } else {
+    TurnLeft();
+  }
+
+  // Now, the ant has to move one cell in the current direction
+  Move();
 }

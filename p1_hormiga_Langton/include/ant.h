@@ -13,40 +13,35 @@
 
 #include <iostream>
 #include <utility>
-#include "tape.h"
+#include "../include/tape.h"
+#include "../include/enum_class.h"
 
-/**
- * @brief Type to 
- * 
- */
-enum class Direction {
-	LEFT = 0,
-	RIGHT = 1,
-	UP = 2,
-	DOWN = 3
-};
+
 
 class Ant {
 	public:
-	// The constructor receives two parameters, the initial direction and the initial position of the ant in the tape
+		Ant() : direction_{0}, position_{} {}
 		Ant(const Direction& direction, const std::pair<int, int>& position) : direction_(direction), position_(position) {}
 
 	// Getters
 		Direction GetDirection() const { return direction_; } 
 		std::pair<int, int> GetPosition() const { return position_; }
 
-		void TurnLeft();
-		void TurnRight();
+
 		// Color CheckColor(const std::pair<int, int> &position) const;
-		void Move(const Color &color);
+		void Move();
+		void Step(const Color &color);
+
 
 	private:
 		Direction direction_;
-
 		// The ant current location
-		std::pair<int, int> position_;
+		std::pair<int, int> position_;		
+		
+		void TurnLeft();
+		void TurnRight();
 };
 
 std::ostream &operator<<(std::ostream& os, const Ant& ant);
 
-#endif "ANT_H"
+#endif //ANT_H

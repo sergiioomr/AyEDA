@@ -9,7 +9,19 @@
  * @brief 
  */
 
-#include "tape.h"
+#include "../include/tape.h"
+
+Tape::Tape(const int &size_x, const int &size_y) : tape_{}, size_x_(size_x), size_y_(size_y) {
+  tape_.resize(size_x_);
+  for (int i = 0; i < size_x_; i++) {
+    tape_[i].resize(size_y_);
+    for (int j = 0; j < size_y_; j++) {
+      tape_[i][j] = Color::WHITE_CELL;
+    }
+  }
+
+}
+
 
 Color Tape::CheckColor(const std::pair<int, int> &cell) const{
   return tape_[cell.first][cell.second];
@@ -31,20 +43,3 @@ std::ostream &operator<<(std::ostream &os, const Tape &tape) {
   return os;
 }
 
-void Tape::PrintTapeAnt(const Ant &ant) {
-  for (int i = 0; i < size_x_; i++) {
-    for (int j = 0; j < size_y_; j++) {
-      std::pair<int, int> var_pos = {i, j};
-      if (var_pos == ant.GetPosition()) {
-        Color cell_color = CheckColor(var_pos);
-      }
-    }
-  }
-}
-
-int main() {
-  std::vector<std::vector<Color>> v(8, std::vector<Color>(20));
-  Tape tape(v, 8, 20);
-  std::cout << tape << std::endl;
-  return 0;
-}
