@@ -11,12 +11,12 @@
             
 #include "tape.h"
 #include "ant.h"
-#include "./AyEDA/colors.h"
+#include "colors.h"
 
 class Simulator {
   public:
     Simulator(Tape &tape, Ant &ant) : tape_(tape), ant_(ant) {}
-    void PrintTape();
+    void PrintTapeAnt();
     void Step();
     void Simulation();
 

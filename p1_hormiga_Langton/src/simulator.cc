@@ -11,9 +11,25 @@
 
 #include "simulator.h"
 
-void Simulator::PrintTape() {
-  std::cout << tape_;
-
+void Simulator::PrintTapeAnt() {
+  for (int i = 0; i < tape_.GetSizeX(); i++) {
+    for (int j = 0; j < tape_.GetSizeY(); j++) {
+      Color cell_color = tape_.CheckColor(std::make_pair(i, j));
+      if ((i == ant_.GetPosition().first) && (j == ant_.GetPosition().second)) {
+        if (cell_color == Color::BLACK_CELL) {
+          std::cout << BLACK << BG_RED << ant_ << RESET;
+        } else {
+          std::cout << BLACK << BG_BLUE << ant_ << RESET;
+        }
+      } else {
+          if (cell_color == Color::BLACK_CELL) {
+            std::cout << BG_RED << " " << RESET;
+          } else {
+            std::cout << BG_BLUE << " " << RESET;
+          }
+      }
+    }
+  }
 }
 
 
@@ -42,7 +58,10 @@ void Simulator::Step() {
 void Simulator::Simulation() {
   while(true) {
     std::cout << counter << std::endl << std::endl;
-    Step();
+    std::cout << std::endl << std::endl;
 
+    PrintTapeAnt();
+    
+    Step();
   }
 }

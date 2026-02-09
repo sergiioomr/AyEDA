@@ -32,7 +32,14 @@ std::ostream &operator<<(std::ostream &os, const Tape &tape) {
 }
 
 void Tape::PrintTapeAnt(const Ant &ant) {
-  for (int i = 0; i < size_x_)
+  for (int i = 0; i < size_x_; i++) {
+    for (int j = 0; j < size_y_; j++) {
+      std::pair<int, int> var_pos = {i, j};
+      if (var_pos == ant.GetPosition()) {
+        Color cell_color = CheckColor(var_pos);
+      }
+    }
+  }
 }
 
 int main() {

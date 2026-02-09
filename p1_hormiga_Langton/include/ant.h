@@ -37,7 +37,7 @@ class Ant {
 
 		void TurnLeft();
 		void TurnRight();
-		Color CheckColor(const std::pair<int, int> &position) const;
+		// Color CheckColor(const std::pair<int, int> &position) const;
 		void Move(const Color &color);
 
 	private:
