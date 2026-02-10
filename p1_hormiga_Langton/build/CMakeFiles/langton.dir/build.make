@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton
+CMAKE_SOURCE_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build
+CMAKE_BINARY_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/langton.dir/depend.make
@@ -70,60 +70,60 @@ include CMakeFiles/langton.dir/progress.make
 include CMakeFiles/langton.dir/flags.make
 
 CMakeFiles/langton.dir/src/main.cc.o: CMakeFiles/langton.dir/flags.make
-CMakeFiles/langton.dir/src/main.cc.o: /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/main.cc
+CMakeFiles/langton.dir/src/main.cc.o: /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/main.cc
 CMakeFiles/langton.dir/src/main.cc.o: CMakeFiles/langton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/langton.dir/src/main.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/langton.dir/src/main.cc.o -MF CMakeFiles/langton.dir/src/main.cc.o.d -o CMakeFiles/langton.dir/src/main.cc.o -c /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/langton.dir/src/main.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/langton.dir/src/main.cc.o -MF CMakeFiles/langton.dir/src/main.cc.o.d -o CMakeFiles/langton.dir/src/main.cc.o -c /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/main.cc
 
 CMakeFiles/langton.dir/src/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/langton.dir/src/main.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/main.cc > CMakeFiles/langton.dir/src/main.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/main.cc > CMakeFiles/langton.dir/src/main.cc.i
 
 CMakeFiles/langton.dir/src/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/langton.dir/src/main.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/main.cc -o CMakeFiles/langton.dir/src/main.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/main.cc -o CMakeFiles/langton.dir/src/main.cc.s
 
 CMakeFiles/langton.dir/src/ant.cc.o: CMakeFiles/langton.dir/flags.make
-CMakeFiles/langton.dir/src/ant.cc.o: /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/ant.cc
+CMakeFiles/langton.dir/src/ant.cc.o: /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/ant.cc
 CMakeFiles/langton.dir/src/ant.cc.o: CMakeFiles/langton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/langton.dir/src/ant.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/langton.dir/src/ant.cc.o -MF CMakeFiles/langton.dir/src/ant.cc.o.d -o CMakeFiles/langton.dir/src/ant.cc.o -c /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/ant.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/langton.dir/src/ant.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/langton.dir/src/ant.cc.o -MF CMakeFiles/langton.dir/src/ant.cc.o.d -o CMakeFiles/langton.dir/src/ant.cc.o -c /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/ant.cc
 
 CMakeFiles/langton.dir/src/ant.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/langton.dir/src/ant.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/ant.cc > CMakeFiles/langton.dir/src/ant.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/ant.cc > CMakeFiles/langton.dir/src/ant.cc.i
 
 CMakeFiles/langton.dir/src/ant.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/langton.dir/src/ant.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/ant.cc -o CMakeFiles/langton.dir/src/ant.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/ant.cc -o CMakeFiles/langton.dir/src/ant.cc.s
 
 CMakeFiles/langton.dir/src/tape.cc.o: CMakeFiles/langton.dir/flags.make
-CMakeFiles/langton.dir/src/tape.cc.o: /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/tape.cc
+CMakeFiles/langton.dir/src/tape.cc.o: /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/tape.cc
 CMakeFiles/langton.dir/src/tape.cc.o: CMakeFiles/langton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/langton.dir/src/tape.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/langton.dir/src/tape.cc.o -MF CMakeFiles/langton.dir/src/tape.cc.o.d -o CMakeFiles/langton.dir/src/tape.cc.o -c /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/tape.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/langton.dir/src/tape.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/langton.dir/src/tape.cc.o -MF CMakeFiles/langton.dir/src/tape.cc.o.d -o CMakeFiles/langton.dir/src/tape.cc.o -c /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/tape.cc
 
 CMakeFiles/langton.dir/src/tape.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/langton.dir/src/tape.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/tape.cc > CMakeFiles/langton.dir/src/tape.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/tape.cc > CMakeFiles/langton.dir/src/tape.cc.i
 
 CMakeFiles/langton.dir/src/tape.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/langton.dir/src/tape.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/tape.cc -o CMakeFiles/langton.dir/src/tape.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/tape.cc -o CMakeFiles/langton.dir/src/tape.cc.s
 
 CMakeFiles/langton.dir/src/simulator.cc.o: CMakeFiles/langton.dir/flags.make
-CMakeFiles/langton.dir/src/simulator.cc.o: /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/simulator.cc
+CMakeFiles/langton.dir/src/simulator.cc.o: /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/simulator.cc
 CMakeFiles/langton.dir/src/simulator.cc.o: CMakeFiles/langton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/langton.dir/src/simulator.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/langton.dir/src/simulator.cc.o -MF CMakeFiles/langton.dir/src/simulator.cc.o.d -o CMakeFiles/langton.dir/src/simulator.cc.o -c /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/simulator.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/langton.dir/src/simulator.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/langton.dir/src/simulator.cc.o -MF CMakeFiles/langton.dir/src/simulator.cc.o.d -o CMakeFiles/langton.dir/src/simulator.cc.o -c /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/simulator.cc
 
 CMakeFiles/langton.dir/src/simulator.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/langton.dir/src/simulator.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/simulator.cc > CMakeFiles/langton.dir/src/simulator.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/simulator.cc > CMakeFiles/langton.dir/src/simulator.cc.i
 
 CMakeFiles/langton.dir/src/simulator.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/langton.dir/src/simulator.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/simulator.cc -o CMakeFiles/langton.dir/src/simulator.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/simulator.cc -o CMakeFiles/langton.dir/src/simulator.cc.s
 
 # Object files for target langton
 langton_OBJECTS = \
@@ -141,7 +141,7 @@ langton: CMakeFiles/langton.dir/src/tape.cc.o
 langton: CMakeFiles/langton.dir/src/simulator.cc.o
 langton: CMakeFiles/langton.dir/build.make
 langton: CMakeFiles/langton.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable langton"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable langton"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/langton.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +153,6 @@ CMakeFiles/langton.dir/clean:
 .PHONY : CMakeFiles/langton.dir/clean
 
 CMakeFiles/langton.dir/depend:
-	cd /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build/CMakeFiles/langton.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build/CMakeFiles/langton.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/langton.dir/depend
 

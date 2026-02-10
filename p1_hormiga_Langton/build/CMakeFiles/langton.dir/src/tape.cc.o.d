@@ -1,7 +1,7 @@
 CMakeFiles/langton.dir/src/tape.cc.o: \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/tape.cc \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/tape.cc \
  /usr/include/stdc-predef.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/../include/tape.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/../include/tape.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -155,9 +155,9 @@ CMakeFiles/langton.dir/src/tape.cc.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/../include/../include/colors.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/../include/../include/ant.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/../include/../include/colors.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/../include/../include/ant.h \
  /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/../include/../include/../include/tape.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/../include/../include/../include/enum_class.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/src/../include/../include/enum_class.h
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/../include/../include/../include/tape.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/../include/../include/../include/enum_class.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/src/../include/../include/enum_class.h

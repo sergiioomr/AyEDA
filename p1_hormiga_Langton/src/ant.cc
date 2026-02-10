@@ -3,14 +3,19 @@
  * Escuela Superior de Ingeniería y Tecnología
  * Grado en Ingeniería Informática
  * Algoritmos y Estructuras de Datos Avanzadas
+ * 
  * @file ant.cc
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-02-04
- * @brief 
+ * @brief Ant class definition
  */
 
 #include "../include/ant.h"
 
+/**
+ * @brief Ant turns 90º to the left by changing its direction, using a switch structure.
+ * 
+ */
 void Ant::TurnLeft() {
   switch (direction_) {
     case Direction::DOWN : 
@@ -28,6 +33,10 @@ void Ant::TurnLeft() {
   }
 }
 
+/**
+ * @brief Ant turns 90º to the right by changing its direction, using a switch structure.
+ * 
+ */
 void Ant::TurnRight() {
   switch (direction_) {
     case Direction::DOWN : 
@@ -45,9 +54,12 @@ void Ant::TurnRight() {
   }
 }
 
+/**
+ * @brief The ant move itself in the actual direccion. 
+ *        Increasing or decreasing its pair of coordinates
+ * 
+ */
 void Ant::Move() {
-
-  // Move one cell in the actual direction
   switch (direction_) {
     case Direction::UP :
       position_.first--;
@@ -64,6 +76,29 @@ void Ant::Move() {
   }
 }
 
+/**
+ * @brief That method make the complete step to do a movement.
+ *        First choose the side to turn, then, move one cell.
+ * 
+ * @param color 
+ */
+void Ant::Step(const Color &color) {
+  if (color == Color::BLACK_CELL) {
+    TurnRight();
+  } else {
+    TurnLeft();
+  }
+
+  Move();
+}
+
+/**
+ * @brief << operator overloading
+ * 
+ * @param os 
+ * @param ant 
+ * @return std::ostream& 
+ */
 std::ostream& operator<<(std::ostream& os, const Ant &ant) {
   switch (ant.GetDirection()) {
     case Direction::UP :
@@ -81,16 +116,4 @@ std::ostream& operator<<(std::ostream& os, const Ant &ant) {
   }
 
   return os;
-}
-
-void Ant::Step(const Color &color) {
-  // First, the ant has to turn
-  if (color == Color::BLACK_CELL) {
-    TurnRight();
-  } else {
-    TurnLeft();
-  }
-
-  // Now, the ant has to move one cell in the current direction
-  Move();
 }

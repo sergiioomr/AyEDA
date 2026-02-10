@@ -3,10 +3,12 @@
  * Escuela Superior de Ingeniería y Tecnología
  * Grado en Ingeniería Informática
  * Algoritmos y Estructuras de Datos Avanzadas
+ * 
  * @file ant.h
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-02-04
- * @brief 
+ * @brief This file declarates the Ant class. 
+ * 				That class will be use to represent the Ant in the Tape
  */
 #ifndef ANT_H
 #define ANT_H
@@ -20,26 +22,26 @@
 
 class Ant {
 	public:
-		Ant() : direction_{0}, position_{} {}
+	// Constructors
+		Ant() : direction_{0}, position_{} {} // Default
 		Ant(const Direction& direction, const std::pair<int, int>& position) : direction_(direction), position_(position) {}
 
 	// Getters
 		Direction GetDirection() const { return direction_; } 
 		std::pair<int, int> GetPosition() const { return position_; }
 
-
-		// Color CheckColor(const std::pair<int, int> &position) const;
-		void Move();
 		void Step(const Color &color);
-
 
 	private:
 		Direction direction_;
 		// The ant current location
 		std::pair<int, int> position_;		
 		
+		// Functions to use in Step. 
 		void TurnLeft();
 		void TurnRight();
+		void Move();
+
 };
 
 std::ostream &operator<<(std::ostream& os, const Ant& ant);

@@ -1,3 +1,15 @@
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Algoritmos y Estructuras de Datos Avanzadas
+ * 
+ * @file colors.h
+ * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
+ * @date 2026-02-10
+ * @brief File for define some codes to use colors in the terminal
+ */
+
 //===Color font code===/
 #define BLACK   "\x1B[30m"
 #define RED     "\x1b[31m"

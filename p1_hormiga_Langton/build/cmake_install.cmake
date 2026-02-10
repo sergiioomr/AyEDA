@@ -1,4 +1,4 @@
-# Install script for directory: /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton
+# Install script for directory: /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p1_hormiga_Langton/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_Langton/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
