@@ -47,8 +47,8 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ant_{} {
 
 
 void Simulator::PrintTapeAnt() {
-  for (int i = 0; i < tape_.GetSizeY(); i++) {
-    for (int j = 0; j < tape_.GetSizeX(); j++) {
+  for (int i = 0; i < tape_.GetSizeX(); i++) {
+    for (int j = 0; j < tape_.GetSizeY(); j++) {
       Color cell_color = tape_.CheckColor(std::make_pair(i, j));
       if ((i == ant_.GetPosition().first) && (j == ant_.GetPosition().second)) {
         if (cell_color == Color::BLACK_CELL) {
@@ -72,6 +72,7 @@ void Simulator::PrintTapeAnt() {
 void Simulator::Simulation() {
   int step_counter = 0;
 /*
+  // Loop for do many steps for debug
   while (step_counter != 14000) {
     std::system("clear");
     std::cout << "Paso número: " << step_counter << "\n\n";
@@ -130,7 +131,7 @@ void Simulator::Simulation() {
 
       continue;
     } else  if (answer == 'S' || answer == 's') {
-      // ExportFile();
+      Export();
       std::cout << "File exported" << std::endl;
       break;
     } else {
@@ -159,5 +160,6 @@ void Simulator::Export() {
           }
       }
     }
+    output_file << std::endl;
   }
 }

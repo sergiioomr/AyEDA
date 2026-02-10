@@ -50,16 +50,16 @@ void Ant::Move() {
   // Move one cell in the actual direction
   switch (direction_) {
     case Direction::UP :
-      position_.second--;
-      break;
-    case Direction::DOWN :
-      position_.second++;
-      break;
-    case Direction::LEFT : 
       position_.first--;
       break;
-    case Direction::RIGHT : 
+    case Direction::DOWN :
       position_.first++;
+      break;
+    case Direction::LEFT : 
+      position_.second--;
+      break;
+    case Direction::RIGHT : 
+      position_.second++;
       break;
   }
 }
