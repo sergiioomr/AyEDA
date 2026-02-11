@@ -33,11 +33,12 @@ class Tape {
 
 		Color CheckColor(const std::pair<int, int> &cell) const;
 		void SetColor(const Color &color, const std::pair<int, int> &cell);
-
+		void PrintCell(const std::pair<int, int> &position);
 	private:
 		std::vector<std::vector<Color>> tape_; // The grid
 		int size_x_;
 		int size_y_;
+		std::string ColorToCode(const Color &color);
 };
 
 std::ostream &operator<<(std::ostream &os, const Tape &tape);

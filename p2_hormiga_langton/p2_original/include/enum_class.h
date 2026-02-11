@@ -24,8 +24,20 @@ enum class Direction {
 
 enum class Color {
 
-	WHITE_CELL = 0,
-	BLACK_CELL = 1,
+	RED_CELL = 0,
+	GREEN_CELL = 1,
+	YELLOW_CELL = 2,
+	BLUE_CELL = 3,
+	MAGENTA_CELL = 4,
+	CYAN_CELL = 5, 
+	ORANGE_CELL = 6,
+	ROSE_CELL = 7,
+	LBLUE_CELL = 8,
+	LGRENN_CELL = 9,
+	GRAY_CELL = 10,
+	WHITE_CELL = 11,
+	BLACK_CELL = 12,
 };
+
 
 #endif // ENUM_CLASS_H

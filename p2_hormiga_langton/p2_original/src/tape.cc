@@ -50,6 +50,35 @@ void Tape::SetColor(const Color &color, const std::pair<int , int> &cell) {
 }
 
 /**
+ * @brief Converts a color into a code to print in the terminal. Useful to print a cell.
+ * 
+ * @param color 
+ * @return std::string 
+ */
+std::string Tape::ColorToCode(const Color &color) {
+  switch (color) {
+    case Color::WHITE_CELL : return BG_WHITE;
+    case Color::BLACK_CELL : return BG_BLACK;
+    case Color::RED_CELL : return BG_RED;
+    case Color::BLUE_CELL : return BG_BLUE;
+    case Color::GREEN_CELL : return BG_GREEN;
+    case Color::LBLUE_CELL : return BG_LBLUE;
+    case Color::LGRENN_CELL : return BG_LGREEN;
+    case Color::YELLOW_CELL : return BG_YELLOW;
+    case Color::CYAN_CELL : return BG_CYAN;
+    case Color::GRAY_CELL : return BG_GRAY;
+    case Color::ROSE_CELL : return BG_ROSE;
+    case Color::ORANGE_CELL : return BG_ORANGE;
+    case Color::MAGENTA_CELL: return BG_MAGENTA;
+  }
+}
+
+void Tape::PrintCell(const std::pair<int, int> &position) {
+  Color cell_color = CheckColor(position);
+  std::cout << ColorToCode(cell_color) << " " << RESET;
+}
+
+/**
  * @brief << operator overloading
  * 
  * @param os 

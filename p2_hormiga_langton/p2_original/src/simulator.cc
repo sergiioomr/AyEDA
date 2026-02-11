@@ -17,17 +17,19 @@
  * 
  * @param filename 
  */
-Simulator::Simulator(const std::string& filename) : tape_{}, ant_{} {
+Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
   
   std::ifstream input_file{filename};
-  std::string line;   
+  std::string line;
+  int num_colors;   
   int size_x, size_y;
   int ant_x, ant_y, ant_direction;
+  std::string movement_rules;
 
   // Line 1. Tape size
   getline(input_file, line);
   std::istringstream iss(line);
-  iss >> size_x >> size_y;
+  iss >> size_x >> size_y >> num_colors;
 
   // Line 2. Ant initial position and orientation
   getline(input_file, line);
@@ -49,34 +51,31 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ant_{} {
   }
 
   tape_ = tape;
-  ant_ = ant;
+  ants_ = ants;
 }
 
-/**
- * @brief Prints the actual state of the tape and the ant
- * 
- */
 void Simulator::PrintTapeAnt() {
   for (int i = 0; i < tape_.GetSizeX(); i++) {
     for (int j = 0; j < tape_.GetSizeY(); j++) {
-      Color cell_color = tape_.CheckColor(std::make_pair(i, j));
-      if ((i == ant_.GetPosition().first) && (j == ant_.GetPosition().second)) {
-        if (cell_color == Color::BLACK_CELL) {
-          std::cout << BLACK << BG_RED << ant_ << RESET;
-        } else {
-          std::cout << BLACK << BG_BLUE << ant_ << RESET;
+      
+      bool is_ant = false;
+      int ant;
+      for (int k = 0; k < ants_.size(); k++) {
+        if ((i == ants_[k].GetPosition().first) && (j == ants_[k].GetPosition().second)) {
+          is_ant = true;
+          ant = k;
         }
-      } else {
-          if (cell_color == Color::BLACK_CELL) {
-            std::cout << BG_RED << " " << RESET;
-          } else {
-            std::cout << BG_BLUE << " " << RESET;
-          }
+      }
+      tape_.PrintCell(std::make_pair(i, j));
+      if (is_ant) {
+        std::cout << ants_[ant];
       }
     }
+
     std::cout << std::endl;
   }
 }
+
 
 /**
  * @brief Main loop for running the simulation. Its not an infinit simulation. Waits for the user request in every step.

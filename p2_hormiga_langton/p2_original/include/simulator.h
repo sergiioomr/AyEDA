@@ -32,7 +32,7 @@ class Simulator {
 
   private:
     Tape tape_;
-    Ant ant_;
+    std::vector<Ant> ants_;
 
     void Export();
 };

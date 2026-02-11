@@ -20,11 +20,13 @@
 
 class Ant_X : public Ant {
   public:
-    Ant_X(const std::pair<int, int> &position, const Direction &direction, const std::string &move_rules)
+  // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
+    Ant_X(const Direction &direction, const std::pair<int, int> &position, const std::string &move_rules) : Ant{direction, position}, move_rules_(move_rules) {}
 
+    void Step(const Color &color);
 
   private:
-
+    std::string move_rules_;
 };
 
 #endif // ANT_X
