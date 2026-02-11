@@ -1,0 +1,3 @@
+/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_langton/p1_modificacion/build/CMakeFiles/langton.dir
+/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_langton/p1_modificacion/build/CMakeFiles/edit_cache.dir
+/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p1_hormiga_langton/p1_modificacion/build/CMakeFiles/rebuild_cache.dir
