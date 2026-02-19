@@ -76,21 +76,6 @@ void Ant::Move() {
   }
 }
 
-/**
- * @brief That method make the complete step to do a movement.
- *        First choose the side to turn, then, move one cell.
- * 
- * @param color 
- */
-void Ant::Step(const Color &color) {
-  if (color == Color::BLACK_CELL) {
-    TurnRight();
-  } else {
-    TurnLeft();
-  }
-
-  Move();
-}
 
 /**
  * @brief << operator overloading

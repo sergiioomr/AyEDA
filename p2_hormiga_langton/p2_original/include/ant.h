@@ -30,7 +30,11 @@ class Ant {
 		Direction GetDirection() const { return direction_; } 
 		std::pair<int, int> GetPosition() const { return position_; }
 
-		void Step(const Color &color);
+	// Must be a pure virtual method to make the Ant class an abstract one
+		virtual void Step(const Color &color) = 0;
+
+		// Virtual destructor to avoid memory leaks if we delete an object ant_x
+		virtual ~Ant() = default;
 
 	protected:
 	// Functions to use in Step. 
