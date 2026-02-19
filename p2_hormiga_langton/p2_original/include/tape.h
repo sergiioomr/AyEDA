@@ -33,7 +33,7 @@ class Tape {
 
 		Color CheckColor(const std::pair<int, int> &cell) const;
 		void SetColor(const Color &color, const std::pair<int, int> &cell);
-		void PrintCell(const std::pair<int, int> &position);
+		void PrintCell(const std::pair<int, int> &position, const char symbol = ' ');
 	private:
 		std::vector<std::vector<Color>> tape_; // The grid
 		int size_x_;

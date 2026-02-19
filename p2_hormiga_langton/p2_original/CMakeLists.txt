@@ -46,9 +46,11 @@ src/main.cc
 src/ant.cc
 src/tape.cc
 src/simulator.cc
+src/ant_x.cc
 include/ant.h
 include/tape.h
 include/simulator.h
+include/ant_x.h
 )
 
 # Add expected compiler features to a target.

@@ -23,6 +23,7 @@ class Ant_X : public Ant {
   // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
     Ant_X(const Direction &direction, const std::pair<int, int> &position, const std::string &move_rules) : Ant{direction, position}, move_rules_(move_rules) {}
 
+    std::string GetMoveRules() const { return move_rules_; }
     void Step(const Color &color) override;
 
   private:

@@ -19,7 +19,6 @@ void Ant_X::Step(const Color &color) {
   // The position n (n = code that represents the color) have a character 'D' or 'd', with that color, the and must turn right
   if (move_rules_.at(color_code) == 'D' || move_rules_.at(color_code) == 'd') {
     TurnRight();
-
   // Else, the character wil be 'I' or 'i'. There is not posibility to be other character because the simulator control that.
   } else {
     TurnLeft();

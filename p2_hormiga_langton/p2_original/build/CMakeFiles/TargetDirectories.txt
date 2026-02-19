@@ -1,0 +1,3 @@
+/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles/langton.dir
+/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles/edit_cache.dir
+/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles/rebuild_cache.dir

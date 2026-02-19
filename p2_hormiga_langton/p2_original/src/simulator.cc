@@ -17,7 +17,7 @@
  * 
  * @param filename 
  */
-Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
+Simulator::Simulator(const std::string& filename) : tape_{}, ants_{}, num_colors_{} {
   
   std::ifstream input_file{filename};
   std::string line;
@@ -64,8 +64,18 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
       case '^' : 
         direction = Direction::UP;
         break;
+      default :
+        std::cerr << "Error. Invalid orientation." << std::endl;
+        exit(EXIT_FAILURE);
     }
 
+    // Validate the movement rules
+    for (const char c : move_rules) {
+      if ((c != 'D') && (c != 'd') && (c != 'I') && (c != 'i')) {
+        std::cerr << "Error. Invalid charcater in the movement rules" << std::endl;
+        exit(EXIT_FAILURE);
+      }
+    }
     // Create the ant and add to the vector
     ants_.push_back(Ant_X{direction, std::make_pair(ant_x, ant_y), move_rules});
   }
@@ -75,10 +85,15 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
 
   // Read the color cells
   while(getline(input_file, line)) {
-    size_t row, column, color_code;
+    int row, column, color_code;
     iss = std::istringstream(line);
     iss >> row >> column >> color_code;
 
+    // Check if the color code is not higher than the number of colors of the tape
+    if (color_code >= num_colors) {
+      std::cerr << "A cell have been initializated with an invalid color, please change the number" << std::endl;
+      exit(EXIT_FAILURE);
+    }
     // Convert the code to a color
     Color color = static_cast<Color>(color_code);
 
@@ -86,6 +101,7 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
   }
 
   tape_ = tape;
+  num_colors_ = num_colors;
 }
 
 void Simulator::PrintTapeAnt() {
@@ -93,19 +109,38 @@ void Simulator::PrintTapeAnt() {
     for (int j = 0; j < tape_.GetSizeY(); j++) {
       
       bool is_ant = false;
-      int ant;
-      for (int k = 0; k < ants_.size(); k++) {
+      int ant_index;
+      for (size_t k = 0; k < ants_.size(); k++) {
         if ((i == ants_[k].GetPosition().first) && (j == ants_[k].GetPosition().second)) {
           is_ant = true;
-          ant = k;
+          ant_index = k;
         }
       }
-      tape_.PrintCell(std::make_pair(i, j));
+
       if (is_ant) {
-        std::cout << ants_[ant];
+        // Get the symbol of the ant
+        char ant_symbol;
+        switch (ants_[ant_index].GetDirection()) {
+          case Direction::UP :
+            ant_symbol = '^';
+            break;
+          case Direction::DOWN : 
+            ant_symbol = 'v';
+            break;
+          case Direction::LEFT :
+            ant_symbol = '<';
+            break;
+          case Direction::RIGHT : 
+            ant_symbol = '>'; 
+            break;
+        }
+
+        tape_.PrintCell(std::make_pair(i, j), ant_symbol);
+
+      } else {
+        tape_.PrintCell(std::make_pair(i, j));
       }
     }
-
     std::cout << std::endl;
   }
 }
@@ -124,32 +159,49 @@ void Simulator::Simulation() {
     std::cout << "Paso número: " << step_counter << "\n\n";
     PrintTapeAnt();
 
-    std::cout << "Press N(Next Step) or S(Save current state)" << std::endl;
+    std::cout << "Press N(Next step) or S(Save current state)" << std::endl;
     char answer;
     std::cin >> answer;
     
     if (answer == 'N' || answer == 'n') {
       step_counter++;
-      Color cell_current_color = tape_.CheckColor(ant_.GetPosition());
-      
-      // Now, the ant's cell color is saved to do the step, so before, change the ant's cell color to the oposite
-      if (cell_current_color == Color::BLACK_CELL) {
-        tape_.SetColor(Color::WHITE_CELL, ant_.GetPosition());
-      } else {
-        tape_.SetColor(Color::BLACK_CELL, ant_.GetPosition());
+
+      for (size_t i = 0; i < ants_.size(); i++) {
+        
+        // Get the current color of the ant's cell
+        Color color = tape_.CheckColor(ants_[i].GetPosition());
+
+        // Change the cell color before the ant moves
+        int current_cell_color_code = static_cast<int>(color);
+        int next_color_code = (current_cell_color_code + 1) % num_colors_;
+        Color next_color = static_cast<Color>(next_color_code);
+        tape_.SetColor(next_color, ants_[i].GetPosition());
+
+        // Now, the ant makes the step
+        ants_[i].Step(color);
+
+        // Verify if the ant went out of the limits
+        if (ants_[i].GetPosition().first < 0 || ants_[i].GetPosition().first >= tape_.GetSizeX() || ants_[i].GetPosition().second < 0 || ants_[i].GetPosition().second >= tape_.GetSizeY()) {
+          std::system("clear");
+          std::cout << "One ant has gone outside the limits of the tape" << std::endl;
+          std::cout << "Step number: " << step_counter + 1 << std::endl;
+          break;
+        }
       }
 
-      // Do the step
-      ant_.Step(cell_current_color);
-
-      // check if the ant went out of limits
-      if (ant_.GetPosition().first < 0 || ant_.GetPosition().first >= tape_.GetSizeX() || ant_.GetPosition().second < 0 || ant_.GetPosition().second >= tape_.GetSizeY()) {
-        std::system("clear");
-        std::cout << "The ant has gone outside the limits of the tape" << std::endl;
-        std::cout << "Step number: " << step_counter + 1 << std::endl;
-        break;
+      // Now, all the ants have been moved. If a collision is detected now, the simulation will stop
+        for (size_t i = 0; i < ants_.size(); i++) {
+          for (size_t j = i + 1; j < ants_.size(); j++) {
+            if (ants_[i].GetPosition() == ants_[j].GetPosition()) {
+              std::system("clear");
+              std::cout << "Two ants have been collisioned" << std::endl;
+              std::cout << "Ant " << i << " and Ant " << j << std::endl;
+              std::cout << "Position: (" << ants_[i].GetPosition().first << ", " << ants_[i].GetPosition().second << ")" << std::endl;
+              std::cout << "Step number: " << step_counter << std::endl;
+              return;
+          }
+        }
       }
-
       continue;
     } else  if (answer == 'S' || answer == 's') {
       Export();
@@ -172,8 +224,34 @@ void Simulator::Simulation() {
  */
 void Simulator::Export() {
   std::ofstream output_file{"output.txt"};
-  output_file << tape_.GetSizeX() << " " <<  tape_.GetSizeY() << std::endl;
-  output_file << ant_.GetPosition().first << " " << ant_.GetPosition().second << " " << static_cast<int>(ant_.GetDirection()) << std::endl;
+  output_file << tape_.GetSizeX() << " " <<  tape_.GetSizeY() << num_colors_ << std::endl;
+  // Print in the output file all the ants
+  for (size_t i = 0; i < ants_.size(); i++) {
+    // First get the character of the ant orientation
+    char ant_symbol;
+    switch (ants_[i].GetDirection()) {
+      case Direction::UP :
+        ant_symbol = '^';
+        break;
+      case Direction::DOWN : 
+        ant_symbol = 'v';
+        break;
+      case Direction::LEFT :
+        ant_symbol = '<';
+        break;
+      case Direction::RIGHT : 
+        ant_symbol = '>'; 
+        break;
+    }
+    output_file << ants_[i].GetMoveRules() << ants_[i].GetPosition().first << ants_[i].GetPosition().second << ant_symbol;
+    // If is not the last ant, write ';'
+    if (i != ants_.size() - 1) {
+      output_file << " ; ";
+    }
+  }
+
+  output_file << std::endl;
+
   for (int i = 0; i < tape_.GetSizeX(); i++) {
     for (int j = 0; j < tape_.GetSizeY(); j++) {
       if (tape_.CheckColor(std::make_pair(i, j)) == Color::BLACK_CELL) {

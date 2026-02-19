@@ -73,9 +73,9 @@ std::string Tape::ColorToCode(const Color &color) {
   }
 }
 
-void Tape::PrintCell(const std::pair<int, int> &position) {
+void Tape::PrintCell(const std::pair<int, int> &position, const char symbol) {
   Color cell_color = CheckColor(position);
-  std::cout << ColorToCode(cell_color) << " " << RESET;
+  std::cout << ColorToCode(cell_color) << symbol << RESET;
 }
 
 /**

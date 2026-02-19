@@ -33,8 +33,8 @@ class Simulator {
 
   private:
     Tape tape_;
-    std::vector<Ant> ants_;
-
+    std::vector<Ant_X> ants_;
+    int num_colors_;
     void Export();
 };
 
