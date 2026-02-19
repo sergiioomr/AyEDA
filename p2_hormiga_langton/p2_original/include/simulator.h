@@ -18,6 +18,7 @@
 #include "../include/tape.h"
 #include "../include/colors.h"
 #include "../include/enum_class.h"
+#include "../include/ant_x.h"
 #include <string>
 #include <fstream>
 #include <sstream>

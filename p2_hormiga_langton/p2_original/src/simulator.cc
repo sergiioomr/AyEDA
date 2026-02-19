@@ -23,35 +23,69 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
   std::string line;
   int num_colors;   
   int size_x, size_y;
-  int ant_x, ant_y, ant_direction;
-  std::string movement_rules;
 
-  // Line 1. Tape size
+  // Line 1. Size and number of colors of the tape
   getline(input_file, line);
   std::istringstream iss(line);
   iss >> size_x >> size_y >> num_colors;
 
-  // Line 2. Ant initial position and orientation
+  // Line 2. Type, initial position and orientations of the ant. N ants, separated by ';'
+  
+  // Read the line
   getline(input_file, line);
-  iss = std::istringstream(line);
-  iss >> ant_x >> ant_y >> ant_direction;
+
+  // Convert into a stream
+  std::istringstream ants_line(line);
+  std::string single_ant;
+
+  // Read from ants_line, with getline(), every ant, separating ants by ';'
+  while(getline(ants_line, single_ant, ';')) {
+    // Now, single_ant onlye have the single ant information
+    
+    std::istringstream data(single_ant);
+    std::string move_rules;
+    int ant_x, ant_y;
+    char direction_character;
+
+    data >> move_rules >> ant_x >> ant_y >> direction_character;
+
+    // Convert direction
+    Direction direction;
+    switch (direction_character) {
+      case '>' :
+        direction = Direction::RIGHT;
+        break;
+      case '<' :
+        direction = Direction::LEFT;
+        break;
+      case 'v' :
+        direction = Direction::DOWN;
+        break;
+      case '^' : 
+        direction = Direction::UP;
+        break;
+    }
+
+    // Create the ant and add to the vector
+    ants_.push_back(Ant_X{direction, std::make_pair(ant_x, ant_y), move_rules});
+  }
 
   // Create the tape
   Tape tape{size_x, size_y};
 
-  // Create the ant
-  Ant ant{static_cast<Direction>(ant_direction), std::make_pair(ant_x, ant_y)};
-
-  // Read and change the black cells
+  // Read the color cells
   while(getline(input_file, line)) {
-    size_t row, column;
+    size_t row, column, color_code;
     iss = std::istringstream(line);
-    iss >> row >> column;
-    tape.SetColor(Color::BLACK_CELL, std::make_pair(row, column));
+    iss >> row >> column >> color_code;
+
+    // Convert the code to a color
+    Color color = static_cast<Color>(color_code);
+
+    tape.SetColor(color, std::make_pair(row, column));
   }
 
   tape_ = tape;
-  ants_ = ants;
 }
 
 void Simulator::PrintTapeAnt() {
