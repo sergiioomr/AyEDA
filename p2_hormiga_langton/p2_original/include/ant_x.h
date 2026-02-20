@@ -9,7 +9,8 @@
  * @date 2026-02-11
  * @brief This file declarates the Ant_X class.
  *        That class heritates of Ant, and represent many types of ants, which follows n rules to move
- *        and recognize n colors
+ *        and recognize n colors. It beahves same as the parent class except in the method Step. 
+ *        Also adds a new attribute, the rules to move. 
  */
 
 #ifndef ANT_X

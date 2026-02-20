@@ -8,7 +8,8 @@
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-02-04
  * @brief This file declarates the Ant class. 
- * 				That class will be use to represent the Ant in the Tape
+ * 				That class will be use to represent the Ant in the Tape.
+ * 				Will be an abstract class. The method step is an pure virtual one, every ant_x must be define their unique behavior.
  */
 #ifndef ANT_H
 #define ANT_H

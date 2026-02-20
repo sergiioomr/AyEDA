@@ -8,7 +8,7 @@
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-02-05
  * @brief That file defines the Langton's Ant Simulator class. 
- *        That class will be use to make the simulation with the tape and the ant classes
+ *        That class will be use to make the simulation with the tape and the ant_x classes
  */
             
 #ifndef SIMULATOR_H
