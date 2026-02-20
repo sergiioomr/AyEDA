@@ -73,6 +73,12 @@ std::string Tape::ColorToCode(const Color &color) {
   }
 }
 
+/**
+ * @brief Method to print a cell with the indicate color and character
+ * 
+ * @param position 
+ * @param symbol 
+ */
 void Tape::PrintCell(const std::pair<int, int> &position, const char symbol) {
   Color cell_color = CheckColor(position);
   std::cout << ColorToCode(cell_color) << symbol << RESET;

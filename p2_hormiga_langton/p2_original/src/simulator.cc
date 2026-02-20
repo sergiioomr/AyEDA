@@ -76,6 +76,12 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{}, num_colors
         exit(EXIT_FAILURE);
       }
     }
+
+    // The movement rules must have the same number of colors as the tape
+    if (move_rules.size() != num_colors) {
+      std::cerr << "Error. The movement rules don't have the same number of colors as the tape." << std::endl;
+      exit(EXIT_FAILURE);
+    }
     // Create the ant and add to the vector
     ants_.push_back(Ant_X{direction, std::make_pair(ant_x, ant_y), move_rules});
   }
@@ -104,6 +110,10 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{}, num_colors
   num_colors_ = num_colors;
 }
 
+/**
+ * @brief Prints the actual state of the tape and all the ants
+ * 
+ */
 void Simulator::PrintTapeAnt() {
   for (int i = 0; i < tape_.GetSizeX(); i++) {
     for (int j = 0; j < tape_.GetSizeY(); j++) {
@@ -218,9 +228,9 @@ void Simulator::Simulation() {
  * @brief Private method to export the actual state of the tape to an output file.
  *        Follows the same structure than the input file:
  * 
- *          Line 1. Tape's size
- *          Line 2. Initial position and Ant's orientation
- *          Line 3...n. Black cells position
+ *          Line 1. Tape's size and number of colors
+ *          Line 2. Type, initial position and orientation of every ant. Separated by ';'
+ *          Line 3...n. Position and color of all the non-white cells
  */
 void Simulator::Export() {
   std::ofstream output_file{"output.txt"};

@@ -12,6 +12,12 @@
 
 #include "../include/ant_x.h"
 
+/**
+ * @brief Specify how the derivative ant moves.
+
+ * 
+ * @param color 
+ */
 void Ant_X::Step(const Color &color) {
   // int possible_movements_num = move_rules_.size();
   size_t color_code = static_cast<int>(color);
