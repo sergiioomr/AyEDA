@@ -12,23 +12,18 @@
  *        and recognize n colors. It beahves same as the parent class except in the method Step. 
  *        Also adds a new attribute, the rules to move. 
  */
-
-#ifndef ANT_X
-#define ANT_X
-
+#ifndef ANT_IDID_H
+#define ANT_IDID_H
 #include "../include/ant.h"
-#include <string>
 
-class Ant_X : public Ant {
+class Ant_IDID : public Ant {
   public:
   // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
-    Ant_X(const Direction &direction, const std::pair<int, int> &position, const std::string &move_rules) : Ant{direction, position}, move_rules_(move_rules) {}
+    Ant_IDID(const Direction &direction, const std::pair<int, int> &position) : Ant{direction, position} {}
 
-    std::string GetMoveRules() const { return move_rules_; }
+    std::string GetType() const override { return "IDID"; }
     void Step(const Color &color) override;
-
-  private:
-    std::string move_rules_;
 };
 
-#endif // ANT_X
+
+#endif //ant_IDID_H

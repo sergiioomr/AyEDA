@@ -1,7 +1,7 @@
-CMakeFiles/langton.dir/src/simulator.cc.o: \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/simulator.cc \
+CMakeFiles/langton.dir/src/ant_DDII.cc.o: \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/ant_DDII.cc \
  /usr/include/stdc-predef.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/simulator.h \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/ant_DDII.h \
  /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/ant.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -161,33 +161,4 @@ CMakeFiles/langton.dir/src/simulator.cc.o: \
  /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/../include/../include/colors.h \
  /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/../include/../include/ant.h \
  /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/../include/../include/enum_class.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/../include/enum_class.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/tape.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/colors.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/enum_class.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/ant_DDII.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/../include/ant.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/ant_IDID.h \
- /usr/include/c++/13/fstream /usr/include/c++/13/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
- /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/memory \
- /usr/include/c++/13/bits/stl_tempbuf.h \
- /usr/include/c++/13/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13/bits/align.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
- /usr/include/c++/13/bits/unique_ptr.h \
- /usr/include/c++/13/bits/shared_ptr.h \
- /usr/include/c++/13/bits/shared_ptr_base.h \
- /usr/include/c++/13/bits/allocated_ptr.h \
- /usr/include/c++/13/ext/aligned_buffer.h \
- /usr/include/c++/13/ext/concurrence.h \
- /usr/include/c++/13/bits/shared_ptr_atomic.h \
- /usr/include/c++/13/bits/atomic_base.h \
- /usr/include/c++/13/bits/atomic_lockfree_defines.h \
- /usr/include/c++/13/backward/auto_ptr.h \
- /usr/include/c++/13/pstl/glue_memory_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/src/../include/../include/../include/enum_class.h

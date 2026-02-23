@@ -34,7 +34,10 @@ class Ant {
 	// Must be a pure virtual method to make the Ant class an abstract one
 		virtual void Step(const Color &color) = 0;
 
-		// Virtual destructor to avoid memory leaks if we delete an object ant_x
+	// Pure virtual method to get the ant type identifier as a string
+		virtual std::string GetType() const = 0;
+
+	// Virtual destructor to avoid memory leaks if we delete an object ant_x
 		virtual ~Ant() = default;
 
 	protected:

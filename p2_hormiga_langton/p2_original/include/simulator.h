@@ -18,10 +18,12 @@
 #include "../include/tape.h"
 #include "../include/colors.h"
 #include "../include/enum_class.h"
-#include "../include/ant_x.h"
+#include "../include/ant_DDII.h"
+#include "../include/ant_IDID.h"
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <memory>
 
 class Simulator {
   public:
@@ -33,7 +35,7 @@ class Simulator {
 
   private:
     Tape tape_;
-    std::vector<Ant_X> ants_;
+    std::vector<std::unique_ptr<Ant>> ants_;
     int num_colors_;
     void Export();
 };

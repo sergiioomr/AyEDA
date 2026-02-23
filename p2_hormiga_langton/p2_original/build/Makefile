@@ -153,29 +153,53 @@ src/ant.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant.cc.s
 .PHONY : src/ant.cc.s
 
-src/ant_x.o: src/ant_x.cc.o
-.PHONY : src/ant_x.o
+src/ant_DDII.o: src/ant_DDII.cc.o
+.PHONY : src/ant_DDII.o
 
 # target to build an object file
-src/ant_x.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_x.cc.o
-.PHONY : src/ant_x.cc.o
+src/ant_DDII.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_DDII.cc.o
+.PHONY : src/ant_DDII.cc.o
 
-src/ant_x.i: src/ant_x.cc.i
-.PHONY : src/ant_x.i
+src/ant_DDII.i: src/ant_DDII.cc.i
+.PHONY : src/ant_DDII.i
 
 # target to preprocess a source file
-src/ant_x.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_x.cc.i
-.PHONY : src/ant_x.cc.i
+src/ant_DDII.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_DDII.cc.i
+.PHONY : src/ant_DDII.cc.i
 
-src/ant_x.s: src/ant_x.cc.s
-.PHONY : src/ant_x.s
+src/ant_DDII.s: src/ant_DDII.cc.s
+.PHONY : src/ant_DDII.s
 
 # target to generate assembly for a file
-src/ant_x.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_x.cc.s
-.PHONY : src/ant_x.cc.s
+src/ant_DDII.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_DDII.cc.s
+.PHONY : src/ant_DDII.cc.s
+
+src/ant_IDID.o: src/ant_IDID.cc.o
+.PHONY : src/ant_IDID.o
+
+# target to build an object file
+src/ant_IDID.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_IDID.cc.o
+.PHONY : src/ant_IDID.cc.o
+
+src/ant_IDID.i: src/ant_IDID.cc.i
+.PHONY : src/ant_IDID.i
+
+# target to preprocess a source file
+src/ant_IDID.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_IDID.cc.i
+.PHONY : src/ant_IDID.cc.i
+
+src/ant_IDID.s: src/ant_IDID.cc.s
+.PHONY : src/ant_IDID.s
+
+# target to generate assembly for a file
+src/ant_IDID.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_IDID.cc.s
+.PHONY : src/ant_IDID.cc.s
 
 src/main.o: src/main.cc.o
 .PHONY : src/main.o
@@ -261,9 +285,12 @@ help:
 	@echo "... src/ant.o"
 	@echo "... src/ant.i"
 	@echo "... src/ant.s"
-	@echo "... src/ant_x.o"
-	@echo "... src/ant_x.i"
-	@echo "... src/ant_x.s"
+	@echo "... src/ant_DDII.o"
+	@echo "... src/ant_DDII.i"
+	@echo "... src/ant_DDII.s"
+	@echo "... src/ant_IDID.o"
+	@echo "... src/ant_IDID.i"
+	@echo "... src/ant_IDID.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

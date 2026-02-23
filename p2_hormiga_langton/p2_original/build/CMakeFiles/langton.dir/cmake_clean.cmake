@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/langton.dir/src/ant.cc.o"
   "CMakeFiles/langton.dir/src/ant.cc.o.d"
-  "CMakeFiles/langton.dir/src/ant_x.cc.o"
-  "CMakeFiles/langton.dir/src/ant_x.cc.o.d"
+  "CMakeFiles/langton.dir/src/ant_DDII.cc.o"
+  "CMakeFiles/langton.dir/src/ant_DDII.cc.o.d"
+  "CMakeFiles/langton.dir/src/ant_IDID.cc.o"
+  "CMakeFiles/langton.dir/src/ant_IDID.cc.o.d"
   "CMakeFiles/langton.dir/src/main.cc.o"
   "CMakeFiles/langton.dir/src/main.cc.o.d"
   "CMakeFiles/langton.dir/src/simulator.cc.o"
