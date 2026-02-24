@@ -8,10 +8,10 @@
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-02-11
  * @brief This file declarates the Ant_X class.
- *        That class heritates of Ant, and represent many types of ants, which follows n rules to move
- *        and recognize n colors. It beahves same as the parent class except in the method Step. 
- *        Also adds a new attribute, the rules to move. 
+ *        That class heritates of Ant, and represent an special type of ant, which follows IDID rules to move
+ *        and recognize 4 colors. It beahves same as the parent class except in the method Step.  
  */
+
 #ifndef ANT_IDID_H
 #define ANT_IDID_H
 #include "../include/ant.h"

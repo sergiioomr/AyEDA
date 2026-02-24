@@ -7,7 +7,7 @@
  * @file ant_x.cc
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-02-11
- * @brief 
+ * @brief Definition of ant_DDII class
  */
 
 #include "../include/ant_DDII.h"
