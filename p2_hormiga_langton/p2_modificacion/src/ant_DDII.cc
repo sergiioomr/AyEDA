@@ -4,7 +4,7 @@
  * Grado en Ingeniería Informática
  * Algoritmos y Estructuras de Datos Avanzadas
  * 
- * @file ant_x.cc
+ * @file ant_DDII.cc
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-02-11
  * @brief Definition of ant_DDII class
@@ -16,7 +16,7 @@
  * @brief Specify how the ant moves.
 
  * 
- * @param color 
+ * @param color  
  */
 void Ant_DDII::Step(const Color &color) {
   size_t color_code = static_cast<int>(color);

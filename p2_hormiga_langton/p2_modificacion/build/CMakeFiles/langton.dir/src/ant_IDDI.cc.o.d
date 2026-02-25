@@ -1,7 +1,8 @@
-CMakeFiles/langton.dir/src/ant.cc.o: \
- /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/ant.cc \
+CMakeFiles/langton.dir/src/ant_IDDI.cc.o: \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/ant_IDDI.cc \
  /usr/include/stdc-predef.h \
- /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/ant.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/ant_IDDI.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/ant.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -152,12 +153,12 @@ CMakeFiles/langton.dir/src/ant.cc.o: \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/utility \
  /usr/include/c++/13/bits/stl_relops.h \
- /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/tape.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/../include/tape.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/../include/colors.h \
- /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/../include/ant.h \
- /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/../include/enum_class.h \
- /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/enum_class.h
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/../include/../include/colors.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/../include/../include/ant.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/../include/../include/enum_class.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/src/../include/../include/../include/enum_class.h

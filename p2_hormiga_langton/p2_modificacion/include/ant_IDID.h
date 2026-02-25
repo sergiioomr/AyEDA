@@ -4,10 +4,10 @@
  * Grado en Ingeniería Informática
  * Algoritmos y Estructuras de Datos Avanzadas
  * 
- * @file ant_x.h
+ * @file ant_IDID.h
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-02-11
- * @brief This file declarates the Ant_X class.
+ * @brief This file declarates the Ant_IDID class.
  *        That class heritates of Ant, and represent an special type of ant, which follows IDID rules to move
  *        and recognize 4 colors. It beahves same as the parent class except in the method Step.  
  */

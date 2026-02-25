@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original
+CMAKE_SOURCE_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build
+CMAKE_BINARY_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/langton.dir/clean
 CMakeFiles/langton.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target langton"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target langton"
 .PHONY : CMakeFiles/langton.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/langton.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/langton.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/build/CMakeFiles 0
 .PHONY : CMakeFiles/langton.dir/rule
 
 # Convenience name for target.

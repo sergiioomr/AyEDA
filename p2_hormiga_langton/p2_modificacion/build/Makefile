@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original
+CMAKE_SOURCE_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build
+CMAKE_BINARY_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/build/CMakeFiles /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_modificacion/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -176,6 +176,54 @@ src/ant_DDII.s: src/ant_DDII.cc.s
 src/ant_DDII.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_DDII.cc.s
 .PHONY : src/ant_DDII.cc.s
+
+src/ant_DIDI.o: src/ant_DIDI.cc.o
+.PHONY : src/ant_DIDI.o
+
+# target to build an object file
+src/ant_DIDI.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_DIDI.cc.o
+.PHONY : src/ant_DIDI.cc.o
+
+src/ant_DIDI.i: src/ant_DIDI.cc.i
+.PHONY : src/ant_DIDI.i
+
+# target to preprocess a source file
+src/ant_DIDI.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_DIDI.cc.i
+.PHONY : src/ant_DIDI.cc.i
+
+src/ant_DIDI.s: src/ant_DIDI.cc.s
+.PHONY : src/ant_DIDI.s
+
+# target to generate assembly for a file
+src/ant_DIDI.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_DIDI.cc.s
+.PHONY : src/ant_DIDI.cc.s
+
+src/ant_IDDI.o: src/ant_IDDI.cc.o
+.PHONY : src/ant_IDDI.o
+
+# target to build an object file
+src/ant_IDDI.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_IDDI.cc.o
+.PHONY : src/ant_IDDI.cc.o
+
+src/ant_IDDI.i: src/ant_IDDI.cc.i
+.PHONY : src/ant_IDDI.i
+
+# target to preprocess a source file
+src/ant_IDDI.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_IDDI.cc.i
+.PHONY : src/ant_IDDI.cc.i
+
+src/ant_IDDI.s: src/ant_IDDI.cc.s
+.PHONY : src/ant_IDDI.s
+
+# target to generate assembly for a file
+src/ant_IDDI.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/langton.dir/build.make CMakeFiles/langton.dir/src/ant_IDDI.cc.s
+.PHONY : src/ant_IDDI.cc.s
 
 src/ant_IDID.o: src/ant_IDID.cc.o
 .PHONY : src/ant_IDID.o
@@ -288,6 +336,12 @@ help:
 	@echo "... src/ant_DDII.o"
 	@echo "... src/ant_DDII.i"
 	@echo "... src/ant_DDII.s"
+	@echo "... src/ant_DIDI.o"
+	@echo "... src/ant_DIDI.i"
+	@echo "... src/ant_DIDI.s"
+	@echo "... src/ant_IDDI.o"
+	@echo "... src/ant_IDDI.i"
+	@echo "... src/ant_IDDI.s"
 	@echo "... src/ant_IDID.o"
 	@echo "... src/ant_IDID.i"
 	@echo "... src/ant_IDID.s"

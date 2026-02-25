@@ -20,6 +20,8 @@
 #include "../include/enum_class.h"
 #include "../include/ant_DDII.h"
 #include "../include/ant_IDID.h"
+#include "../include/ant_DIDI.h"
+#include "../include/ant_IDDI.h"
 #include <string>
 #include <fstream>
 #include <sstream>

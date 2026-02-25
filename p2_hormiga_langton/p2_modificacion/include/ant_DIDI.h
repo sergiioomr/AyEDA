@@ -4,26 +4,26 @@
  * Grado en Ingeniería Informática
  * Algoritmos y Estructuras de Datos Avanzadas
  * 
- * @file ant_DDII.h
+ * @file ant_DIDI.h
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
- * @date 2026-02-11
- * @brief This file declarates the Ant_DDII class.
+ * @date 2026-02-25
+ * @brief This file declarates the Ant_DIDI class.
  *        That class heritates of Ant, and represent an special type of ant, which follows DDII rules to move
  *        and recognize 4 colors. It beahves same as the parent class except in the method Step.   
  */
 
-#ifndef ANT_DDII_H
-#define ANT_DDII_H
+#ifndef ANT_DIDI_H
+#define ANT_DIDI_H
 #include "../include/ant.h"
 
-class Ant_DDII : public Ant {
+class Ant_DIDI : public Ant {
   public:
   // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
-    Ant_DDII(const Direction &direction, const std::pair<int, int> &position) : Ant{direction, position} {}
+    Ant_DIDI(const Direction &direction, const std::pair<int, int> &position) : Ant{direction, position} {}
 
-    std::string GetType() const override { return "DDII"; }
+    std::string GetType() const override { return "DIDI"; }
     void Step(const Color &color) override;
 };
 
 
-#endif //ant_DDII_H
+#endif //ANT_DIDI_H

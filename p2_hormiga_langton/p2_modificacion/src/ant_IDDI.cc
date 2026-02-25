@@ -4,28 +4,28 @@
  * Grado en Ingeniería Informática
  * Algoritmos y Estructuras de Datos Avanzadas
  * 
- * @file ant_IDID.cc
+ * @file ant_IDDI.cc
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
- * @date 2026-02-11
- * @brief Definition of ant_IDID class
+ * @date 2026-02-25
+ * @brief Definition of ant_DDII class
  */
 
-#include "../include/ant_IDID.h"
+#include "../include/ant_IDDI.h"
 
 /**
  * @brief Specify how the ant moves.
 
  * 
- * @param color 
+ * @param color  
  */
-void Ant_IDID::Step(const Color &color) {
+void Ant_IDDI::Step(const Color &color) {
   size_t color_code = static_cast<int>(color);
 
-  // According to the movements rules IDID, with the first and third color, turn right, else, left
-  if ((color_code == 0) || (color_code == 2)) {
-    TurnLeft();
-  } else {
+  // According to the movements rules IDDI, with the second and third color, turn right, else, left
+  if ((color_code == 1) || (color_code == 2)) {
     TurnRight();
+  } else {
+    TurnLeft();
   }
 
   // Then, move one cell. This is independent of the ant type. 

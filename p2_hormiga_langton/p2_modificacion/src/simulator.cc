@@ -76,6 +76,10 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
       ants_.push_back(std::make_unique<Ant_DDII>(direction, std::make_pair(ant_x, ant_y)));
     } else if (ant_type == "IDID") {
       ants_.push_back(std::make_unique<Ant_IDID>(direction, std::make_pair(ant_x, ant_y)));
+    } else if (ant_type == "DIDI") {
+      ants_.push_back(std::make_unique<Ant_DIDI>(direction, std::make_pair(ant_x, ant_y)));
+    } else  if (ant_type == "IDDI") {
+      ants_.push_back(std::make_unique<Ant_IDDI>(direction, std::make_pair(ant_x, ant_y)));
     } else {
       std::cerr << "ERROR: Unknown ant type. The valid types are: DDII or IDID." << std::endl;
       exit(EXIT_FAILURE);      
