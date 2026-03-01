@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original
+CMAKE_SOURCE_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/build
+CMAKE_BINARY_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

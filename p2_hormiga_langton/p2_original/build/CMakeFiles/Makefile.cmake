@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p2_hormiga_langton/p2_original/CMakeLists.txt"
+  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p2_hormiga_langton/p2_original/CMakeLists.txt"
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake"
