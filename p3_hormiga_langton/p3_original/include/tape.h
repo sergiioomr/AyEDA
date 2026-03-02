@@ -18,24 +18,28 @@
 #include "../include/colors.h"
 #include "../include/ant.h"
 #include "../include/enum_class.h"
+#include "../include/sliding_vector.h"
 
 
 
 class Tape {
 	public:
 	// Constructors
-		Tape() : tape_{}, size_x_{}, size_y_{} {} // Default
-		Tape(const int &size_x, const int &size_y);
+		Tape() : size_x_{}, size_y_{} {} // Default
+		Tape(const int &size_x, const int &size_y) : size_x_(size_x), size_y_(size_y) {}
 		
 	// Getters
 		int GetSizeX() const { return size_x_; }
 		int GetSizeY() const { return size_y_; }
 
-		Color CheckColor(const std::pair<int, int> &cell) const;
-		void SetColor(const Color &color, const std::pair<int, int> &cell);
+	// Every derived tape must implement its methods to viewing and changing the color of a cell
+		virtual Color CheckColor(const std::pair<int, int> &cell) const = 0;
+		virtual void SetColor(const Color &color, const std::pair<int, int> &cell) = 0;
+
 		void PrintCell(const std::pair<int, int> &position, const char symbol = ' ');
+
 	private:
-		std::vector<std::vector<Color>> tape_; // The grid
+		// The grid will be implemented in every derived class, because all they don't use the same data structure
 		int size_x_;
 		int size_y_;
 		std::string ColorToCode(const Color &color);

@@ -22,6 +22,18 @@
 #include "../include/enum_class.h"
 #include "../include/tape.h"
 
+class TapePeriodic : public Tape {
+
+};
+
+class TapeReflective : public Tape {
+
+};
+
+class TapeSliding : public Tape {
+
+};
+
 
 
 

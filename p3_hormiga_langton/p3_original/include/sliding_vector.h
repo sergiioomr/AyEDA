@@ -27,7 +27,9 @@ template <class T>
 class SlidingVector {
   public: 
     SlidingVector(const int max_index, const int min_index) : max_index_(max_index), min_index_(min_index), slide_vector(max_index - min_index + 1) {}
-    
+    // Default constructor. The size will be 0, and is not possible to access with [] to any position, always throw an exception
+    SlidingVector() : min_index_(0), max_index_(-1), slide_vector() {}
+
     int GetMinIndex() const { return min_index_; }
     int GetMaxIndex() const { return max_index_; }
     int GetSize() const { return slide_vector.size(); }
