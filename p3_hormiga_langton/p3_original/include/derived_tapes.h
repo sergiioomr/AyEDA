@@ -24,6 +24,8 @@
 
 class TapePeriodic : public Tape {
   public: 
+    Color CheckColor(const std::pair<int, int> &cell) const;
+    void SetColor(const Color &color, const std::pair<int, int> &cell);
 
   private: 
     std::vector<std::vector<Color>> grid_;
@@ -32,7 +34,9 @@ class TapePeriodic : public Tape {
 
 class TapeReflective : public Tape {
   public:
-
+    Color CheckColor(const std::pair<int, int> &cell) const;
+    void SetColor(const Color &color, const std::pair<int, int> &cell);
+    
   private:
     std::vector<std::vector<Color>> grid_;
 };
@@ -40,6 +44,8 @@ class TapeReflective : public Tape {
 
 class TapeSliding : public Tape {
   public:
+    Color CheckColor(const std::pair<int, int> &cell) const;
+    void SetColor(const Color &color, const std::pair<int, int> &cell);
 
   private:
     SlidingVector<SlidingVector<Color>> grid_;
