@@ -23,15 +23,26 @@
 #include "../include/tape.h"
 
 class TapePeriodic : public Tape {
+  public: 
 
+  private: 
+    std::vector<std::vector<Color>> grid_;
 };
+
 
 class TapeReflective : public Tape {
+  public:
 
+  private:
+    std::vector<std::vector<Color>> grid_;
 };
 
-class TapeSliding : public Tape {
 
+class TapeSliding : public Tape {
+  public:
+
+  private:
+    SlidingVector<SlidingVector<Color>> grid_;
 };
 
 
