@@ -25,11 +25,16 @@ class Ant {
 	public:
 	// Constructors
 		Ant() : direction_{0}, position_{} {} // Default
-		Ant(const Direction& direction, const std::pair<int, int>& position) : direction_(direction), position_(position) {}
+		Ant(const Direction& direction, const std::pair<int, int>& position) 
+			: direction_(direction), position_(position), lifetime_() {}
 
 	// Getters
 		Direction GetDirection() const { return direction_; } 
 		std::pair<int, int> GetPosition() const { return position_; }
+		int GetLifeTime() const { return lifetime_; }
+
+	// Setter to change the ant lifetime. That increases the actual lifetime with the argument passed
+		void SetLifetime(int lifetime) { lifetime_ += lifetime; }
 
 	// Must be a pure virtual method to make the Ant class an abstract one
 		virtual void Step(const Color &color) = 0;
@@ -49,7 +54,8 @@ class Ant {
 	private:	
 		Direction direction_;
 		// The ant current location
-		std::pair<int, int> position_;		
+		std::pair<int, int> position_;	
+		int lifetime_;		
 };
 
 std::ostream &operator<<(std::ostream& os, const Ant& ant);
