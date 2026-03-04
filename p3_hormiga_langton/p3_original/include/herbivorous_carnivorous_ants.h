@@ -25,6 +25,7 @@ class CarnivorousAnt : public Ant {
     void IncreaseLifetime(int other_ant_lifetime);
     void DecreaseLifetime(double other_ant_voracity);
     void Move();
+    char GetCategory() const { return 'C'; }
 
   private : 
   // percentage of lifetime that the ants take from another
@@ -36,8 +37,10 @@ class HerbivorousAnt : public Ant {
   public:
     HerbivorousAnt(const Direction &direction, const std::pair<int, int> &position, int lifetime) : Ant{direction, position, lifetime} {}
 
-    void IncreaseLifetime(const Color &cell_color);
+    void IncreaseLifetime(int color_code);
     void DecreaseLifetime(double other_ant_voracity);
+    char GetCategory() const { return 'H'; }
+
 };
 
 #endif // HERBIVOROUS_CARNIVOROUS_ANTS_H

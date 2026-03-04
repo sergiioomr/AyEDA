@@ -24,6 +24,7 @@
 #include <fstream>
 #include <sstream>
 #include <memory>
+#include <map>
 
 class Simulator {
   public:

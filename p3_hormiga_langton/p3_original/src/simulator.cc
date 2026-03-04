@@ -121,19 +121,20 @@ Simulator::Simulator(const std::string& filename, const std::string &tape_type) 
  * 
  */
 void Simulator::PrintTapeAnt() {
-  for (int i = 0; i < tape_.GetSizeX(); i++) {
-    for (int j = 0; j < tape_.GetSizeY(); j++) {
+  for (int i = 0; i < tape_->GetSizeX(); i++) {
+    for (int j = 0; j < tape_->GetSizeY(); j++) {
       
-      bool is_ant = false;
+      int ants_counter = 0;
       int ant_index = -1;
       for (size_t k = 0; k < ants_.size(); k++) {
         if ((i == ants_[k]->GetPosition().first) && (j == ants_[k]->GetPosition().second)) {
-          is_ant = true;
           ant_index = k;
+          ants_counter++;
         }
       }
 
-      if (is_ant) {
+      int color_code = static_cast<int>(tape_->CheckColor(std::make_pair(i, j)));
+      if (ants_counter == 1) {
         // Get the symbol of the ant
         char ant_symbol;
         switch (ants_[ant_index]->GetDirection()) {
@@ -151,13 +152,24 @@ void Simulator::PrintTapeAnt() {
             break;
         }
 
-        tape_.PrintCell(std::make_pair(i, j), ant_symbol);
+        tape_->PrintCell(std::make_pair(i, j), ant_symbol);
 
+      } else if (ants_counter > 1) {
+        // If there are many ants in the same cell, represent with an X
+        tape_->PrintCell(std::make_pair(i, j), 'X');
       } else {
-        tape_.PrintCell(std::make_pair(i, j));
+        tape_->PrintCell(std::make_pair(i, j), color_code);
       }
     }
     std::cout << std::endl;
+  }
+
+  std::cout << std::endl;
+
+  //Now, print the ants information
+  for(int i = 0; 0 < ants_.size(); i++) {
+    std::cout << ants_[i]->GetType() << ": (" << ants_[i]->GetPosition().first << ", " << 
+      ants_[i]->GetPosition().second << ") " << ants_[i]->GetLifeTime() << std::endl;
   }
 }
 
@@ -184,42 +196,28 @@ void Simulator::Simulation() {
 
       for (size_t i = 0; i < ants_.size(); i++) {
         // Get the current color of the ant's cell
-        Color color = tape_.CheckColor(ants_[i]->GetPosition());
+        Color color = tape_->CheckColor(ants_[i]->GetPosition());
 
         // Change the cell color before the ant moves
         int current_cell_color_code = static_cast<int>(color);
         int next_color_code = (current_cell_color_code + 1) % num_colors_;
         Color next_color = static_cast<Color>(next_color_code);
-        tape_.SetColor(next_color, ants_[i]->GetPosition());
+        tape_->SetColor(next_color, ants_[i]->GetPosition());
 
         // Now, the ant makes the step
         ants_[i]->Step(color);
         
         // Verify if the ant is on the tape. If it went out of the limits, stop the simulation
         if (ants_[i]->GetPosition().first < 0 || 
-            ants_[i]->GetPosition().first >= tape_.GetSizeX() ||
+            ants_[i]->GetPosition().first >= tape_->GetSizeX() ||
             ants_[i]->GetPosition().second < 0 ||
-            ants_[i]->GetPosition().second >= tape_.GetSizeY()) {
-          std::system("clear");
-          std::cout << "One ant has gone outside the limits of the tape" << std::endl;
-          std::cout << "Step number: " << step_counter << std::endl;
-          return;
+            ants_[i]->GetPosition().second >= tape_->GetSizeY()) {
+              std::pair<std::pair<int, int>, Direction> new_ant_data = tape_->Reposition(ants_[i]->GetPosition(), ants_[i]->GetDirection());
+              ants_[i]->SetDirection(new_ant_data.second);
+              ants_[i]->SetPosition(new_ant_data.first);
         }
       }
 
-      // Now, all the ants have been moved. If a collision is detected now, the simulation will stop
-        for (size_t i = 0; i < ants_.size(); i++) {
-          for (size_t j = i + 1; j < ants_.size(); j++) {
-            if (ants_[i]->GetPosition() == ants_[j]->GetPosition()) {
-              std::system("clear");
-              std::cout << "Two ants have been collisioned" << std::endl;
-              std::cout << "Ant " << i << " and Ant " << j << std::endl;
-              std::cout << "Position: (" << ants_[i]->GetPosition().first << ", " << ants_[i]->GetPosition().second << ")" << std::endl;
-              std::cout << "Step number: " << step_counter << std::endl;
-              return;
-          }
-        }
-      }
       continue;
     } else  if (answer == 'S' || answer == 's') {
       Export();
@@ -227,6 +225,39 @@ void Simulator::Simulation() {
       break;
     } else {
       std::cout << "ERROR: incorrect option, try again" << std::endl;
+    }
+
+    // Now, all the ants finish their movements. Check the collisions and change their lifetime. Remove the dead ants also
+    std::map<std::pair<int, int>, std::vector<std::unique_ptr<Ant>>> map_position_ants; 
+
+    // Put the ants in a map data structure, that allow check if there are many ants in the same cell
+    for (auto& ant : ants_) {
+      std::pair<int, int> ant_position = ant->GetPosition();
+      // If there is an entry in the map with this key, that means that there is a vector, so push_back the pointer to the ant in that,
+      // else, the vector will be created with a new entry and push_back the pointer to the ant
+      map_position_ants[ant_position].push_back(ant);
+    }
+
+    // Cell by cell, check, if there is only one ant, eat if its herbivorous.
+    for (auto it = map_position_ants.begin(); it != map_position_ants.end(); ++it) {
+      std::pair<int, int> position = it->first;
+      std::vector<std::unique_ptr<Ant>> &ants = it->second;
+      if (ants.size() == 1) {
+        if (ants[0]->GetCategory() == 'H') {
+          ants[0]->IncreaseLifetime(static_cast<int>(tape_->CheckColor(position)));
+        }
+      } else if (ants.size() > 1) {
+        // Pick the first ant, if its carnivorous, attack the others in the cell, if is herbivorous, "eat".
+        for (int i = 0; i < ants.size(); i++) {
+          if (ants[i]->GetCategory() == 'H') {
+            ants[i]->IncreaseLifetime(static_cast<int>(tape_->CheckColor(position)));
+          } else if (ants[i]->GetCategory() == 'C') {
+            for (int j = 0; j < ants.size(); j++) {
+
+            }
+          }
+        }
+      }
     }
   }
 

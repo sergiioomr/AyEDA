@@ -25,29 +25,29 @@ void CarnivorousAnt::DecreaseLifetime(double other_ant_voracity) {
 void CarnivorousAnt::Move() {
   switch (direction_) {
     case Direction::UP : 
-    position_.first--;
-    position_.second++;
-    break;
+      position_.first--;
+      position_.second++;
+      break;
 
     case Direction::DOWN :
-    position_.first++;
-    position_.second--;
-    break;
+      position_.first++;
+      position_.second--;
+      break;
 
-   case Direction::LEFT :
-    position_.second--;
-    position_.first--;
-    break;
+    case Direction::LEFT :
+      position_.second--;
+      position_.first--;
+      break;
     
-   case Direction::RIGHT : 
-    position_.second++;
-    position_.first++;
-    break;
+    case Direction::RIGHT : 
+      position_.second++;
+      position_.first++;
+      break;
   }
 }
 
-void HerbivorousAnt::IncreaseLifetime(const Color &color) {
-  lifetime_ += static_cast<int>(color);
+void HerbivorousAnt::IncreaseLifetime(int color_code) {
+  lifetime_ += color_code;
 }
 
 void HerbivorousAnt::DecreaseLifetime(double other_ant_voracity) {

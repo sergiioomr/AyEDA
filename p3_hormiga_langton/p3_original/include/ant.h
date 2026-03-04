@@ -32,12 +32,16 @@ class Ant {
 		Direction GetDirection() const { return direction_; } 
 		std::pair<int, int> GetPosition() const { return position_; }
 		int GetLifeTime() const { return lifetime_; }
-
-	// Must be a pure virtual method to make the Ant class an abstract one
-		virtual void Step(const Color &color) = 0;
-
-	// Pure virtual method to get the ant type identifier as a string
+		virtual char GetCategory() const = 0;
 		virtual std::string GetType() const = 0;
+
+	// Setters
+		void SetDirection(const Direction direction) {direction_ = direction; }
+		void SetPosition(const std::pair<int, int> &position) {position_ = position; }
+
+		virtual void Step(const Color &color) = 0;
+		virtual void IncreaseLifetime(int amount) = 0;
+		virtual void DecreaseLifetime(double amount) = 0;
 
 	// Virtual destructor to avoid memory leaks if we delete an object ant_x
 		virtual ~Ant() = default;

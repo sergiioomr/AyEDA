@@ -20,7 +20,7 @@ class Ant_H_IDID : public HerbivorousAnt {
   // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
     Ant_H_IDID(const Direction &direction, const std::pair<int, int> &position, int lifetime) : HerbivorousAnt{direction, position, lifetime} {}
 
-    std::string GetType() const override { return "IDID"; }
+    std::string GetType() const override { return "H-IDID"; }
     void Step(const Color &color) override;
 };
 
@@ -29,7 +29,7 @@ class Ant_H_DDII : public HerbivorousAnt {
   // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
     Ant_H_DDII(const Direction &direction, const std::pair<int, int> &position, int lifetime) : HerbivorousAnt{direction, position, lifetime} {}
 
-    std::string GetType() const override { return "DDII"; }
+    std::string GetType() const override { return "H-DDII"; }
     void Step(const Color &color) override;
 };
 
@@ -39,7 +39,7 @@ class Ant_C_DDII : public CarnivorousAnt {
   // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
     Ant_C_DDII(const Direction &direction, const std::pair<int, int> &position, int lifetime, int voracity) : CarnivorousAnt{direction, position, lifetime, voracity} {}
 
-    std::string GetType() const override { return "DDII"; }
+    std::string GetType() const override { return "C-DDII"; }
     void Step(const Color &color) override;
 };
 
@@ -48,7 +48,7 @@ class Ant_C_IDID : public CarnivorousAnt {
   // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
     Ant_C_IDID(const Direction &direction, const std::pair<int, int> &position, int lifetime, int voracity) : CarnivorousAnt{direction, position, lifetime, voracity} {}
 
-    std::string GetType() const override { return "IDID"; }
+    std::string GetType() const override { return "C-IDID"; }
     void Step(const Color &color) override;
 };
 
