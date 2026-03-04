@@ -34,9 +34,6 @@ class Ant_H_DDII : public HerbivorousAnt {
 };
 
 
-// CHANGE CARNIVOROUS MOVEMENT --> THEY SHOULD MOVE DIAGONALLY
-
-
 class Ant_C_DDII : public CarnivorousAnt {
   public:
   // Constructor. First, call Ant constructor, then, assingn the ant_x parameters

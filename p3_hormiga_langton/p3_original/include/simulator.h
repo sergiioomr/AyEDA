@@ -18,8 +18,8 @@
 #include "../include/tape.h"
 #include "../include/colors.h"
 #include "../include/enum_class.h"
-#include "../include/ant_DDII.h"
-#include "../include/ant_IDID.h"
+#include "../include/derived_ants.h"
+#include "../include/derived_tapes.h"
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -28,13 +28,13 @@
 class Simulator {
   public:
   // Constructor
-    Simulator(const std::string &filename);
+    Simulator(const std::string &filename, const std::string &tape_type);
 
     void PrintTapeAnt();
     void Simulation();
 
   private:
-    Tape tape_;
+    std::unique_ptr<Tape> tape_;
     std::vector<std::unique_ptr<Ant>> ants_;
     int num_colors_;
     void Export();

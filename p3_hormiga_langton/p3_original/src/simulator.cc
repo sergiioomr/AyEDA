@@ -17,7 +17,7 @@
  * 
  * @param filename 
  */
-Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
+Simulator::Simulator(const std::string& filename, const std::string &tape_type) : tape_{}, ants_{} {
   
   std::ifstream input_file{filename};
   std::string line;
@@ -29,7 +29,16 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
   iss >> size_x >> size_y >> num_colors_;
 
   // Create the tape
-  tape_ = Tape{size_x, size_y};
+  if (tape_type == "periodic") {
+      tape_ = std::make_unique<TapePeriodic>(size_x, size_y);
+    } else if (tape_type == "reflective") {
+      tape_ = std::make_unique<TapeReflective>(size_x, size_y);
+    } else if (tape_type == "sliding") {
+      tape_ = std::make_unique<TapeSliding>(size_x, size_y);
+    } else {
+        std::cerr << "Unknown tape. Please, select one between: periodic, reflective or sliding" << std::endl;
+        exit(1);
+    }
 
   // Line 2. Type, initial position and orientations of the ant. N ants, separated by ';'
   
@@ -72,10 +81,14 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
     }
 
     // Validate the movement rules
-    if (ant_type == "DDII") {
-      ants_.push_back(std::make_unique<Ant_DDII>(direction, std::make_pair(ant_x, ant_y)));
-    } else if (ant_type == "IDID") {
-      ants_.push_back(std::make_unique<Ant_IDID>(direction, std::make_pair(ant_x, ant_y)));
+    if (ant_type == "C-DDII") {
+      ants_.push_back(std::make_unique<Ant_C_DDII>(direction, std::make_pair(ant_x, ant_y)));
+    } else if (ant_type == "C-IDID") {
+      ants_.push_back(std::make_unique<Ant_C_IDID>(direction, std::make_pair(ant_x, ant_y)));
+    } else if (ant_type == "H-DDII") {
+      ants_.push_back(std::make_unique<Ant_H_DDII>(direction, std::make_pair(ant_x, ant_y)));
+    } else if (ant_type == "H_IDID") {
+      ants_.push_back(std::make_unique<Ant_H_IDID>(direction, std::make_pair(ant_x, ant_y)));
     } else {
       std::cerr << "ERROR: Unknown ant type. The valid types are: DDII or IDID." << std::endl;
       exit(EXIT_FAILURE);      
@@ -97,7 +110,7 @@ Simulator::Simulator(const std::string& filename) : tape_{}, ants_{} {
     // Convert the code to a color
     Color color = static_cast<Color>(color_code);
 
-    tape_.SetColor(color, std::make_pair(row, column));
+    tape_->SetColor(color, std::make_pair(row, column));
   }
 
   input_file.close();

@@ -14,19 +14,43 @@
 
 void CarnivorousAnt::IncreaseLifetime(int other_ant_lifetime) {
   int increase = std::round(other_ant_lifetime * voracity_);
-  SetLifetime(increase);
+  lifetime_ += increase;
 }
 
 void CarnivorousAnt::DecreaseLifetime(double other_ant_voracity) {
   int decrease = std::round(GetLifeTime() * other_ant_voracity);
-  SetLifetime(-decrease);
+  lifetime_ -= decrease;
+}
+
+void CarnivorousAnt::Move() {
+  switch (direction_) {
+    case Direction::UP : 
+    position_.first--;
+    position_.second++;
+    break;
+
+    case Direction::DOWN :
+    position_.first++;
+    position_.second--;
+    break;
+
+   case Direction::LEFT :
+    position_.second--;
+    position_.first--;
+    break;
+    
+   case Direction::RIGHT : 
+    position_.second++;
+    position_.first++;
+    break;
+  }
 }
 
 void HerbivorousAnt::IncreaseLifetime(const Color &color) {
-  SetLifetime(static_cast<int>(color));
+  lifetime_ += static_cast<int>(color);
 }
 
 void HerbivorousAnt::DecreaseLifetime(double other_ant_voracity) {
   int decrease = std::round(GetLifeTime() * other_ant_voracity);
-  SetLifetime(-decrease);
+  lifetime_ -= decrease;
 }

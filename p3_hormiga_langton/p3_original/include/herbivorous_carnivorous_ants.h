@@ -24,6 +24,7 @@ class CarnivorousAnt : public Ant {
     double GetVoracity() const { return voracity_; }
     void IncreaseLifetime(int other_ant_lifetime);
     void DecreaseLifetime(double other_ant_voracity);
+    void Move();
 
   private : 
   // percentage of lifetime that the ants take from another

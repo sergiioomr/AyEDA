@@ -33,9 +33,6 @@ class Ant {
 		std::pair<int, int> GetPosition() const { return position_; }
 		int GetLifeTime() const { return lifetime_; }
 
-	// Setter to change the ant lifetime. That increases the actual lifetime with the argument passed
-		void SetLifetime(int lifetime) { lifetime_ += lifetime; }
-
 	// Must be a pure virtual method to make the Ant class an abstract one
 		virtual void Step(const Color &color) = 0;
 
@@ -49,9 +46,9 @@ class Ant {
 	// Functions to use in Step. 
 		void TurnLeft();
 		void TurnRight();
-		void Move();
+		virtual void Move();
 
-	private:	
+	// Protected arguments. Each ant must be able to change its own position or direction. Neede also to implement the Move in the Carnivorous Ant
 		Direction direction_;
 		// The ant current location
 		std::pair<int, int> position_;	
