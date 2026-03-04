@@ -6,45 +6,55 @@
  * 
  * @file derived_ants.h
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
- * @date 2026-03-03
- * @brief Declarates two kinds of ants. Carnivorous and Herviborous
- * 
+ * @date 2026-03-04
+ * @brief 
  */
+
 #ifndef DERIVED_ANTS_H
 #define DERIVED_ANTS_H
 
-#include "../include/ant.h"
-#include <cmath> // std::round to aproximate to the nearest integer the lifetime when its multiplicated by the voracity
+#include "herbivorous_carnivorous_ants.h"
 
-class CarnivorousAnt : public Ant {
-  public: 
-  // The carnivorous ant will have a lifetime of 15 once it is created
-    CarnivorousAnt(const Direction &direction, const std::pair<int, int> &position) : Ant{direction, position}, voracity_() {}
-    
-    double GetVoracity() const { return voracity_; }
-    void IncreaseLifetime(int other_ant_lifetime);
-    void DecreaseLifetime(double other_ant_voracity);
-
-  private : 
-  // percentage of lifetime that the ants take from another
-    double voracity_;
-
-};
-
-class HerbivorousAnt : public Ant {
+class Ant_H_IDID : public HerbivorousAnt {
   public:
-    HerbivorousAnt(const Direction &direction, const std::pair<int, int> &position) : Ant{direction, position} {}
+  // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
+    Ant_H_IDID(const Direction &direction, const std::pair<int, int> &position, int lifetime) : HerbivorousAnt{direction, position, lifetime} {}
 
-    void IncreaseLifetime(const Color &cell_color);
-    void DecreaseLifetime(double other_ant_voracity);
+    std::string GetType() const override { return "IDID"; }
+    void Step(const Color &color) override;
+};
+
+class Ant_H_DDII : public HerbivorousAnt {
+  public:
+  // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
+    Ant_H_DDII(const Direction &direction, const std::pair<int, int> &position, int lifetime) : HerbivorousAnt{direction, position, lifetime} {}
+
+    std::string GetType() const override { return "DDII"; }
+    void Step(const Color &color) override;
+};
+
+
+// CHANGE CARNIVOROUS MOVEMENT --> THEY SHOULD MOVE DIAGONALLY
+
+
+class Ant_C_DDII : public CarnivorousAnt {
+  public:
+  // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
+    Ant_C_DDII(const Direction &direction, const std::pair<int, int> &position, int lifetime, int voracity) : CarnivorousAnt{direction, position, lifetime, voracity} {}
+
+    std::string GetType() const override { return "DDII"; }
+    void Step(const Color &color) override;
+};
+
+class Ant_C_IDID : public CarnivorousAnt {
+  public:
+  // Constructor. First, call Ant constructor, then, assingn the ant_x parameters
+    Ant_C_IDID(const Direction &direction, const std::pair<int, int> &position, int lifetime, int voracity) : CarnivorousAnt{direction, position, lifetime, voracity} {}
+
+    std::string GetType() const override { return "IDID"; }
+    void Step(const Color &color) override;
 };
 
 
 
-
-
-
-
-
-
-#endif DERIVED_ANTS_H
+#endif // DERIVED_ANTS_H

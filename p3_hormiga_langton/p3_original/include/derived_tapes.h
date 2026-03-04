@@ -18,7 +18,6 @@
 #include <iostream>
 #include <vector>
 #include "../include/colors.h"
-#include "../include/ant.h"
 #include "../include/enum_class.h"
 #include "../include/tape.h"
 
@@ -26,6 +25,7 @@ class TapePeriodic : public Tape {
   public: 
     Color CheckColor(const std::pair<int, int> &cell) const;
     void SetColor(const Color &color, const std::pair<int, int> &cell);
+    std::pair<std::pair<int, int>, Direction> Reposition(const std::pair<int, int> &position, const Direction direction);
 
   private: 
     std::vector<std::vector<Color>> grid_;
@@ -36,7 +36,7 @@ class TapeReflective : public Tape {
   public:
     Color CheckColor(const std::pair<int, int> &cell) const;
     void SetColor(const Color &color, const std::pair<int, int> &cell);
-    
+    std::pair<std::pair<int, int>, Direction> Reposition(const std::pair<int, int> &position, const Direction direction);
   private:
     std::vector<std::vector<Color>> grid_;
 };
@@ -46,9 +46,14 @@ class TapeSliding : public Tape {
   public:
     Color CheckColor(const std::pair<int, int> &cell) const;
     void SetColor(const Color &color, const std::pair<int, int> &cell);
+    std::pair<std::pair<int, int>, Direction> Reposition(const std::pair<int, int> &position, const Direction direction);
 
   private:
     SlidingVector<SlidingVector<Color>> grid_;
+    void NewRowUp();
+    void NewRowDown();
+    void NewColRight();
+    void NewColLeft();
 };
 
 

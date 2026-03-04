@@ -25,8 +25,8 @@ class Ant {
 	public:
 	// Constructors
 		Ant() : direction_{0}, position_{} {} // Default
-		Ant(const Direction& direction, const std::pair<int, int>& position) 
-			: direction_(direction), position_(position), lifetime_() {}
+		Ant(const Direction& direction, const std::pair<int, int>& position, int lifetime) 
+			: direction_(direction), position_(position), lifetime_(lifetime) {}
 
 	// Getters
 		Direction GetDirection() const { return direction_; } 

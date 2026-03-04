@@ -26,7 +26,7 @@ struct SVException : public std::exception {
 template <class T>
 class SlidingVector {
   public: 
-    SlidingVector(const int max_index, const int min_index) : max_index_(max_index), min_index_(min_index), slide_vector(max_index - min_index + 1) {}
+    SlidingVector(const int min_index, const int max_index) : min_index_(min_index), max_index_(max_index), slide_vector(max_index - min_index + 1) {}
     // Default constructor. The size will be 0, and is not possible to access with [] to any position, always throw an exception
     SlidingVector() : min_index_(0), max_index_(-1), slide_vector() {}
 
@@ -64,8 +64,8 @@ class SlidingVector {
     }
     
   private:
-  int max_index_;
   int min_index_;
+  int max_index_;
   std::vector<T> slide_vector;
 
   int ChangeIndex(const int index) const{
