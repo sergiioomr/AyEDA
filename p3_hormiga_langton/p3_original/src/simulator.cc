@@ -228,36 +228,39 @@ void Simulator::Simulation() {
     }
 
     // Now, all the ants finish their movements. Check the collisions and change their lifetime. Remove the dead ants also
-    std::map<std::pair<int, int>, std::vector<std::unique_ptr<Ant>>> map_position_ants; 
+    for (int i = 0; i < ants_.size(); i++) {
+      if (ants_[i]->GetLifeTime() == 0) {
+        // Erase ant and continue with the next
+        continue;
+      }
 
-    // Put the ants in a map data structure, that allow check if there are many ants in the same cell
-    for (auto& ant : ants_) {
-      std::pair<int, int> ant_position = ant->GetPosition();
-      // If there is an entry in the map with this key, that means that there is a vector, so push_back the pointer to the ant in that,
-      // else, the vector will be created with a new entry and push_back the pointer to the ant
-      map_position_ants[ant_position].push_back(ant);
-    }
-
-    // Cell by cell, check, if there is only one ant, eat if its herbivorous.
-    for (auto it = map_position_ants.begin(); it != map_position_ants.end(); ++it) {
-      std::pair<int, int> position = it->first;
-      std::vector<std::unique_ptr<Ant>> &ants = it->second;
-      if (ants.size() == 1) {
-        if (ants[0]->GetCategory() == 'H') {
-          ants[0]->IncreaseLifetime(static_cast<int>(tape_->CheckColor(position)));
-        }
-      } else if (ants.size() > 1) {
-        // Pick the first ant, if its carnivorous, attack the others in the cell, if is herbivorous, "eat".
-        for (int i = 0; i < ants.size(); i++) {
-          if (ants[i]->GetCategory() == 'H') {
-            ants[i]->IncreaseLifetime(static_cast<int>(tape_->CheckColor(position)));
-          } else if (ants[i]->GetCategory() == 'C') {
-            for (int j = 0; j < ants.size(); j++) {
-
+      if (ants_[i]->GetCategory() == 'H') {
+        // If the ant is herbivorous, onlye eat with the cell number
+        HerbivorousAnt* herb_ant = dynamic_cast<HerbivorousAnt*>(ants_[i].get());
+        herb_ant->IncreaseLifetime(static_cast<int>(tape_->CheckColor(herb_ant->GetPosition())));
+      } else {
+        // The ant is carnivorous, so will attack all the ants in its cell
+        for (int j = i + 1; j < ants_.size(); j++) {
+          if (ants_[i]->GetPosition() == ants_[j]->GetPosition()) {
+            // If they are in the same cell, increase ants_[i] lifetime and decreas ants_[j]
+            ants_[i]->IncreaseLifetime(ants_[j]->GetLifeTime());
+            CarnivorousAnt* carnv_ant = dynamic_cast<CarnivorousAnt*>(ants_[i].get());
+            ants_[j]->DecreaseLifetime(carnv_ant->GetVoracity());
+            // Now, if the ant j is carnivorous, attack the ant i
+            if (ants_[j]->GetCategory() == 'C') {
+              CarnivorousAnt* other_carnv_ant = dynamic_cast<CarnivorousAnt*>(ants_[j].get());
+              ants_[j]->IncreaseLifetime(ants_[i]->GetLifeTime());
+              ants_[i]->DecreaseLifetime(other_carnv_ant->GetVoracity());
             }
+
           }
         }
       }
+    }
+
+    // Now, delete all the died ants
+    for (int i = 0; i < ants_.size(); i++) {
+      // Erase ants with lifetime == 0
     }
   }
 
@@ -275,7 +278,7 @@ void Simulator::Export() {
   std::ofstream output_file{"output.txt"};
 
   // Line 1. Tape's size and number of colors
-  output_file << tape_.GetSizeX() << " " <<  tape_.GetSizeY() << " " << num_colors_ << std::endl;
+  output_file << tape_->GetSizeX() << " " <<  tape_->GetSizeY() << " " << num_colors_ << std::endl;
 
   // Line 2. Print to the output file all the ants
   for (size_t i = 0; i < ants_.size(); i++) {
@@ -305,9 +308,9 @@ void Simulator::Export() {
   output_file << std::endl;
 
   // Lines 3...n. Print all the non-white cells
-  for (int i = 0; i < tape_.GetSizeX(); i++) {
-    for (int j = 0; j < tape_.GetSizeY(); j++) {
-      int color_code = static_cast<int>(tape_.CheckColor(std::make_pair(i, j)));
+  for (int i = 0; i < tape_->GetSizeX(); i++) {
+    for (int j = 0; j < tape_->GetSizeY(); j++) {
+      int color_code = static_cast<int>(tape_->CheckColor(std::make_pair(i, j)));
       // Write only non-white cells (color != 0) to the file
       if (color_code != 0) {
         output_file << i << " " << j << " " << color_code << std::endl;
