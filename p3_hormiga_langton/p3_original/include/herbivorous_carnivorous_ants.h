@@ -19,7 +19,7 @@
 class CarnivorousAnt : public Ant {
   public: 
   // The carnivorous ant will have a lifetime of 15 once it is created
-    CarnivorousAnt(const Direction &direction, const std::pair<int, int> &position, int lifetime, int voracity) : Ant{direction, position, lifetime}, voracity_(voracity) {}
+    CarnivorousAnt(const Direction &direction, const std::pair<int, int> &position, int lifetime, double voracity) : Ant{direction, position, lifetime}, voracity_(voracity) {}
     
     double GetVoracity() const { return voracity_; }
     void IncreaseLifetime(int other_ant_lifetime);

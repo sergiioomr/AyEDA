@@ -167,7 +167,7 @@ void Simulator::PrintTapeAnt() {
   std::cout << std::endl;
 
   //Now, print the ants information
-  for(int i = 0; 0 < ants_.size(); i++) {
+  for(size_t i = 0; i < ants_.size(); i++) {
     std::cout << ants_[i]->GetType() << ": (" << ants_[i]->GetPosition().first << ", " << 
       ants_[i]->GetPosition().second << ") " << ants_[i]->GetLifeTime() << std::endl;
   }
@@ -228,9 +228,10 @@ void Simulator::Simulation() {
     }
 
     // Now, all the ants finish their movements. Check the collisions and change their lifetime. Remove the dead ants also
-    for (int i = 0; i < ants_.size(); i++) {
+    for (int i = ants_.size() - 1; i >= 0; i--) {
       if (ants_[i]->GetLifeTime() == 0) {
         // Erase ant and continue with the next
+        ants_.erase(ants_.begin() + 1);
         continue;
       }
 
@@ -240,7 +241,7 @@ void Simulator::Simulation() {
         herb_ant->IncreaseLifetime(static_cast<int>(tape_->CheckColor(herb_ant->GetPosition())));
       } else {
         // The ant is carnivorous, so will attack all the ants in its cell
-        for (int j = i + 1; j < ants_.size(); j++) {
+        for (size_t j = i + 1; j < ants_.size(); j++) {
           if (ants_[i]->GetPosition() == ants_[j]->GetPosition()) {
             // If they are in the same cell, increase ants_[i] lifetime and decreas ants_[j]
             ants_[i]->IncreaseLifetime(ants_[j]->GetLifeTime());
@@ -259,8 +260,9 @@ void Simulator::Simulation() {
     }
 
     // Now, delete all the died ants
-    for (int i = 0; i < ants_.size(); i++) {
+    for (size_t i = 0; i < ants_.size(); i++) {
       // Erase ants with lifetime == 0
+      ants_.erase(ants_.begin() + 1);
     }
   }
 

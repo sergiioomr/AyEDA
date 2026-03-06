@@ -34,6 +34,11 @@ class SlidingVector {
     int GetMaxIndex() const { return max_index_; }
     int GetSize() const { return slide_vector.size(); }
 
+    void resize(int new_size) {
+      slide_vector.resize(new_size);
+      max_index_ = min_index_ + new_size - 1;
+    }
+
     // [] overloading to acces the elements with range comprobation
     T& operator[] (int index) {
       if (index < min_index_  || index > max_index_) {

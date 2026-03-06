@@ -20,7 +20,7 @@
 
 
 int main(int argc, char* argv[]) {
-  Simulator simulator{argv[1]};
+  Simulator simulator{argv[1], argv[2]};
   simulator.Simulation(); 
   return 0;
 }

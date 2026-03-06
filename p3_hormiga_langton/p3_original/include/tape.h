@@ -14,9 +14,8 @@
 #define TAPE_H
 
 #include <iostream>
-#include <vector>
+#include <vector> 
 #include "../include/colors.h"
-#include "../include/ant.h"
 #include "../include/enum_class.h"
 #include "../include/sliding_vector.h"
 
@@ -39,6 +38,7 @@ class Tape {
 
 		void PrintCell(const std::pair<int, int> &position, const char symbol = ' ');
 
+		virtual ~Tape() = default;
 	protected:
 	// The size is protected. Each tape must be able to change its size.
 		int size_x_;

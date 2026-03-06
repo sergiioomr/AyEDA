@@ -16,7 +16,6 @@
 
 #include <iostream>
 #include <utility>
-#include "../include/tape.h"
 #include "../include/enum_class.h"
 
 
@@ -24,7 +23,7 @@
 class Ant {
 	public:
 	// Constructors
-		Ant() : direction_{0}, position_{} {} // Default
+		Ant() : direction_{0}, position_{}, lifetime_{} {} // Default
 		Ant(const Direction& direction, const std::pair<int, int>& position, int lifetime) 
 			: direction_(direction), position_(position), lifetime_(lifetime) {}
 

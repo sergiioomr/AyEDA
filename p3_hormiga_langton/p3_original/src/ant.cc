@@ -19,7 +19,7 @@
 void Ant::TurnLeft() {
   switch (direction_) {
     case Direction::DOWN : 
-      direction_ = Direction::RIGHT;
+      direction_ = Direction::RIGHT; 
       break;
     case Direction::UP : 
       direction_ = Direction::LEFT;

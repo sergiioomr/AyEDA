@@ -17,12 +17,11 @@
 
 #include <iostream>
 #include <vector>
-#include "../include/colors.h"
-#include "../include/enum_class.h"
 #include "../include/tape.h"
 
 class TapePeriodic : public Tape {
   public: 
+    TapePeriodic(const int size_x, const int size_y);
     Color CheckColor(const std::pair<int, int> &cell) const;
     void SetColor(const Color &color, const std::pair<int, int> &cell);
     std::pair<std::pair<int, int>, Direction> Reposition(const std::pair<int, int> &position, const Direction direction);
@@ -34,6 +33,7 @@ class TapePeriodic : public Tape {
 
 class TapeReflective : public Tape {
   public:
+    TapeReflective(const int size_x, const int size_y);
     Color CheckColor(const std::pair<int, int> &cell) const;
     void SetColor(const Color &color, const std::pair<int, int> &cell);
     std::pair<std::pair<int, int>, Direction> Reposition(const std::pair<int, int> &position, const Direction direction);
@@ -44,6 +44,7 @@ class TapeReflective : public Tape {
 
 class TapeSliding : public Tape {
   public:
+    TapeSliding(const int size_x, const int size_y);
     Color CheckColor(const std::pair<int, int> &cell) const;
     void SetColor(const Color &color, const std::pair<int, int> &cell);
     std::pair<std::pair<int, int>, Direction> Reposition(const std::pair<int, int> &position, const Direction direction);

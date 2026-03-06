@@ -46,13 +46,16 @@ src/main.cc
 src/ant.cc
 src/tape.cc
 src/simulator.cc
-src/ant_DDII.cc
-src/ant_IDID.cc
+src/herbivorous_carnivorous_ants.cc
+src/derived_ants.cc
+src/derived_tapes.cc
 include/ant.h
 include/tape.h
 include/simulator.h
-include/ant_DDII.h
-include/ant_IDID.h
+include/herbivorous_carnivorous_ants.h
+include/sliding_vector.h
+include/derived_ants.h
+include/derived_tapes.h
 )
 
 # Add expected compiler features to a target.

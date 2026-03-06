@@ -21,21 +21,24 @@
  * @return std::string 
  */
 std::string Tape::ColorToCode(const Color &color) {
+  std::string color_code;
   switch (color) {
-    case Color::WHITE_CELL : return BG_WHITE;
-    case Color::BLACK_CELL : return BG_BLACK;
-    case Color::RED_CELL : return BG_RED;
-    case Color::BLUE_CELL : return BG_BLUE;
-    case Color::GREEN_CELL : return BG_GREEN;
-    case Color::LBLUE_CELL : return BG_LBLUE;
-    case Color::LGRENN_CELL : return BG_LGREEN;
-    case Color::YELLOW_CELL : return BG_YELLOW;
-    case Color::CYAN_CELL : return BG_CYAN;
-    case Color::GRAY_CELL : return BG_GRAY;
-    case Color::ROSE_CELL : return BG_ROSE;
-    case Color::ORANGE_CELL : return BG_ORANGE;
-    case Color::MAGENTA_CELL: return BG_MAGENTA;
+    case Color::WHITE_CELL : color_code = BG_WHITE;
+    case Color::BLACK_CELL : color_code = BG_BLACK;
+    case Color::RED_CELL : color_code =  BG_RED;
+    case Color::BLUE_CELL : color_code =  BG_BLUE;
+    case Color::GREEN_CELL : color_code = BG_GREEN;
+    case Color::LBLUE_CELL : color_code = BG_LBLUE;
+    case Color::LGRENN_CELL : color_code = BG_LGREEN;
+    case Color::YELLOW_CELL : color_code = BG_YELLOW;
+    case Color::CYAN_CELL : color_code = BG_CYAN;
+    case Color::GRAY_CELL : color_code = BG_GRAY;
+    case Color::ROSE_CELL : color_code = BG_ROSE;
+    case Color::ORANGE_CELL : color_code = BG_ORANGE;
+    case Color::MAGENTA_CELL: color_code = BG_MAGENTA;
   }
+  
+  return color_code;
 }
 
 /**

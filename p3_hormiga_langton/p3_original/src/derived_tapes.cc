@@ -11,6 +11,37 @@
 
 #include "../include/derived_tapes.h"
 
+TapePeriodic::TapePeriodic(const int size_x, const int size_y) : Tape(size_x, size_y), grid_{} {
+  grid_.resize(size_x);
+  for (int i = 0; i < size_x; i++) {
+    grid_[i].resize(size_y);
+    for (int j = 0; j < size_y; j++) {
+      grid_[i][j] = Color::WHITE_CELL;
+    }
+  }
+}
+
+TapeReflective::TapeReflective(const int size_x, const int size_y) : Tape(size_x, size_y), grid_{} {
+  grid_.resize(size_x);
+  for (int i = 0; i < size_x; i++) {
+    grid_[i].resize(size_y);
+    for (int j = 0; j < size_y; j++) {
+      grid_[i][j] = Color::WHITE_CELL;
+    }
+  }
+}
+
+TapeSliding::TapeSliding(const int size_x, const int size_y) : Tape(size_x, size_y), grid_{} {
+  grid_.resize(size_x);
+  for (int i = 0; i < size_x; i++) {
+    grid_[i].resize(size_y);
+    for (int j = 0; j < size_y; j++) {
+      grid_[i][j] = Color::WHITE_CELL;
+    }
+  }
+}
+
+
 Color TapePeriodic::CheckColor(const std::pair<int, int> &cell) const {
   return grid_[cell.first][cell.second];
 }
@@ -66,12 +97,16 @@ std::pair<std::pair<int, int>, Direction> TapeReflective::Reposition(const std::
   switch (direction) {
         case Direction::UP: 
           new_direction = Direction::DOWN;
+          break;
         case Direction::DOWN: 
           new_direction = Direction::UP;
+          break;
         case Direction::LEFT: 
           new_direction = Direction::RIGHT;
+          break;
         case Direction::RIGHT:  
           new_direction = Direction::LEFT;
+          break;
     }
 
   // Now, change the position
