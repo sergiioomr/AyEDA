@@ -158,7 +158,13 @@ void Simulator::PrintTapeAnt() {
         // If there are many ants in the same cell, represent with an X
         tape_->PrintCell(std::make_pair(i, j), 'X');
       } else {
-        tape_->PrintCell(std::make_pair(i, j), color_code);
+        if (color_code == 0) {
+          // Print without number in the cell
+          tape_->PrintCell(std::make_pair(i, j), ' ');
+        } else {
+          char char_color_code = color_code + '0';
+          tape_->PrintCell(std::make_pair(i, j), char_color_code);
+        }
       }
     }
     std::cout << std::endl;
@@ -206,6 +212,7 @@ void Simulator::Simulation() {
 
         // Now, the ant makes the step
         ants_[i]->Step(color);
+        ants_[i]->Decrease1Lifetime();
         
         // Verify if the ant is on the tape. If it went out of the limits, stop the simulation
         if (ants_[i]->GetPosition().first < 0 || 
@@ -218,20 +225,11 @@ void Simulator::Simulation() {
         }
       }
 
-      continue;
-    } else  if (answer == 'S' || answer == 's') {
-      Export();
-      std::cout << "File exported" << std::endl;
-      break;
-    } else {
-      std::cout << "ERROR: incorrect option, try again" << std::endl;
-    }
-
-    // Now, all the ants finish their movements. Check the collisions and change their lifetime. Remove the dead ants also
+          // Now, all the ants finish their movements. Check the collisions and change their lifetime. Remove the dead ants also
     for (int i = ants_.size() - 1; i >= 0; i--) {
       if (ants_[i]->GetLifeTime() == 0) {
         // Erase ant and continue with the next
-        ants_.erase(ants_.begin() + 1);
+        ants_.erase(ants_.begin() + i);
         continue;
       }
 
@@ -262,10 +260,17 @@ void Simulator::Simulation() {
     // Now, delete all the died ants
     for (size_t i = 0; i < ants_.size(); i++) {
       // Erase ants with lifetime == 0
-      ants_.erase(ants_.begin() + 1);
+      ants_.erase(ants_.begin() + i);
+    }
+    
+    } else  if (answer == 'S' || answer == 's') {
+      Export();
+      std::cout << "File exported" << std::endl;
+      break;
+    } else {
+      std::cout << "ERROR: incorrect option, try again" << std::endl;
     }
   }
-
 }
 
 /**

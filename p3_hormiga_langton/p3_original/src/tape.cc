@@ -23,19 +23,45 @@
 std::string Tape::ColorToCode(const Color &color) {
   std::string color_code;
   switch (color) {
-    case Color::WHITE_CELL : color_code = BG_WHITE;
-    case Color::BLACK_CELL : color_code = BG_BLACK;
-    case Color::RED_CELL : color_code =  BG_RED;
-    case Color::BLUE_CELL : color_code =  BG_BLUE;
-    case Color::GREEN_CELL : color_code = BG_GREEN;
-    case Color::LBLUE_CELL : color_code = BG_LBLUE;
-    case Color::LGRENN_CELL : color_code = BG_LGREEN;
-    case Color::YELLOW_CELL : color_code = BG_YELLOW;
-    case Color::CYAN_CELL : color_code = BG_CYAN;
-    case Color::GRAY_CELL : color_code = BG_GRAY;
-    case Color::ROSE_CELL : color_code = BG_ROSE;
-    case Color::ORANGE_CELL : color_code = BG_ORANGE;
-    case Color::MAGENTA_CELL: color_code = BG_MAGENTA;
+    case Color::WHITE_CELL : 
+      color_code = BG_WHITE;
+      break;
+    case Color::BLACK_CELL : 
+      color_code = BG_BLACK;
+      break;
+    case Color::RED_CELL : 
+      color_code =  BG_RED;
+      break;
+    case Color::BLUE_CELL : 
+      color_code =  BG_BLUE;
+      break;
+    case Color::GREEN_CELL : 
+      color_code = BG_GREEN;
+      break;
+    case Color::LBLUE_CELL : 
+      color_code = BG_LBLUE;
+      break;
+    case Color::LGRENN_CELL : 
+      color_code = BG_LGREEN;
+      break;
+    case Color::YELLOW_CELL : 
+      color_code = BG_YELLOW;
+      break;
+    case Color::CYAN_CELL : 
+      color_code = BG_CYAN;
+      break;
+    case Color::GRAY_CELL : 
+      color_code = BG_GRAY;
+      break;
+    case Color::ROSE_CELL : 
+      color_code = BG_ROSE;
+      break;
+    case Color::ORANGE_CELL : 
+      color_code = BG_ORANGE;
+      break;
+    case Color::MAGENTA_CELL: 
+      color_code = BG_MAGENTA;
+      break;
   }
   
   return color_code;

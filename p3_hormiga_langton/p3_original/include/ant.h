@@ -37,6 +37,7 @@ class Ant {
 	// Setters
 		void SetDirection(const Direction direction) {direction_ = direction; }
 		void SetPosition(const std::pair<int, int> &position) {position_ = position; }
+		void Decrease1Lifetime() {lifetime_ -= 1; }
 
 		virtual void Step(const Color &color) = 0;
 		virtual void IncreaseLifetime(int amount) = 0;

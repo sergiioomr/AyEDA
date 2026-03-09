@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/ant.cc" "CMakeFiles/langton.dir/src/ant.cc.o" "gcc" "CMakeFiles/langton.dir/src/ant.cc.o.d"
-  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/derived_ants.cc" "CMakeFiles/langton.dir/src/derived_ants.cc.o" "gcc" "CMakeFiles/langton.dir/src/derived_ants.cc.o.d"
-  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/derived_tapes.cc" "CMakeFiles/langton.dir/src/derived_tapes.cc.o" "gcc" "CMakeFiles/langton.dir/src/derived_tapes.cc.o.d"
-  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/herbivorous_carnivorous_ants.cc" "CMakeFiles/langton.dir/src/herbivorous_carnivorous_ants.cc.o" "gcc" "CMakeFiles/langton.dir/src/herbivorous_carnivorous_ants.cc.o.d"
-  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/main.cc" "CMakeFiles/langton.dir/src/main.cc.o" "gcc" "CMakeFiles/langton.dir/src/main.cc.o.d"
-  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/simulator.cc" "CMakeFiles/langton.dir/src/simulator.cc.o" "gcc" "CMakeFiles/langton.dir/src/simulator.cc.o.d"
-  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/tape.cc" "CMakeFiles/langton.dir/src/tape.cc.o" "gcc" "CMakeFiles/langton.dir/src/tape.cc.o.d"
+  "/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/ant.cc" "CMakeFiles/langton.dir/src/ant.cc.o" "gcc" "CMakeFiles/langton.dir/src/ant.cc.o.d"
+  "/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/derived_ants.cc" "CMakeFiles/langton.dir/src/derived_ants.cc.o" "gcc" "CMakeFiles/langton.dir/src/derived_ants.cc.o.d"
+  "/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/derived_tapes.cc" "CMakeFiles/langton.dir/src/derived_tapes.cc.o" "gcc" "CMakeFiles/langton.dir/src/derived_tapes.cc.o.d"
+  "/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/herbivorous_carnivorous_ants.cc" "CMakeFiles/langton.dir/src/herbivorous_carnivorous_ants.cc.o" "gcc" "CMakeFiles/langton.dir/src/herbivorous_carnivorous_ants.cc.o.d"
+  "/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/main.cc" "CMakeFiles/langton.dir/src/main.cc.o" "gcc" "CMakeFiles/langton.dir/src/main.cc.o.d"
+  "/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/simulator.cc" "CMakeFiles/langton.dir/src/simulator.cc.o" "gcc" "CMakeFiles/langton.dir/src/simulator.cc.o.d"
+  "/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/tape.cc" "CMakeFiles/langton.dir/src/tape.cc.o" "gcc" "CMakeFiles/langton.dir/src/tape.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

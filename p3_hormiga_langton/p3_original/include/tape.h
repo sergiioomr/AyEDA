@@ -36,16 +36,13 @@ class Tape {
 		virtual void SetColor(const Color &color, const std::pair<int, int> &cell) = 0;
 		virtual std::pair<std::pair<int, int>, Direction> Reposition(const std::pair<int, int> &position, const Direction direction) = 0;
 
-		void PrintCell(const std::pair<int, int> &position, const char symbol = ' ');
+		virtual void PrintCell(const std::pair<int, int> &position, const char symbol = ' ');
 
 		virtual ~Tape() = default;
 	protected:
 	// The size is protected. Each tape must be able to change its size.
 		int size_x_;
 		int size_y_;
-
-	private:
-		// The grid will be implemented in every derived class, because all they don't use the same data structure
 		std::string ColorToCode(const Color &color);
 };
 
