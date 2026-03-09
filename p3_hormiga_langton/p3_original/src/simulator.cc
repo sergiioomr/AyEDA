@@ -174,8 +174,8 @@ void Simulator::PrintTapeAnt() {
 
   //Now, print the ants information
   for(size_t i = 0; i < ants_.size(); i++) {
-    std::cout << ants_[i]->GetType() << ": (" << ants_[i]->GetPosition().first << ", " << 
-      ants_[i]->GetPosition().second << ") " << ants_[i]->GetLifeTime() << std::endl;
+    std::cout << ants_[i]->GetType() << ": (" << ants_[i]->GetPosition().first + 1 << ", " << 
+      ants_[i]->GetPosition().second + 1 << ") " << ants_[i]->GetLifeTime() << std::endl;
   }
 }
 
@@ -225,11 +225,12 @@ void Simulator::Simulation() {
         }
       }
 
+
+
           // Now, all the ants finish their movements. Check the collisions and change their lifetime. Remove the dead ants also
-    for (int i = ants_.size() - 1; i >= 0; i--) {
+    for (size_t i = 0; i < ants_.size(); i++) {
       if (ants_[i]->GetLifeTime() == 0) {
-        // Erase ant and continue with the next
-        ants_.erase(ants_.begin() + i);
+        std::cout << "Ant type:" << ants_[i]->GetType() << " has died" << std::endl;
         continue;
       }
 
@@ -239,12 +240,21 @@ void Simulator::Simulation() {
         herb_ant->IncreaseLifetime(static_cast<int>(tape_->CheckColor(herb_ant->GetPosition())));
       } else {
         // The ant is carnivorous, so will attack all the ants in its cell
-        for (size_t j = i + 1; j < ants_.size(); j++) {
+        for (size_t j = 0; j < ants_.size(); j++) {
+          if (ants_[j]->GetLifeTime() == 0) {
+            continue;
+          }
+
+          if (ants_[i] == ants_[j]) {
+            continue; // Skip if they are the same ant
+          }
+
           if (ants_[i]->GetPosition() == ants_[j]->GetPosition()) {
             // If they are in the same cell, increase ants_[i] lifetime and decreas ants_[j]
             ants_[i]->IncreaseLifetime(ants_[j]->GetLifeTime());
             CarnivorousAnt* carnv_ant = dynamic_cast<CarnivorousAnt*>(ants_[i].get());
             ants_[j]->DecreaseLifetime(carnv_ant->GetVoracity());
+            std::cout << "Ant type: " << ants_[i]->GetType() << " attack to ant type: " << ants_[j]->GetType() << std::endl;
             // Now, if the ant j is carnivorous, attack the ant i
             if (ants_[j]->GetCategory() == 'C') {
               CarnivorousAnt* other_carnv_ant = dynamic_cast<CarnivorousAnt*>(ants_[j].get());
@@ -260,8 +270,12 @@ void Simulator::Simulation() {
     // Now, delete all the died ants
     for (size_t i = 0; i < ants_.size(); i++) {
       // Erase ants with lifetime == 0
-      ants_.erase(ants_.begin() + i);
+      if (ants_[i]->GetLifeTime() == 0) {
+        ants_.erase(ants_.begin() + i);
+        std::cout << "Ant type:" << ants_[i]->GetType() << " has died" << std::endl;
+      }
     }
+
     
     } else  if (answer == 'S' || answer == 's') {
       Export();

@@ -1,7 +1,7 @@
 CMakeFiles/langton.dir/src/ant.cc.o: \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/ant.cc \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/ant.cc \
  /usr/include/stdc-predef.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/ant.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/../include/ant.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -152,4 +152,4 @@ CMakeFiles/langton.dir/src/ant.cc.o: \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/utility \
  /usr/include/c++/13/bits/stl_relops.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/enum_class.h
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/enum_class.h
