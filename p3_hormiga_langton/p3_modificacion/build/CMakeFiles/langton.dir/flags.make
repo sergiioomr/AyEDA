@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src
+CXX_INCLUDES = -I/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src
 
 CXX_FLAGS = -std=gnu++17 -Wall -Wextra -Wpedantic -Weffc++
 

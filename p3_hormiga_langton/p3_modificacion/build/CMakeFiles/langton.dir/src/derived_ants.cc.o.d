@@ -1,9 +1,9 @@
 CMakeFiles/langton.dir/src/derived_ants.cc.o: \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/derived_ants.cc \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/derived_ants.cc \
  /usr/include/stdc-predef.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/derived_ants.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/herbivorous_carnivorous_ants.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/ant.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/derived_ants.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/herbivorous_carnivorous_ants.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/ant.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -154,7 +154,7 @@ CMakeFiles/langton.dir/src/derived_ants.cc.o: \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/utility \
  /usr/include/c++/13/bits/stl_relops.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/../include/enum_class.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/../include/enum_class.h \
  /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \

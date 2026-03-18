@@ -1,8 +1,8 @@
 CMakeFiles/langton.dir/src/simulator.cc.o: \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/simulator.cc \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/simulator.cc \
  /usr/include/stdc-predef.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/simulator.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/ant.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/simulator.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/ant.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -153,19 +153,19 @@ CMakeFiles/langton.dir/src/simulator.cc.o: \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/utility \
  /usr/include/c++/13/bits/stl_relops.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/../include/enum_class.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/tape.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/../include/enum_class.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/tape.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/../include/colors.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/../include/sliding_vector.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/colors.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/enum_class.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/derived_ants.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/herbivorous_carnivorous_ants.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/../include/ant.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/../include/colors.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/../include/sliding_vector.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/colors.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/enum_class.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/derived_ants.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/herbivorous_carnivorous_ants.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/../include/ant.h \
  /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -189,8 +189,8 @@ CMakeFiles/langton.dir/src/simulator.cc.o: \
  /usr/include/c++/13/tr1/poly_hermite.tcc \
  /usr/include/c++/13/tr1/poly_laguerre.tcc \
  /usr/include/c++/13/tr1/riemann_zeta.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/derived_tapes.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/../include/tape.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/derived_tapes.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_modificacion/src/../include/../include/../include/tape.h \
  /usr/include/c++/13/fstream /usr/include/c++/13/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \

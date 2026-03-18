@@ -287,7 +287,6 @@ void Simulator::Simulation() {
         // Get the current color of the ant's cell
         Color color = tape_->CheckColor(ants_[i]->GetPosition());
 
-        std::cout << "color checkeado" <<  std::endl;
         // Change the cell color before the ant moves
         int current_cell_color_code = static_cast<int>(color);
         int next_color_code = (current_cell_color_code + 1) % num_colors_;
@@ -296,20 +295,16 @@ void Simulator::Simulation() {
 
         // Now, the ant makes the step
         ants_[i]->Step(color);
-        std::cout << "Step hecho" << std::endl;
+
         // For every step, the ant must decrement in one its lifetime
         ants_[i]->Decrease1Lifetime();
-        std::cout << "vida decrementada" << std::endl;
-        // Verify if the ant is on the tape. If it went out of the limits, change their position using the tape rules
-        //while (OutOfLimits(i)) {
-              std::cout << "dentro del if" << std::endl;
-              std::pair<std::pair<int, int>, Direction> new_ant_data = tape_->Reposition(ants_[i]->GetPosition(), ants_[i]->GetDirection());
-              std::cout << "coordenadas recolocadas" << std::endl;
-              ants_[i]->SetDirection(new_ant_data.second);
-              ants_[i]->SetPosition(new_ant_data.first);
-        //}
-        std::cout << "limites comprobados" << std::endl;
+
+        // Change te coordinates of the ant if its needed. If not, Reposition will return the current coordinates
+        std::pair<std::pair<int, int>, Direction> new_ant_data = tape_->Reposition(ants_[i]->GetPosition(), ants_[i]->GetDirection());
+        ants_[i]->SetDirection(new_ant_data.second);
+        ants_[i]->SetPosition(new_ant_data.first);
       }
+
       // Now, all the ants finish their movements. Check the collisions and change their lifetime. Remove the dead ants also
       ApplyAntRules();
 
@@ -340,7 +335,7 @@ void Simulator::Export() {
   output_file << tape_->GetSizeX() << " " <<  tape_->GetSizeY() << " " << num_colors_ << std::endl;
 
   // Line 2. Print to the output file all the ants
-  for (size_t i = 0; i < ants_.size(); i++) {
+  for (size_t i = tape_->GetMinX(); i < ants_.size(); i++) {
     // First get the character of the ant orientation
     char ant_symbol;
     switch (ants_[i]->GetDirection()) {
@@ -367,12 +362,12 @@ void Simulator::Export() {
   output_file << std::endl;
 
   // Lines 3...n. Print all the non-white cells
-  for (int i = 0; i < tape_->GetSizeX(); i++) {
-    for (int j = 0; j < tape_->GetSizeY(); j++) {
+  for (int i = tape_->GetMinX(); i < tape_->GetSizeX() + tape_->GetMinX(); i++) {
+    for (int j = tape_->GetMinY(); j < tape_->GetSizeY() + tape_->GetMinY(); j++) {
       int color_code = static_cast<int>(tape_->CheckColor(std::make_pair(i, j)));
       // Write only non-white cells (color != 0) to the file
       if (color_code != 0) {
-        output_file << i << " " << j << " " << color_code << std::endl;
+        output_file << i - tape_->GetMinX() << " " << j - tape_->GetMinY() << " " << color_code << std::endl;
       }
     }
   }

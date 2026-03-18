@@ -35,6 +35,8 @@ class Simulator {
     void ApplyAntRules();
     void EraseDiedAnts();
     bool OutOfLimits(const int ant_position);
+    void MakeNewAnts(std::vector<std::unique_ptr<Ant>> &new_born_ants);
+    void AddNewBornAnts(std::vector<std::unique_ptr<Ant>> &new_born_ants);
     void Simulation();
 
   private:

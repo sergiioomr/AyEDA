@@ -1,7 +1,7 @@
 CMakeFiles/langton.dir/src/tape.cc.o: \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/tape.cc \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/tape.cc \
  /usr/include/stdc-predef.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/tape.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/../include/tape.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -155,6 +155,6 @@ CMakeFiles/langton.dir/src/tape.cc.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/colors.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/enum_class.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/sliding_vector.h
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/colors.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/enum_class.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p3_hormiga_langton/p3_original/src/../include/../include/sliding_vector.h
