@@ -14,9 +14,10 @@
 
 #ifndef DISPERSION_FUNCTION_H
 #define DISPERSION_FUNCTION_H
+#include <cstdlib>
 
 // Abstract base class for dispertion functions
-template<typename Key>
+template<class Key>
 class DispersionFunction {
   public:
     virtual unsigned operator()(const &Key) const = 0;
@@ -24,16 +25,14 @@ class DispersionFunction {
 };
 
 // Derivated class for module dispersion function
-template<typename Key>
+template<class Key>
 class ModuleDispersionFunction : public DispersionFunction<Key> {
   public:
     ModuleDispersionFunction(const unsigned table_size) : table_size_(table_size) {}
 
     virtual unsigned operator()(const &Key) const override {
-
-
-      // Function code
-
+      
+      return k % table_size_;
 
     }
   private:
@@ -41,17 +40,21 @@ class ModuleDispersionFunction : public DispersionFunction<Key> {
 };
 
 // Derivated class for sum dispersion function
-template<typename Key>
+template<class Key>
 class SumDispersionFunction : public DispersionFunction<Key> {
   public:
     SumDispersionFunction(const unsigned table_size) : table_size_(table_size) {}
 
     virtual unsigned operator()(const &Key) const override {
       
-      
-      // Function code
+      int sum = 0;
+      unsigned value = k;
+      while (value > 0) {
+        sum += sum % 10;
+        value = value / 10;
+      }
 
-
+      return (sum % table_size_);
     }
 
   private:
@@ -61,16 +64,15 @@ class SumDispersionFunction : public DispersionFunction<Key> {
 
 
 // Derivated class for pseudo random dispersion function
-template<typename Key> 
+template<class Key> 
 class PseudoRandomDispersionFunction : public DispersionFunction {
   public:
     PseudoRandomDispersionFunction(const unsigned table_size) : table_size_(table_size) {}
     
     virtual unsigned operator()(const &Key) const override {
 
-
-      // Function code
-      
+      srand(k);
+      return rand() % table_size_;
 
     }
 

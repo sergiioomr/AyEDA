@@ -12,7 +12,7 @@
  *        That classes will be used to transform the keys into integer index to the table, and implements two differents ways to do it. 
  */
 
-template<typename Key>
+template<class Key>
 class ExplorationFunction {
   public:
     virtual unsigned operator()(const &Key, unsigned) const = 0;
@@ -20,7 +20,7 @@ class ExplorationFunction {
 };
 
 
-template<typename Key>
+template<class Key>
 class LinearExploration : public ExplorationFunction {
   public:
 
@@ -28,7 +28,7 @@ class LinearExploration : public ExplorationFunction {
 };
 
 
-template<typename Key>
+template<class Key>
 class QuadraticExploration : public ExplorationFunction {
   public:
 
@@ -36,7 +36,7 @@ class QuadraticExploration : public ExplorationFunction {
 };
 
 
-template<typename Key>
+template<class Key>
 class DoubleExploration : public ExplorationFunction {
   public:
 
@@ -44,7 +44,7 @@ class DoubleExploration : public ExplorationFunction {
 };
 
 
-template<typename Key>
+template<class Key>
 class RehashingExploration : public ExplorationFunction {
   public:
 
