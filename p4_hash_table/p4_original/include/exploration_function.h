@@ -12,6 +12,11 @@
  *        That classes will be used to transform the keys into integer index to the table, and implements two differents ways to do it. 
  */
 
+#ifndef EXPLORATION_FUNCTION_H
+#define EXPLORATION_FUNCTION_H
+
+#include "dispersion_function.h"
+
 template<class Key>
 class ExplorationFunction {
   public:
@@ -23,30 +28,55 @@ class ExplorationFunction {
 template<class Key>
 class LinearExploration : public ExplorationFunction {
   public:
+    virtual unsigned operator()(const Key &k, unsigned i) const override {
 
-  private:
+      return i;
+
+    }
 };
 
 
 template<class Key>
 class QuadraticExploration : public ExplorationFunction {
   public:
+    virtual unsigned operator()(const Key &k, unsigned i) const override {
 
-  private:
+      return i * i;
+
+    }
 };
 
 
 template<class Key>
 class DoubleExploration : public ExplorationFunction {
   public:
+    DoubleExploration<Key>(ExplorationFunction<Key> *fd) : fd_(fd) {}  
+
+    virtual unsigned operator()(const Key &k, unsigned i) const override {
+      return fd_(k) * i;
+    }
 
   private:
+    ExplorationFunction<Key> *fd_;
 };
 
 
 template<class Key>
 class RehashingExploration : public ExplorationFunction {
   public:
+    RehashingExploration<Key>(ExplorationFunction<Key> *fd) : fd_(fd) {}
+    unsigned operator()(const Key &k, unsigned i) const override {
+      srand(k);
+      unsigned result = 0;
+      for (int j = 0; j < i; j++) {
+        result = (*fd_)(rand());
+      }
+
+      return result;
+    }
 
   private:
+    ExplorationFunction<Key> *fd_
 };
+
+#endif // EXPLORATION_FUNCTION_H
