@@ -28,9 +28,9 @@ class HashTable : public Sequence<Key> {
     }
 
     bool search(const Key &k) const override {
-
+      
     }
-
+  
     bool insert(const Key &k) override {
 
     }

@@ -30,17 +30,26 @@ template<class Key>
 class DynamicSequence : Sequence<Key> {
   public:
     DynamicSequence() {}
-    virtual bool search(const &Key k) const override {
+    virtual bool search(const Key &k) const override {
 
-      // Function code
+      for (const auto &elem : data_) {
+        if (elem == k) {
+          return true;
+        }
+        return false;
+      }
 
     }
 
-    virtual bool insert(const &Key k) override {
+    virtual bool insert(const Key &k) override {
 
-      //Function code
-
+      if (!search(k)) {
+        data_.push_back(k);
+        return true;
+      }
+      return false;
     }
+
   private:
     std::list<Key> data_;
 };
@@ -51,20 +60,28 @@ class StaticSequence : Sequence<Key> {
   public:
     StaticSequence(const unsigned block_size) : block_size_(block_size) {}
   
-    virtual bool search(const &Key k) const override {
+    virtual bool search(const Key &k) const override {
 
-      // function code
+      for (int i = 0; i < data_)
+        if (data_[i] == k) {
+          return true;
+        }
+        return false;
 
     }
 
-    virtual bool insert(const &Key k) override {
+    virtual bool insert(const Key &k) override {
 
-      // Function code
-
+      if ((!IsFull()) && (!search(k))) {
+        data_.push_back(k);
+        return true;
+      }
+      
+      return false;
     }
 
     virtual bool IsFull() const {
-      
+      return data_.size() >= block_size_;
     }
 
   private:
