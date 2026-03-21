@@ -16,55 +16,61 @@
 #include "dispersion_function.h"
 #include "sequence.h"
 #include "exploration_function.h"
+#include <vector>
 
-template<class Key, class container=StaticSequence<Key>>
+template<class Key, class Container=StaticSequence<Key>>
 class HashTable : public Sequence<Key> {
   public:
     HashTable(unsigned table_size, DispersionFunction<Key>& fd, ExplorationFunction<Key>& fe, unsigned block_size) 
     : table_size_(table_size), fd_(fd), fe_(fe), block_size_(block_size) {
       for (int i = 0; i < table_size_; i++) {
-        table_.push_back(new Container(block_size_))
+        table_[i] = new Container(block_size);
       }
     }
 
     bool search(const Key &k) const override {
-      
+      unsigned index = fd_(k) % table_size_;
+      return table_[index]->search(k);
     }
   
     bool insert(const Key &k) override {
-
+      unsigned index = fd_(k) % table_size_;
+      return table_[index]->insert(k);
     }
     
   private:
     unsigned table_size_;
     // Vector of container pointers. Containers will be the static sequence
-    std::vector<Container*> table_;
+    Container** table_;
     DispersionFunction<Key> &fd_;
     ExplorationFunction<Key> &fe_;
     unsigned block_size_;
 
 };
 
-template<class Key, class containter=DynamicSequence<Key>>
+template<class Key, class Containter=DynamicSequence<Key>>
 class HashTable : public Sequence<Key> {
   public:
     HashTable(unsigned table_size, DispersionFunction<Key>& fd) : table_size_(table_size), fd_(fd) {
       for (int i = 0; i < table_size_; i++) {
-        table_.push_back(new Container());
+        table_[i] = new Containter();
       }
     }
 
     bool search(const Key &k) const override {
-
+      unsigned index = fd_(k) % table_size_;
+      return table_[index]->search(k);
     }
 
     bool insert(const Key &k) override {
-
+      unsigned index = fd_(k) & table_size_;
+      return table_[index]->insert(k);
     }
+    
   private:
     unsinged table_size_;
     // Vector of container pointers. Contairners will be the dynamic sequence
-    std::vector<Container*> table_;
+    Container** table_;
     DispersionFunction<Key> &fd_;
 };
 
