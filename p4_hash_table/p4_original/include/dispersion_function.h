@@ -65,7 +65,7 @@ class SumDispersionFunction : public DispersionFunction<Key> {
 
 // Derivated class for pseudo random dispersion function
 template<class Key> 
-class PseudoRandomDispersionFunction : public DispersionFunction {
+class PseudoRandomDispersionFunction : public DispersionFunction<Key> {
   public:
     PseudoRandomDispersionFunction(const unsigned table_size) : table_size_(table_size) {}
     

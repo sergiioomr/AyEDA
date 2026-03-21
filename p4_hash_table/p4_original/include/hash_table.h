@@ -23,19 +23,56 @@ class HashTable : public Sequence<Key> {
   public:
     HashTable(unsigned table_size, DispersionFunction<Key>& fd, ExplorationFunction<Key>& fe, unsigned block_size) 
     : table_size_(table_size), fd_(fd), fe_(fe), block_size_(block_size) {
-      for (int i = 0; i < table_size_; i++) {
+      table_ = new Container*[table_size_];
+      for (unsigned i = 0; i < table_size_; i++) {
         table_[i] = new Container(block_size);
       }
     }
 
+    ~HashTable() {
+      for (unsigned i = 0; i < table_size_; i++) {
+        delete table_[i];
+      }
+      delete[] table_;
+    }
+
     bool search(const Key &k) const override {
-      unsigned index = fd_(k) % table_size_;
-      return table_[index]->search(k);
+      unsigned index = fd_(k);
+      for (unsigned i = 0; i < table_size_; i++) {
+        // If the key is found in the vector of the position calculated with the distribution function, return true
+        if (table_[index]->search(k)) {
+          return true;
+        }
+        // If the vector of the position calculated with the fd is not full, and the key is not in the vector, that implies the key is not in the table
+        if (!table_[index]->IsFull()) {
+          return false;
+        }
+        // If the key has not been founded, then, recalculate the position to search using the exploration function
+        index = (fd_(k) + fe_(k, i)) % table_size_;
+      }
+      return false;
     }
   
     bool insert(const Key &k) override {
-      unsigned index = fd_(k) % table_size_;
-      return table_[index]->insert(k);
+      unsigned index = fd_(k);
+      for (unsigned i = 0; i < table_size_; i++) {
+        // If the key is found in the vector of the position calculated with the fd, return false, not insert duplicates
+        if (table_[index]->search(k)) {
+          return false;
+        }
+
+        // If the vector is not full, and the key has not been founded, insert
+        if (!table_[index]->IsFull()) {
+          table_[index]->insert(k);
+          return true;
+        }
+
+        // If the vector is full, recalculates the position with the fe, and try insert again in the next iteration
+        index = (fd_(k) + fe_(k, i)) % table_size_;
+      }
+
+      // If the can't been added, return false
+      return false;
     }
     
   private:
@@ -48,29 +85,37 @@ class HashTable : public Sequence<Key> {
 
 };
 
-template<class Key, class Containter=DynamicSequence<Key>>
-class HashTable : public Sequence<Key> {
+template<class Key>
+class HashTable<Key, DynamicSequence<Key>> : public Sequence<Key> {
   public:
     HashTable(unsigned table_size, DispersionFunction<Key>& fd) : table_size_(table_size), fd_(fd) {
-      for (int i = 0; i < table_size_; i++) {
-        table_[i] = new Containter();
+      table_ = new DynamicSequence<Key>*[table_size_];
+      for (unsigned i = 0; i < table_size_; i++) {
+        table_[i] = new DynamicSequence<Key>();
       }
     }
 
+    ~HashTable() {
+      for (unsigned i = 0; i < table_size_; i++) {
+        delete table_[i];
+      }
+      delete[] table_;
+    }
+
     bool search(const Key &k) const override {
-      unsigned index = fd_(k) % table_size_;
+      unsigned index = fd_(k);
       return table_[index]->search(k);
     }
 
     bool insert(const Key &k) override {
-      unsigned index = fd_(k) & table_size_;
+      unsigned index = fd_(k);
       return table_[index]->insert(k);
     }
     
   private:
-    unsinged table_size_;
+    unsigned table_size_;
     // Vector of container pointers. Contairners will be the dynamic sequence
-    Container** table_;
+    DynamicSequence<Key>** table_;
     DispersionFunction<Key> &fd_;
 };
 

@@ -20,13 +20,13 @@
 template<class Key>
 class ExplorationFunction {
   public:
-    virtual unsigned operator()(const &Key, unsigned) const = 0;
+    virtual unsigned operator()(const Key &k, unsigned i) const = 0;
     virtual ~ExplorationFunction() {}
 };
 
 
 template<class Key>
-class LinearExploration : public ExplorationFunction {
+class LinearExploration : public ExplorationFunction<Key> {
   public:
     virtual unsigned operator()(const Key &k, unsigned i) const override {
 
@@ -37,7 +37,7 @@ class LinearExploration : public ExplorationFunction {
 
 
 template<class Key>
-class QuadraticExploration : public ExplorationFunction {
+class QuadraticExploration : public ExplorationFunction<Key> {
   public:
     virtual unsigned operator()(const Key &k, unsigned i) const override {
 
@@ -48,9 +48,9 @@ class QuadraticExploration : public ExplorationFunction {
 
 
 template<class Key>
-class DoubleExploration : public ExplorationFunction {
+class DoubleExploration : public ExplorationFunction<Key> {
   public:
-    DoubleExploration<Key>(ExplorationFunction<Key> *fd) : fd_(fd) {}  
+    DoubleExploration<Key>(DispersionFunction<Key> *fd) : fd_(fd) {}  
 
     virtual unsigned operator()(const Key &k, unsigned i) const override {
       return fd_(k) * i;
@@ -62,9 +62,9 @@ class DoubleExploration : public ExplorationFunction {
 
 
 template<class Key>
-class RehashingExploration : public ExplorationFunction {
+class RehashingExploration : public ExplorationFunction<Key> {
   public:
-    RehashingExploration<Key>(ExplorationFunction<Key> *fd) : fd_(fd) {}
+    RehashingExploration<Key>(DispersionFunction<Key> *fd) : fd_(fd) {}
     unsigned operator()(const Key &k, unsigned i) const override {
       srand(k);
       unsigned result = 0;
@@ -76,7 +76,7 @@ class RehashingExploration : public ExplorationFunction {
     }
 
   private:
-    ExplorationFunction<Key> *fd_
+    ExplorationFunction<Key> *fd_;
 };
 
 #endif // EXPLORATION_FUNCTION_H
