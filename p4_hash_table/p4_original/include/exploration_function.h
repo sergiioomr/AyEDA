@@ -53,11 +53,11 @@ class DoubleExploration : public ExplorationFunction<Key> {
     DoubleExploration<Key>(DispersionFunction<Key> *fd) : fd_(fd) {}  
 
     virtual unsigned operator()(const Key &k, unsigned i) const override {
-      return fd_(k) * i;
+      return (*fd_)(k) * i;
     }
 
   private:
-    ExplorationFunction<Key> *fd_;
+    DispersionFunction<Key> *fd_;
 };
 
 
@@ -68,7 +68,7 @@ class RehashingExploration : public ExplorationFunction<Key> {
     unsigned operator()(const Key &k, unsigned i) const override {
       srand(k);
       unsigned result = 0;
-      for (int j = 0; j < i; j++) {
+      for (unsigned j = 0; j < i; j++) {
         result = (*fd_)(rand());
       }
 
@@ -76,7 +76,7 @@ class RehashingExploration : public ExplorationFunction<Key> {
     }
 
   private:
-    ExplorationFunction<Key> *fd_;
+    DispersionFunction<Key> *fd_;
 };
 
 #endif // EXPLORATION_FUNCTION_H

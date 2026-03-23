@@ -13,6 +13,7 @@
 #define SEQUENCE_H
 
 #include <list>
+#include <vector>
 
 template<typename Key>
 class Sequence {
@@ -38,7 +39,7 @@ class DynamicSequence : Sequence<Key> {
         }
         return false;
       }
-
+      return false;
     }
 
     virtual bool insert(const Key &k) override {
@@ -62,12 +63,14 @@ class StaticSequence : Sequence<Key> {
   
     virtual bool search(const Key &k) const override {
 
-      for (int i = 0; i < data_)
+      for (unsigned i = 0; i < data_.size(); i++) {
         if (data_[i] == k) {
           return true;
         }
         return false;
+      }
 
+      return false;
     }
 
     virtual bool insert(const Key &k) override {
