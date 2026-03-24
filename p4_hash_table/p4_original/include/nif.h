@@ -6,25 +6,34 @@
  * @file nif.h
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-03-21
- * @brief 
+ * @brief Declares a class to represent a NIF. 
  */
 
 #ifndef NIF_H
 #define NIF_H
 
+#include <exception>
 #include <cstdlib>
+#include <iomanip>
 
 class Nif {
   public:
     Nif() : value_(rand() % 100000000) {} 
 
-    // COMPROBAR QUE TIENE OTRO DÍGITO
-    Nif(long value) : value_(value) {}
+    
+    Nif(long value) {
+      if (value < 0 || value > 99999999) {
+        throw std::invalid_argument("The NIF must be an 8 digits number");
+      }
+      value_ = value;
+    }
 
+    // Operator== overload. Allows to compare NIFs
     bool operator==(const Nif &other) const {
       return value_ == other.value_;
     }
 
+    // Operator!= overload. Allows to compare NIFs
     bool operator!=(const Nif &other) {
       return value_ != other.value_;
     }
@@ -33,8 +42,20 @@ class Nif {
       return value_;
     }
 
+    /**
+     * @brief Operator << overload. That allows to print in the correct format numbers like 1 -> 00000001 or 1235 -> 00001235
+     * 
+     * @param os 
+     * @param n 
+     * @return std::ostream& 
+     */
+    friend std::ostream& operator<<(std::ostream& os, const Nif &n) {
+      os << std::setfill('0') << std::setw(8) << n.value_;
+      return os;
+    }
+
   private:
     long value_;
 };
 
-#endif // NIF_H
+#endif // NIF_H 

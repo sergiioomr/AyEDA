@@ -9,7 +9,7 @@
  * @date 2026-03-18
  * @brief Declares the abstract class ExplorationFunction, to implement four derived classes
  *        LinearExploration, QuadraticExploration, DoubleExploration and RehashingExploration.
- *        That classes will be used to transform the keys into integer index to the table, and implements two differents ways to do it. 
+ *        That classes will be used to explore new positions in the table if the current is full 
  */
 
 #ifndef EXPLORATION_FUNCTION_H
@@ -17,6 +17,7 @@
 
 #include "dispersion_function.h"
 
+// Abstract class
 template<class Key>
 class ExplorationFunction {
   public:
@@ -24,10 +25,11 @@ class ExplorationFunction {
     virtual ~ExplorationFunction() {}
 };
 
-
+// Derivated class to implement the linear method
 template<class Key>
 class LinearExploration : public ExplorationFunction<Key> {
   public:
+    // Operator() overload
     virtual unsigned operator()(const Key &k, unsigned i) const override {
 
       return i;
@@ -35,10 +37,11 @@ class LinearExploration : public ExplorationFunction<Key> {
     }
 };
 
-
+// Derived class to implement the quadratic method
 template<class Key>
 class QuadraticExploration : public ExplorationFunction<Key> {
   public:
+    // Operator() overload
     virtual unsigned operator()(const Key &k, unsigned i) const override {
 
       return i * i;
@@ -46,12 +49,14 @@ class QuadraticExploration : public ExplorationFunction<Key> {
     }
 };
 
-
+// Derived class to implement the double dispersion function
 template<class Key>
 class DoubleExploration : public ExplorationFunction<Key> {
   public:
+    // Constructor. That derivated class use a dispersion function
     DoubleExploration<Key>(DispersionFunction<Key> *fd) : fd_(fd) {}  
 
+    // Operator() overload
     virtual unsigned operator()(const Key &k, unsigned i) const override {
       return (*fd_)(k) * i;
     }
@@ -60,11 +65,14 @@ class DoubleExploration : public ExplorationFunction<Key> {
     DispersionFunction<Key> *fd_;
 };
 
-
+// Derived class to implement the rehashing method
 template<class Key>
 class RehashingExploration : public ExplorationFunction<Key> {
   public:
+    // Constructor. That derived class use a dispersion function
     RehashingExploration<Key>(DispersionFunction<Key> *fd) : fd_(fd) {}
+
+    // Operator() overload
     unsigned operator()(const Key &k, unsigned i) const override {
       srand(k);
       unsigned result = 0;

@@ -6,7 +6,7 @@
  * @file main.cc
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-03-21
- * @brief 
+ * @brief Main program
  */
 
 #include "../include/hash_table.h"

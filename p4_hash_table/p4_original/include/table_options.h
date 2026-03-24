@@ -6,7 +6,7 @@
  * @file table_options.h
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-03-23
- * @brief 
+ * @brief Struct to store the parameters/options of the hash table
  */
 
 #ifndef TABLE_OPTIONS_H

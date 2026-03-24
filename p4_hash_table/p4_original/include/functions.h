@@ -6,8 +6,11 @@
  * @file functions.h
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-03-23
- * @brief 
+ * @brief Declares the functions to run the program. The menu and the way to parse the arguments
  */
+
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
 
 #include "hash_table.h"
 #include "nif.h"
@@ -17,3 +20,5 @@ void Usage();
 Options Parse(int argc, char* argv[]);
 Sequence<Nif>* CreateHashTable(const Options& options); 
 void Menu(Sequence<Nif>& tabla);
+
+#endif // FUNCTIONS_H

@@ -28,8 +28,10 @@ class DispersionFunction {
 template<class Key>
 class ModuleDispersionFunction : public DispersionFunction<Key> {
   public:
+    // Constructor
     ModuleDispersionFunction(const unsigned table_size) : table_size_(table_size) {}
 
+    // Operator() overload
     virtual unsigned operator()(const Key &k) const override {
       
       return k % table_size_;
@@ -43,8 +45,10 @@ class ModuleDispersionFunction : public DispersionFunction<Key> {
 template<class Key>
 class SumDispersionFunction : public DispersionFunction<Key> {
   public:
+    // Constructor
     SumDispersionFunction(const unsigned table_size) : table_size_(table_size) {}
 
+    // Operator() overload
     virtual unsigned operator()(const Key &k) const override {
       
       int sum = 0;
@@ -67,8 +71,10 @@ class SumDispersionFunction : public DispersionFunction<Key> {
 template<class Key> 
 class PseudoRandomDispersionFunction : public DispersionFunction<Key> {
   public:
+    // Constructor
     PseudoRandomDispersionFunction(const unsigned table_size) : table_size_(table_size) {}
     
+    // Operator() overload
     virtual unsigned operator()(const Key &k) const override {
 
       srand(k);

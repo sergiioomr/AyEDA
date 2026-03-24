@@ -7,7 +7,11 @@
  * @file hash_table.h
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-03-19
- * @brief 
+ * @brief That class implement the Hash Table
+ *        There are two types, close or open dispersion.
+ *        Each type implement the search and insert methods
+ *        Each use a dispersion function and a table size as parameters
+ *        The close use an exploration function and a block size also
  */
 
 #ifndef HASH_TABLE_H
@@ -18,9 +22,11 @@
 #include "exploration_function.h"
 #include <vector>
 
+// The close table
 template<class Key, class Container=StaticSequence<Key>>
 class HashTable : public Sequence<Key> {
   public:
+    // Constructor using the dynamic memory
     HashTable(unsigned table_size, DispersionFunction<Key>& fd, ExplorationFunction<Key>& fe, unsigned block_size) 
     : table_size_(table_size), fd_(fd), fe_(fe), block_size_(block_size) {
       table_ = new Container*[table_size_];
@@ -29,15 +35,19 @@ class HashTable : public Sequence<Key> {
       }
     }
 
+    // Destructor to delete all the pointers
     ~HashTable() {
       for (unsigned i = 0; i < table_size_; i++) {
         delete table_[i];
       }
       delete[] table_;
+      delete fd_;
+      delete fe_;
     }
 
+    // Search a given key. Return true or false if the key was found or not. 
     bool search(const Key &k) const override {
-      unsigned index = fd_(k);
+      unsigned index = (*fd_)(k);
       for (unsigned i = 0; i < table_size_; i++) {
         // If the key is found in the vector of the position calculated with the distribution function, return true
         if (table_[index]->search(k)) {
@@ -48,13 +58,14 @@ class HashTable : public Sequence<Key> {
           return false;
         }
         // If the key has not been founded, then, recalculate the position to search using the exploration function
-        index = (fd_(k) + fe_(k, i)) % table_size_;
+        index = ((*fd_)(k) + (*fe_)(k, i)) % table_size_;
       }
       return false;
     }
   
+    // Insert a given key. Return true or false if the key could be inserted or not
     bool insert(const Key &k) override {
-      unsigned index = fd_(k);
+      unsigned index = (*fd_)(k);
       for (unsigned i = 0; i < table_size_; i++) {
         // If the key is found in the vector of the position calculated with the fd, return false, not insert duplicates
         if (table_[index]->search(k)) {
@@ -64,11 +75,12 @@ class HashTable : public Sequence<Key> {
         // If the vector is not full, and the key has not been founded, insert
         if (!table_[index]->IsFull()) {
           table_[index]->insert(k);
+          std::cout << "The element was inserted in the position: " << index << std::endl;
           return true;
         }
 
         // If the vector is full, recalculates the position with the fe, and try insert again in the next iteration
-        index = (fd_(k) + fe_(k, i)) % table_size_;
+        index = ((*fd_)(k) + (*fe_)(k, i)) % table_size_;
       }
 
       // If the can't been added, return false
@@ -79,15 +91,17 @@ class HashTable : public Sequence<Key> {
     unsigned table_size_;
     // Vector of container pointers. Containers will be the static sequence
     Container** table_;
-    DispersionFunction<Key> &fd_;
-    ExplorationFunction<Key> &fe_;
+    DispersionFunction<Key>* fd_;
+    ExplorationFunction<Key>* fe_;
     unsigned block_size_;
 
 };
 
+// Specialization. The open hash table.
 template<class Key>
 class HashTable<Key, DynamicSequence<Key>> : public Sequence<Key> {
   public:
+    // Constructor using dynamic memory
     HashTable(unsigned table_size, DispersionFunction<Key>& fd) : table_size_(table_size), fd_(fd) {
       table_ = new DynamicSequence<Key>*[table_size_];
       for (unsigned i = 0; i < table_size_; i++) {
@@ -95,28 +109,37 @@ class HashTable<Key, DynamicSequence<Key>> : public Sequence<Key> {
       }
     }
 
+    // Destructor to delete all the pointers created.
     ~HashTable() {
       for (unsigned i = 0; i < table_size_; i++) {
         delete table_[i];
       }
       delete[] table_;
+      delte fd_;
     }
 
+    // Search a given key. Return true or false if the key was found or not. 
     bool search(const Key &k) const override {
-      unsigned index = fd_(k);
+      unsigned index = (*fd_)(k);
       return table_[index]->search(k);
     }
-
+    
+    // Insert a given key. Return true or false if the key could be inserted or not
     bool insert(const Key &k) override {
-      unsigned index = fd_(k);
-      return table_[index]->insert(k);
+      unsigned index = (*fd_)(k);
+      bool inserted = table_[index]->insert(k);
+      if (insert) {
+        std::cout << "The element was inserte in the position: " << index << std::endl;
+      }
+
+      return inserted;
     }
     
   private:
     unsigned table_size_;
     // Vector of container pointers. Contairners will be the dynamic sequence
     DynamicSequence<Key>** table_;
-    DispersionFunction<Key> &fd_;
+    DispersionFunction<Key>* fd_;
 };
 
 #endif // HASH_TABLE_H
