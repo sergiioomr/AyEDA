@@ -22,5 +22,6 @@ void Usage();
 Options Parse(int argc, char* argv[]);
 Sequence<Nif>* CreateHashTable(const Options& options); 
 void Menu(Sequence<Nif>& tabla);
+void Comparisions(const Options &options);
 
 #endif // FUNCTIONS_H

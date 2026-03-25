@@ -2,7 +2,7 @@
  * Universidad de La Laguna
  * Escuela Superior de Ingeniería y Tecnología
  * Grado en Ingeniería Informática
- * @asignatura
+ * Algoritmos y Estructuras de Datos Avanzadas
  * @file functions.cc
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-03-23
@@ -12,6 +12,8 @@
 #include "../include/functions.h"
 #include "../include/table_options.h"
 #include <iostream>
+
+int Nif::counter_ = 0;
 
 /**
  * @brief Show how to use the program
@@ -152,11 +154,13 @@ void Menu(Sequence<Nif>& tabla) {
         std::cin >> input_dni;
         try {
           Nif new_nif(input_dni);
+          Nif::ResetCounter();
           if (tabla.insert(new_nif)) {
             std::cout << "NIF " << new_nif << " has been added.\n";
           } else {
             std::cout << "Error. Can't insert. The table is full or the NIF already exists\n";
           }
+          std::cout << "Key comparisions: " << Nif::GetCounter() << std::endl;
         } catch (const std::invalid_argument& e) {
           // The NIF must be and 8 digits number
           std::cerr << e.what() << "\n";
@@ -170,11 +174,13 @@ void Menu(Sequence<Nif>& tabla) {
         std::cin >> input_dni;
         try {
           Nif searched_nif(input_dni);
+          Nif::ResetCounter();
           if (tabla.search(searched_nif)) {
             std::cout << "The NIF " << searched_nif << " is in the table\n";
           } else {
             std::cout << "The NIF " << searched_nif << " is NOT in the table.\n";
           }
+          std::cout << "Key comparisions: " << Nif::GetCounter() << std::endl;
         } catch (const std::invalid_argument& e) {
           std::cerr << e.what() << "\n";
         }
@@ -189,4 +195,38 @@ void Menu(Sequence<Nif>& tabla) {
         std::cout << "Incorrect option. Choose 1, 2 or 3.\n";
     }
   }
+}
+
+void Comparisions(const Options &options) {
+  std::vector<double> alfa = {0.25, 0.5, 0.75};
+
+  for (int i = 0; i < alfa.size(); i++) {
+    Sequence<Nif>* table = CreateHashTable(options);
+
+    // Calculate the number of elements to insert
+    int table_elements = alfa[i] * options.table_size * options.block_size;
+    
+    // Insert all of them
+    std::vector<Nif> inserted;
+    int count = 0;
+    while (count < table_elements) {
+      Nif random;
+      if (table->insert(random)) {
+        inserted.push_back(random);
+        count++;
+      }
+    }
+
+    double total = 0;
+    for (int i = 0; i < 10; i++) {
+      Nif::ResetCounter();
+      table->search(inserted[rand() % inserted.size()]);
+      total += Nif::GetCounter();
+    }
+
+    double average = total / 10.0;
+    std::cout << "Alfa : " << alfa[i] << ", average: " << average << std::endl;
+    delete table;
+  }
+
 }

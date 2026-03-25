@@ -20,6 +20,7 @@
 #include "dispersion_function.h"
 #include "sequence.h"
 #include "exploration_function.h"
+#include "nif.h"
 #include <vector>
 #include <iostream>
 
@@ -53,7 +54,7 @@ class HashTable : public Sequence<Key> {
       for (unsigned i = 0; i < table_size_; i++) {
         // If the key is found in the vector of the position calculated with the distribution function, return true
         if (table_[index]->search(k)) {
-          std::cout << "The element is in the position: " << index << std::endl;
+          // std::cout << "The element is in the position: " << index << std::endl;
           return true;
         }
         // If the vector of the position calculated with the fd is not full, and the key is not in the vector, that implies the key is not in the table
@@ -78,7 +79,7 @@ class HashTable : public Sequence<Key> {
         // If the vector is not full, and the key has not been founded, insert
         if (!table_[index]->IsFull()) {
           table_[index]->insert(k);
-          std::cout << "The element was inserted in the position: " << index << std::endl;
+          // std::cout << "The element was inserted in the position: " << index << std::endl;
           return true;
         }
 
@@ -124,7 +125,11 @@ class HashTable<Key, DynamicSequence<Key>> : public Sequence<Key> {
     // Search a given key. Return true or false if the key was found or not. 
     bool search(const Key &k) const override {
       unsigned index = (*fd_)(k);
-      return table_[index]->search(k);
+      bool inserted = table_[index]->search(k);
+      if (inserted) {
+        // std::cout << "The element is in the position: " << index << std::endl;
+      }
+
     }
     
     // Insert a given key. Return true or false if the key could be inserted or not
@@ -132,7 +137,7 @@ class HashTable<Key, DynamicSequence<Key>> : public Sequence<Key> {
       unsigned index = (*fd_)(k);
       bool inserted = table_[index]->insert(k);
       if (inserted) {
-        std::cout << "The element was inserte in the position: " << index << std::endl;
+        // std::cout << "The element was inserte in the position: " << index << std::endl;
       }
 
       return inserted;

@@ -28,13 +28,19 @@ class Nif {
       value_ = value;
     }
 
+    static int GetCounter() { return counter_; }
+
+    static void ResetCounter() { counter_ = 0; }
+
     // Operator== overload. Allows to compare NIFs
     bool operator==(const Nif &other) const {
+      counter_++;
       return value_ == other.value_;
     }
 
     // Operator!= overload. Allows to compare NIFs
     bool operator!=(const Nif &other) {
+      counter_++;
       return value_ != other.value_;
     }
 
@@ -56,6 +62,7 @@ class Nif {
 
   private:
     long value_;
+    static int counter_;
 };
 
 #endif // NIF_H 

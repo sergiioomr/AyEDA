@@ -18,8 +18,6 @@
 
 int main(int argc, char* argv[]) {
   Options options = Parse(argc, argv);
-  Sequence<Nif>* hash_table = CreateHashTable(options);
-  Menu(*hash_table);
-  delete hash_table;
+  Comparisions(options);
   return 0;
 }

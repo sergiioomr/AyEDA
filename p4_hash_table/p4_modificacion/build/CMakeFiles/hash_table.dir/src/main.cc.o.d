@@ -1,8 +1,8 @@
 CMakeFiles/hash_table.dir/src/main.cc.o: \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/main.cc \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/main.cc \
  /usr/include/stdc-predef.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/hash_table.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/dispersion_function.h \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/hash_table.h \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/dispersion_function.h \
  /usr/include/c++/13/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -50,7 +50,7 @@ CMakeFiles/hash_table.dir/src/main.cc.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/13/bits/std_abs.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/sequence.h \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/sequence.h \
  /usr/include/c++/13/list /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/c++/13/bits/stl_algobase.h \
  /usr/include/c++/13/bits/functexcept.h \
@@ -92,9 +92,12 @@ CMakeFiles/hash_table.dir/src/main.cc.o: \
  /usr/include/c++/13/bits/stl_function.h \
  /usr/include/c++/13/backward/binders.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/exploration_function.h \
- /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
- /usr/include/c++/13/ios /usr/include/c++/13/iosfwd \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/exploration_function.h \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/nif.h \
+ /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
+ /usr/include/c++/13/bits/cxxabi_init_exception.h \
+ /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
+ /usr/include/c++/13/iomanip /usr/include/c++/13/iosfwd \
  /usr/include/c++/13/bits/stringfwd.h /usr/include/c++/13/bits/postypes.h \
  /usr/include/c++/13/cwchar /usr/include/wchar.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
@@ -104,16 +107,7 @@ CMakeFiles/hash_table.dir/src/main.cc.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
- /usr/include/c++/13/bits/cxxabi_init_exception.h \
- /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
- /usr/include/c++/13/bits/char_traits.h \
- /usr/include/c++/13/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
- /usr/include/c++/13/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/13/cctype \
- /usr/include/ctype.h /usr/include/c++/13/bits/ios_base.h \
- /usr/include/c++/13/ext/atomicity.h \
+ /usr/include/c++/13/bits/ios_base.h /usr/include/c++/13/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
  /usr/include/pthread.h /usr/include/sched.h \
@@ -129,7 +123,12 @@ CMakeFiles/hash_table.dir/src/main.cc.o: \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
- /usr/include/c++/13/bits/locale_classes.h /usr/include/c++/13/string \
+ /usr/include/c++/13/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
+ /usr/include/c++/13/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/13/cctype \
+ /usr/include/ctype.h /usr/include/c++/13/bits/locale_classes.h \
+ /usr/include/c++/13/string /usr/include/c++/13/bits/char_traits.h \
  /usr/include/c++/13/bits/ostream_insert.h \
  /usr/include/c++/13/bits/cxxabi_forced.h \
  /usr/include/c++/13/bits/basic_string.h /usr/include/c++/13/string_view \
@@ -150,20 +149,14 @@ CMakeFiles/hash_table.dir/src/main.cc.o: \
  /usr/include/c++/13/bits/locale_classes.tcc \
  /usr/include/c++/13/system_error \
  /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
- /usr/include/c++/13/stdexcept /usr/include/c++/13/streambuf \
- /usr/include/c++/13/bits/streambuf.tcc \
- /usr/include/c++/13/bits/basic_ios.h \
+ /usr/include/c++/13/stdexcept /usr/include/c++/13/locale \
  /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
  /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
+ /usr/include/c++/13/streambuf /usr/include/c++/13/bits/streambuf.tcc \
  /usr/include/c++/13/bits/streambuf_iterator.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
  /usr/include/c++/13/bits/locale_facets.tcc \
- /usr/include/c++/13/bits/basic_ios.tcc \
- /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/nif.h \
- /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
  /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
@@ -171,9 +164,14 @@ CMakeFiles/hash_table.dir/src/main.cc.o: \
  /usr/include/c++/13/bits/locale_facets_nonio.tcc \
  /usr/include/c++/13/bits/locale_conv.h \
  /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
- /usr/include/c++/13/bits/sstream.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/table_options.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/functions.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/hash_table.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/nif.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_original/src/../include/table_options.h
+ /usr/include/c++/13/istream /usr/include/c++/13/ios \
+ /usr/include/c++/13/bits/basic_ios.h \
+ /usr/include/c++/13/bits/basic_ios.tcc /usr/include/c++/13/ostream \
+ /usr/include/c++/13/bits/ostream.tcc \
+ /usr/include/c++/13/bits/istream.tcc \
+ /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/iostream \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/nif.h \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/table_options.h \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/functions.h \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/hash_table.h \
+ /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p4_hash_table/p4_modificacion/src/../include/table_options.h
