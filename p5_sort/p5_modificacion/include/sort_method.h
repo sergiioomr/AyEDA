@@ -17,7 +17,7 @@
 template <class Key>
 class SortMethod {
   public:
-    SortMethod() {}
+    SortMethod(StaticSequence<Key> &sequence) : sequence_(sequence) {}
     virtual void Sort() = 0;
   private:
     StaticSequence<Key> &sequence_;
