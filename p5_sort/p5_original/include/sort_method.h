@@ -19,7 +19,7 @@ class SortMethod {
   public:
     SortMethod(StaticSequence<Key> &sequence) : sequence_(sequence) {}
     virtual void Sort() = 0;
-  private:
+  protected:
     StaticSequence<Key> &sequence_;
 };
 

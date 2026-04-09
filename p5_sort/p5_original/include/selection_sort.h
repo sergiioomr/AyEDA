@@ -13,29 +13,57 @@
 #define SELECTION_SORT_H
 
 #include "sort_method.h"
+#include "sort_algorithm_library.h"
 
 template <class Key>
 class SelectionMethod : public SortMethod {
   public:
-    SelectionMethod(StaticSequence<Key> &sequence) : SortMethod<Key>(sequence) {}
+    SelectionMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod<Key>(sequence), trace_(trace) {}
 
-    void Sort(StaticSequence<Key> &sequence) {
-      for (int i = 0; i < sequence.size_(); i++) {
-        int min = i;
-
-        for (int j = i + 1 ; j < sequence.size_(); j++) {
-          if (sequence[j] < sequence[i]) {
-            min = j;
-          }
-        }
-
-        int aux = sequence[min];
-        sequence[min] = sequence[i];
-        sequence[i] = aux;
+    void Sort(StaticSequence<Key> &sequence_) {
+      if (trace_) {
+        SelectionSortTrace(sequence_, sequence_.size());
+      } else {
+        SelectionSort(sequence_, sequence_.size());
       }
     }
 
-    
+  private: 
+    bool trace_;
+};
+
+template <class Key>
+class BubbleMethod : public SortMethod {
+  public: 
+    BubbleMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod<Key>(sequence), trace_(trace) {}
+
+    void Sort(StaticSequence<Key> &sequence_) {
+      if (trace_) {
+        BubbleSortTrace(sequence_, sequence_.size());
+      } else {
+        BubbleSort(sequence_, sequence_.size());
+      }
+    }
+
+  private: 
+    bool trace_;
+};
+
+template <class Key>
+class MergeMethod : public SortMethod {
+  public:
+    MergeMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod(sequence); trace_(trace) {}
+
+    void Sort(StaticSequence<Key> &sequence_) {
+      if (trace_) {
+        BubbleSortTrace(sequence_, sequence_[0], sequence_[sequence_.size()]);
+      } else {
+        BubbleSort(sequence_, sequence_[0], sequence_[sequence_.size()]);
+      }
+    }
+
+  private:
+    bool trace_;
 };
 
 
