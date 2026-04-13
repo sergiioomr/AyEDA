@@ -19,6 +19,9 @@ class StaticSequence : Sequence<Key> {
   public:
     StaticSequence(const unsigned size) : size_(size) {}
   
+
+    int GetSize() const { return size_; }  
+
     virtual Key operator[](const unsigned index) const {
       return data_[index];
     }
