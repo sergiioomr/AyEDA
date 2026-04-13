@@ -15,6 +15,13 @@
 
 #include "static_sequence.h"
 
+/**
+ * @brief Swap two values
+ * 
+ * @tparam Key 
+ * @param elem1 
+ * @param elem2 
+ */
 template <typename Key>
 void Swap(Key &elem1, Key &elem2) {
   Key aux = elem1;
@@ -22,6 +29,7 @@ void Swap(Key &elem1, Key &elem2) {
   elem2 = aux;
 }
 
+// Selection algorithms. With and without traces
 template <typename Key>
 void SelectionSort(StaticSequence<Key> &sequence, int n) {
   for (int i = 0; i < n; i++) {
@@ -52,6 +60,8 @@ void SelectionSortTrace(StaticSequence<Key> &sequence, int n) {
   }
 }
 
+
+// Bubble algorithms. With and without traces
 template <typename Key>
 void BubbleSort(StaticSequence<Key> &sequence, int n) {
   for (int i = 1; i < n; i++) {
@@ -76,6 +86,7 @@ void BubbleSortTrace(StaticSequence<Key> &sequence, int n) {
 
 
 
+// Merge algorithms. There are four, two for the algorithm with trace, and two for the algorithm without trace
 template <typename Key>
 void MergeSort(StaticSequence<Key> &sequence, int ini, int fin) {
   if (ini < fin) {
@@ -134,6 +145,84 @@ void MergeSortTrace(StaticSequence<Key> &sequence, int n) {
 }
 
 
+template<typename Key>
+void Baja(int i, StaticSequence<Key> &sequence, int n) {
+  while (2 * i <= n) {
+    int h1 = 2 * i;
+    int h2 = h1 + 1;
+    int h;
+    if (h1 == n) {
+      h = h1;
+    } else if (sequence[h1] > sequence[h2]) {
+      h = h1;
+    } else {
+      h = h2;
+    }
+
+    if (sequence[h] <= sequence[i]) {
+      break;
+    } else {
+      Swap(sequence[i], sequence[h]);
+      i = h;
+    }
+  }
+}
+
+template <typename Key>
+void HeapSort(StaticSequence<Key> &sequence, int n) {
+  for (int i = n / 2; i > 0; i--) {
+    Baja(i, sequence, n);
+  }
+
+  for (int i = n; i > 1; i--) {
+    Swap(sequence[1], sequence[i]);
+    Baja(1, sequence, i - 1);
+  }
+}
+  
+template <typename Key>
+void BajaTrace(int i, StaticSequence<Key> &sequence, int n) {
+
+}
+
+template <typename Key>
+void HeapSortTrace(StaticSequence<Key> &sequence, int n) {
+
+}
+
+template <typename Key>
+void DeltaSort(int delta, StaticSequence<Key> &sequence, int n) {
+  for (int i = delta; i < n; i++) {
+    Key x = sequence[i];
+    int j = i;
+    while ((j >= delta) && (x < sequence[j - delta])) {
+      sequence[j] = sequence[j - delta];
+      j = j - delta;
+    } 
+
+    sequence[j] = x;
+  }
+}
+
+template <typename Key>
+void ShellSort(StaticSequence<Key> &sequence, int n) {
+  int delta = n;
+  while (delta > 1) {
+    delta = delta / 2;
+    DeltaSort(delta, sequence, n);
+  }
+}
+
+template <typename Key>
+void DeltaSortTrace(int delta, StaticSequence<Key> &sequence, int n) {
+
+}
+
+template <typename Key>
+void ShellSortTrace(StaticSequence<Key> &sequence, int n) {
+
+
+}
 
 
 #endif // SORT_ALGORITHM_LIBRARY_H
