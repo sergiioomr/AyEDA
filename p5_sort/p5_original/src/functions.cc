@@ -36,31 +36,54 @@ void Usage() {
  */
 Options Parse(int argc, char* argv[]) {
   Options config;
-  for (int i = 1; i < argc; ++i) {
-    std::string arg = argv[i];
-
-    if (arg == "-size" && i + 1 < argc) {
-      config.table_size = std::stoi(argv[++i]);
-    } else if (arg == "-ord" && i + 1 < argc) {
-      config.sort_method = argv[++i];
-    } else if (arg == "-init" && i + 1 < argc) {
-      config.init = std::stoi(argv[++i]);
-      if (config.init == 2) {
-        config.filename = argv[++i];
-      }
-    } else if (arg == "-trace" && i + 1 < argc) {
-      if (argv[++i] == "y") {
-        config.trace = true;
+  std::vector<std::string> args(argv + 1, argv + argc);
+  for (size_t i = 0; i < args.size(); ++i) {
+    if (args[i] == "-h") {
+      Usage();
+    }
+    
+    if (args[i] == "-size") {
+      if (++i < args.size()) {
+        config.sequence_size = std::stoi(args[i]);
       } else {
-        config.trace = false;
+        std::cerr << "Error. Size value is required" << std::endl;
+        exit(1);
+      }
+    } else if (args[i] == "-ord") {
+      if (++i < args.size()) {
+        config.sort_method = args[i][0];
+      } else {
+        std::cerr << "Error. Sort method code is required" << std::endl;
+        exit(1);
+      }
+    } else if (args[i] == "-init") {
+      if (++i < args.size()) {
+        config.init = std::stoi(args[i]);
+        if (config.init == 3) {
+          if (++i < args.size()) {
+            config.filename = args[i];
+          } else {
+            std::cerr << "Error. File mode to initialize the sequence require a filename" << std::endl;
+            exit(1);
+          }
+        }
+      } else {
+        std::cerr << "Error. Initialization mode is required" << std::endl;
+        exit(1);
+      }
+    } else if (args[i] == "-trace") {
+      if (++i < args.size()) {
+        config.trace = (args[i] == "y");
       }
     } else {
+      std::cerr << "Error. Unknown parameter" << std::endl;
       Usage();
+      exit(1);
     }
   }
 
   // The table can't have size 0, and there must be a sort method
-  if (config.table_size == 0 || config.sort_method.empty()) {
+  if (config.sequence_size == 0 || config.sort_method.empty()) {
     Usage();
   }
 
@@ -76,8 +99,7 @@ void PrintSequence(const StaticSequence<Nif> &sequence) {
 bool Integer(const std::string &s) {
   if (s.empty()) return false;
 
-  int i = 0;
-  for (int i = 0; i < s.size(); i++) {
+  for (size_t i = 0; i < s.size(); i++) {
     if (!isdigit(s[i])){
       return false;
     }
@@ -89,7 +111,7 @@ bool Integer(const std::string &s) {
 void InitializingSequence(StaticSequence<Nif> &sequence, const Options &program_options) {
   // If n = 0, manual initialization
     
-  if (program_options.init == 0) {
+  if (program_options.init == 1) {
     std::cout << "Manual initialization" << std::endl;
 
     int counter = 0;
@@ -108,7 +130,7 @@ void InitializingSequence(StaticSequence<Nif> &sequence, const Options &program_
         counter++;
       }
     }
-  } else if (program_options.init == 1) {
+  } else if (program_options.init == 2) {
     // If n == 1, random initialization
     std::cout << "Random initialization" << std::endl;
 
@@ -138,7 +160,7 @@ void InitializingSequence(StaticSequence<Nif> &sequence, const Options &program_
 void Main(const Options &program_options) {
   std::cout << "Práctiac 5. Algoritmos de ordenación" << std::endl;
 
-  StaticSequence<Nif> sequence(program_options.table_size);
+  StaticSequence<Nif> sequence(program_options.sequence_size);
 
   std::cout << "Initializating sequence" << std::endl;
   InitializingSequence(sequence, program_options);

@@ -19,13 +19,13 @@
 template <class Key>
 class SelectionMethod : public SortMethod<Key> {
   public:
-    SelectionMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod(sequence), trace_(trace) {}
+    SelectionMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod<Key>(sequence), trace_(trace) {}
 
     void Sort() override {
       if (trace_) {
-        SelectionSortTrace(sequence_, sequence_.size());
+        SelectionSortTrace(this->sequence_, this->sequence_.GetSize());
       } else {
-        SelectionSort(sequence_, sequence_.size());
+        SelectionSort(this->sequence_, this->sequence_.GetSize());
       }
     }
 
@@ -38,13 +38,13 @@ class SelectionMethod : public SortMethod<Key> {
 template <class Key>
 class BubbleMethod : public SortMethod<Key> {
   public:
-    BubbleMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod(sequence), trace_(trace) {}
+    BubbleMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod<Key>(sequence), trace_(trace) {}
 
     void Sort() override {
       if (trace_) {
-        BubbleSortTrace(sequence_, sequence_.size());
+        BubbleSortTrace(this->sequence_, this->sequence_.GetSize());
       } else {
-        BubbleSort(sequence_, sequence_.size());
+        BubbleSort(this->sequence_, this->sequence_.GetSize());
       }
     }
 
@@ -56,13 +56,13 @@ class BubbleMethod : public SortMethod<Key> {
 template <class Key>
 class MergeMethod : public SortMethod<Key> {
   public:
-    MergeMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod(sequence), trace_(trace) {}
+    MergeMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod<Key>(sequence), trace_(trace) {}
 
     void Sort() override {
       if (trace_) {
-        MergeSortTrace(sequence_, sequence_.size());
+        MergeSortTrace(this->sequence_, 0, this->sequence_.GetSize());
       } else {
-        MergeSort(sequence_, 0, sequence_.size());
+        MergeSort(this->sequence_, 0, this->sequence_.GetSize());
       }
     }
 
@@ -74,13 +74,13 @@ class MergeMethod : public SortMethod<Key> {
 template <class Key>
 class HeapMethod : public SortMethod<Key> {
   public:
-    HeapMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod(sequence), trace_(trace) {}
+    HeapMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod<Key>(sequence), trace_(trace) {}
 
     void Sort() override {
       if (trace_) {
-        HeapSortTrace(sequence_, sequence_.size());
+        HeapSortTrace(this->sequence_, this->sequence_.GetSize());
       } else {
-        HeapSort(sequence_, sequence_.size());
+        HeapSort(this->sequence_, this->sequence_.GetSize());
       }
     }
 
@@ -91,13 +91,13 @@ class HeapMethod : public SortMethod<Key> {
 template <class Key>
 class ShellMethod : public SortMethod<Key> {
   public:
-    ShellMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod(sequence), trace_(trace) {}
+    ShellMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod<Key>(sequence), trace_(trace) {}
 
     void Sort() override {
       if (trace_) {
-        ShellSortTrace(sequence_, sequence_.size());
+        ShellSortTrace(this->sequence_, this->sequence_.GetSize());
       } else {
-        ShellSort(sequence_, sequence_.size());
+        ShellSort(this->sequence_, this->sequence_.GetSize());
       }
     }
 

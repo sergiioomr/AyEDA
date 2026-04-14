@@ -15,7 +15,7 @@
 #include <string>
 
 struct Options {
-  unsigned table_size = 0;
+  unsigned sequence_size = 0;
   std::string sort_method = "";
   unsigned init = 0;
   bool trace = false;

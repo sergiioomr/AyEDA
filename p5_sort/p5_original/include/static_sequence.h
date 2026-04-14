@@ -17,7 +17,7 @@
 template<class Key>
 class StaticSequence : Sequence<Key> {
   public:
-    StaticSequence(const unsigned size) : size_(size) {}
+    StaticSequence(const unsigned size) : size_(size), data_(size) {}
   
 
     int GetSize() const { return size_; }  

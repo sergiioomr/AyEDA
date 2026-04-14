@@ -14,6 +14,7 @@
 #define SORT_ALGORITHM_LIBRARY_H
 
 #include "static_sequence.h"
+#include <iostream>
 
 /**
  * @brief Swap two values
@@ -32,11 +33,15 @@ void Swap(Key &elem1, Key &elem2) {
 // Selection algorithms. With and without traces
 template <typename Key>
 void SelectionSort(StaticSequence<Key> &sequence, int n) {
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;
+  
   for (int i = 0; i < n; i++) {
     int min = i;
 
     for (int j = i + 1 ; j < n; j++) {
-      if (sequence[j] < sequence[i]) {
+      if (sequence[j] < sequence[min]) {
         min = j;
       }
     }
@@ -47,16 +52,23 @@ void SelectionSort(StaticSequence<Key> &sequence, int n) {
 
 template <typename Key>
 void SelectionSortTrace(StaticSequence<Key> &sequence, int n) {
-  for (int i = 0; i < sequence.size_(); i++) {
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;
+  
+  for (int i = 0; i < n; i++) {
     int min = i;
 
-    for (int j = i + 1 ; j < sequence.size_(); j++) {
-      if (sequence[j] < sequence[i]) {
+    for (int j = i + 1 ; j < n; j++) {
+      if (sequence[j] < sequence[min]) {
         min = j;
       }
     }
 
     Swap(sequence[min], sequence[i]);
+    std::cout << "Iteration " << i << " : " << std::endl;
+    PrintSequence(sequence);
+    std::cout << std::endl;
   }
 }
 
@@ -64,6 +76,10 @@ void SelectionSortTrace(StaticSequence<Key> &sequence, int n) {
 // Bubble algorithms. With and without traces
 template <typename Key>
 void BubbleSort(StaticSequence<Key> &sequence, int n) {
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;
+
   for (int i = 1; i < n; i++) {
     for (int j = n - 1; j >= i; j--) {
       if (sequence[j] < sequence[j - 1]) {
@@ -75,12 +91,20 @@ void BubbleSort(StaticSequence<Key> &sequence, int n) {
 
 template <typename Key>
 void BubbleSortTrace(StaticSequence<Key> &sequence, int n) {
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;  
+  
   for (int i = 1; i < n; i++) {
     for (int j = n - 1; j >= i; j--) {
       if (sequence[j] < sequence[j - 1]) {
         Swap(sequence[j], sequence[j - 1]);
       }
     }
+
+    std::cout << "Iteration " << i << " : " << std::endl;
+    PrintSequence(sequence);
+    std::cout << std::endl;
   }
 }
 
@@ -102,7 +126,7 @@ void Merge(StaticSequence<Key> &sequence, int ini, int medium, int fin) {
   int i = ini;
   int j = medium + 1; 
   int k = ini;
-  std::vector<Key> aux(sequence.size());
+  std::vector<Key> aux(fin + 1);
   while ((i <= medium) && (j <= fin)) {
     if (sequence[i] < sequence[j]) {
       aux[k] = sequence[i];
@@ -129,19 +153,29 @@ void Merge(StaticSequence<Key> &sequence, int ini, int medium, int fin) {
       }
   }
 
-  for (int k = ini; k < fin; k++) {
+  for (int k = ini; k <= fin; k++) {
     sequence[k] = aux[k];
   }
 }
 
 template <typename Key>
-void MergeTrace(StaticSequence<Key> &sequence, int n) {
-
+void MergeTrace(StaticSequence<Key> &sequence, int ini, int fin) {
+  if (ini < fin) {
+      int medium = (ini + fin) / 2;
+      MergeTrace(sequence, ini, medium);
+      MergeTrace(sequence, medium + 1, fin);
+      Merge(sequence, ini, medium, fin);
+      PrintSequence(sequence);
+      std::cout << std::endl;
+  }
 }
 
 template <typename Key>
-void MergeSortTrace(StaticSequence<Key> &sequence, int n) {
-
+void MergeSortTrace(StaticSequence<Key> &sequence, int ini, int fin) {
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;
+  MergeTrace(sequence, ini, fin);
 }
 
 
@@ -170,6 +204,10 @@ void Baja(int i, StaticSequence<Key> &sequence, int n) {
 
 template <typename Key>
 void HeapSort(StaticSequence<Key> &sequence, int n) {
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;
+
   for (int i = n / 2; i > 0; i--) {
     Baja(i, sequence, n);
   }
@@ -180,21 +218,34 @@ void HeapSort(StaticSequence<Key> &sequence, int n) {
   }
 }
   
-template <typename Key>
-void BajaTrace(int i, StaticSequence<Key> &sequence, int n) {
-
-}
 
 template <typename Key>
 void HeapSortTrace(StaticSequence<Key> &sequence, int n) {
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;
 
+  for (int i = n / 2; i > 0; i--) {
+    Baja(i, sequence, n);
+  }
+
+  int counter = 0;
+  for (int i = n; i > 1; i--) {
+    Swap(sequence[1], sequence[i]);
+    Baja(1, sequence, i - 1);
+    std::cout << "Iteration " << counter++ << ": " << std::endl;
+    PrintSequence(sequence);
+    std::cout << std::endl;
+  }
 }
 
 template <typename Key>
 void DeltaSort(int delta, StaticSequence<Key> &sequence, int n) {
+  Key x;
+  int j;
   for (int i = delta; i < n; i++) {
-    Key x = sequence[i];
-    int j = i;
+    x = sequence[i];
+    j = i;
     while ((j >= delta) && (x < sequence[j - delta])) {
       sequence[j] = sequence[j - delta];
       j = j - delta;
@@ -206,22 +257,56 @@ void DeltaSort(int delta, StaticSequence<Key> &sequence, int n) {
 
 template <typename Key>
 void ShellSort(StaticSequence<Key> &sequence, int n) {
-  int delta = n;
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;
+  
+  double alpha = 0.5;
+  std::cout << "Introduce the alpha value (default 0.5): " << std::endl;
+  std::cin >> alpha;
+  int delta = n * alpha;
   while (delta > 1) {
-    delta = delta / 2;
     DeltaSort(delta, sequence, n);
+    delta = delta * alpha;
   }
 }
 
 template <typename Key>
 void DeltaSortTrace(int delta, StaticSequence<Key> &sequence, int n) {
+  Key x;
+  int j;
+  for (int i = delta; i < n; i++) {
+    x = sequence[i];
+    j = i;
+    while ((j >= delta) && (x < sequence[j - delta])) {
+      sequence[j] = sequence[j - delta];
+      j = j - delta;
+    } 
 
+    sequence[j] = x;
+  }
+
+  PrintSequence(sequence);
+  std::cout << std::endl;
 }
 
 template <typename Key>
 void ShellSortTrace(StaticSequence<Key> &sequence, int n) {
-
-
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;
+  
+  double alpha = 0.5;
+  std::cout << "Introduce the alpha value (default 0.5): " << std::endl;
+  std::cin >> alpha;
+  std::cout << std::endl;
+  int delta = n * alpha;
+  while (delta > 1) {
+    DeltaSort(delta, sequence, n);
+    PrintSequence(sequence);
+    std::cout << std::endl;
+    delta = delta * alpha;
+  }
 }
 
 
