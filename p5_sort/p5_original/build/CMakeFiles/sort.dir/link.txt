@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/sort.dir/src/main.cc.o CMakeFiles/sort.dir/src/functions.cc.o -o sort 
