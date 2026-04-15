@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/hash_table.dir/src/main.cc.o CMakeFiles/hash_table.dir/src/functions.cc.o -o hash_table 

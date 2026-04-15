@@ -1,11 +1,11 @@
-CMakeFiles/hash_table.dir/src/functions.cc.o: \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/functions.cc \
+CMakeFiles/sort.dir/src/functions.cc.o: \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/functions.cc \
  /usr/include/stdc-predef.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/../include/functions.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/../include/methods.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/../include/sort_algorithm_library.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/../include/static_sequence.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/../include/sequence.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/../include/functions.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/../include/methods.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/../include/sort_algorithm_library.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/../include/static_sequence.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/../include/sequence.h \
  /usr/include/c++/13/list /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -161,9 +161,9 @@ CMakeFiles/hash_table.dir/src/functions.cc.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/../include/sort_method.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/../include/table_options.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/../include/nif.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/../include/sort_method.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/../include/table_options.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/../include/nif.h \
  /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
  /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
@@ -176,4 +176,4 @@ CMakeFiles/hash_table.dir/src/functions.cc.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p5_sort/p5_original/src/../include/table_options.h
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/src/../include/table_options.h

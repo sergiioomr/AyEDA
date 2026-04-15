@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_original
+CMAKE_SOURCE_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_original/build
+CMAKE_BINARY_DIR = /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/sort.dir/clean
 CMakeFiles/sort.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sort.dir/build.make CMakeFiles/sort.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sort.dir/build.make CMakeFiles/sort.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_original/build/CMakeFiles --progress-num=1,2,3 "Built target sort"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/build/CMakeFiles --progress-num=1,2,3 "Built target sort"
 .PHONY : CMakeFiles/sort.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/sort.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_original/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sort.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_original/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/build/CMakeFiles 0
 .PHONY : CMakeFiles/sort.dir/rule
 
 # Convenience name for target.

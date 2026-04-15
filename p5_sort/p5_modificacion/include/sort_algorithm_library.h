@@ -189,22 +189,23 @@ void MergeSortTrace(StaticSequence<Key> &sequence, int ini, int fin) {
 
 template<typename Key>
 void Baja(int i, StaticSequence<Key> &sequence, int n) {
-  int h1, h2, h;
-  while(2 * i + 1 < n ) {
-    h1 = 2 * i + 1;
-    h2 = 2 * i + 2;
-    if(h2 < n && sequence[h2] > sequence[h1]){
-      h = h2;
-    } else {
+    int h = i;
+    int h1 = 2 * i + 1;
+    int h2 = h1 + 1;
+    if (h1 < n && sequence[h1] > sequence[h])
+    {
       h = h1;
     }
-    if(sequence[h] <= sequence[i]){
-      break ;
-    } else {
-      Swap(sequence[i], sequence[h]);
-      i = h;
+    if (h2 < n && sequence[h2] > sequence[h])
+    {
+      h = h2;
     }
-  }
+
+    if (h != i)
+    {
+      std::swap(sequence[i], sequence[h]);
+      Baja(h, sequence, n);
+    }
 }
 
 template <typename Key>
@@ -213,13 +214,13 @@ void HeapSort(StaticSequence<Key> &sequence, int n) {
   PrintSequence(sequence);
   std::cout << std::endl;
 
-  for (int i = n / 2 - 1; i >= 0; i--) {
+  for (int i = n / 2; i > 0; i--) {
     Baja(i, sequence, n);
   }
 
-  for (int i = n - 1; i > 0; i--) {
-    Swap(sequence[0], sequence[i]);
-    Baja(0, sequence, i);
+  for (int i = n; i > 1; i--) {
+    Swap(sequence[1], sequence[i]);
+    Baja(1, sequence, i - 1);
   }
 }
   
@@ -230,13 +231,13 @@ void HeapSortTrace(StaticSequence<Key> &sequence, int n) {
   PrintSequence(sequence);
   std::cout << std::endl;
 
-  for (int i = n / 2 - 1; i >= 0; i--) {
+  for (int i = n / 2; i > 0; i--) {
     Baja(i, sequence, n);
   }
 
   int counter = 0;
-  for (int i = n - 1; i > 0; i--) {
-    SwapTrace(sequence[0], sequence[i]);
+  for (int i = n; i > 1; i--) {
+    SwapTrace(sequence[1], sequence[i]);
     Baja(1, sequence, i - 1);
     std::cout << "Iteration " << counter++ << ": " << std::endl;
     PrintSequence(sequence);

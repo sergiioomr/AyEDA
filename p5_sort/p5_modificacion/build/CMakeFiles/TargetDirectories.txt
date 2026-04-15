@@ -1,0 +1,3 @@
+/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/build/CMakeFiles/sort.dir
+/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/build/CMakeFiles/edit_cache.dir
+/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p5_sort/p5_modificacion/build/CMakeFiles/rebuild_cache.dir
