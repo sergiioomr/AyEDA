@@ -21,7 +21,7 @@ void Usage() {
   std::cerr << "Incorrect use.\n"
             << "Options:\n"
             << "  -size <s>           : Sequence size (integer)\n"
-            << "  -ord <m>            : Sort Method (Selection(a), Bubble(b), Merge(c), Heap(d), Shell(e))\n"
+            << "  -ord <m>            : Sort Method (Selection(a), Bubble(b), Merge(c), Heap(d), Shell(e), QuickAndSelection(f))\n"
             << "  -init <type> [f]    : How to add the sequence data (1 = manual, 2 = random, 3 = file [f = file name])\n"
             << "  -trace <y|n>        : Show or no the trace\n";
   std::exit(EXIT_FAILURE);
@@ -196,6 +196,15 @@ void Main(const Options &program_options) {
     case 'e' : {
       ShellMethod<Nif> shell_sort(sequence, program_options.trace);
       shell_sort.Sort();
+      break;
+    }
+
+    case 'f' : {
+      std::cout << "Initial sequence: " << std::endl;
+      PrintSequence(sequence);
+      std::cout << std::endl;
+      ModificationMethod<Nif> modi_sort(sequence, program_options.trace);
+      modi_sort.Sort();
       break;
     }
   }

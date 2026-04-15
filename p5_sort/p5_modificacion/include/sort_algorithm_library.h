@@ -41,10 +41,12 @@ void SwapTrace(Key &elem1, Key &elem2) {
 // Selection algorithms. With and without traces
 template <typename Key>
 void SelectionSort(StaticSequence<Key> &sequence, int n) {
+  /*
   std::cout << "Initial sequence: " << std::endl;
   PrintSequence(sequence);
   std::cout << std::endl;
-  
+  */
+
   for (int i = 0; i < n; i++) {
     int min = i;
 
@@ -189,23 +191,22 @@ void MergeSortTrace(StaticSequence<Key> &sequence, int ini, int fin) {
 
 template<typename Key>
 void Baja(int i, StaticSequence<Key> &sequence, int n) {
-    int h = i;
-    int h1 = 2 * i + 1;
-    int h2 = h1 + 1;
-    if (h1 < n && sequence[h1] > sequence[h])
-    {
+  int h1, h2, h;
+  while(2 * i + 1 < n ) {
+    h1 = 2 * i + 1;
+    h2 = 2 * i + 2;
+    if(h2 < n && sequence[h2] > sequence[h1]){
+      h = h2;
+    } else {
       h = h1;
     }
-    if (h2 < n && sequence[h2] > sequence[h])
-    {
-      h = h2;
+    if(sequence[h] <= sequence[i]){
+      break ;
+    } else {
+      Swap(sequence[i], sequence[h]);
+      i = h;
     }
-
-    if (h != i)
-    {
-      std::swap(sequence[i], sequence[h]);
-      Baja(h, sequence, n);
-    }
+  }
 }
 
 template <typename Key>
@@ -214,13 +215,13 @@ void HeapSort(StaticSequence<Key> &sequence, int n) {
   PrintSequence(sequence);
   std::cout << std::endl;
 
-  for (int i = n / 2; i > 0; i--) {
+  for (int i = n / 2 - 1; i >= 0; i--) {
     Baja(i, sequence, n);
   }
 
-  for (int i = n; i > 1; i--) {
-    Swap(sequence[1], sequence[i]);
-    Baja(1, sequence, i - 1);
+  for (int i = n - 1; i > 0; i--) {
+    Swap(sequence[0], sequence[i]);
+    Baja(0, sequence, i);
   }
 }
   
@@ -231,13 +232,13 @@ void HeapSortTrace(StaticSequence<Key> &sequence, int n) {
   PrintSequence(sequence);
   std::cout << std::endl;
 
-  for (int i = n / 2; i > 0; i--) {
+  for (int i = n / 2 - 1; i >= 0; i--) {
     Baja(i, sequence, n);
   }
 
   int counter = 0;
-  for (int i = n; i > 1; i--) {
-    SwapTrace(sequence[1], sequence[i]);
+  for (int i = n - 1; i > 0; i--) {
+    SwapTrace(sequence[0], sequence[i]);
     Baja(1, sequence, i - 1);
     std::cout << "Iteration " << counter++ << ": " << std::endl;
     PrintSequence(sequence);
@@ -314,6 +315,71 @@ void ShellSortTrace(StaticSequence<Key> &sequence, int n) {
     delta = delta * alpha;
   }
 }
+
+template <typename Key>
+void SelectionSortForModi(StaticSequence<Key> &sequence, int ini, int fin) {
+  /*
+  std::cout << "Initial sequence: " << std::endl;
+  PrintSequence(sequence);
+  std::cout << std::endl;
+  */
+
+  for (int i = ini; i <= fin; i++) {
+    int min = i;
+
+    for (int j = i + 1 ; j <= fin; j++) {
+      if (sequence[j] < sequence[min]) {
+        min = j;
+      }
+    }
+
+    Swap(sequence[min], sequence[i]);
+  }
+}
+
+template <typename Key>
+void QuickSortAndSelectionSort(StaticSequence<Key> &sequence, int ini, int fin) {
+  int i = ini; 
+  int f = fin;
+  Key p = sequence[(i+f)/2];
+
+  while (i <= f) {
+    while (sequence[i] < p) {
+      i++;
+    }
+
+    while (sequence[f] > p) {
+      f--;
+    }
+
+    if (i <= f) {
+      SwapTrace(sequence[i],sequence[f]) ;
+      i++ ; 
+      f-- ;
+    }
+  }
+
+  if (ini < f) {
+    if (f - ini < 5) {
+      std::cout << "size < 5, selection" << std::endl;
+      SelectionSortForModi(sequence, ini, f);
+    } else {
+      std::cout << "size >= 5, QuickSort" << std::endl;
+      QuickSortAndSelectionSort(sequence, ini, f); 
+    }
+  }
+
+  if (i < fin) {
+    if (fin - i < 5) {
+      std::cout << "size < 5, selection" << std::endl;
+      SelectionSortForModi(sequence, i, fin);
+    } else {
+      std::cout << "size >= 5, QuickSort" << std::endl;
+      QuickSortAndSelectionSort(sequence, i, fin);
+    }
+  } 
+}
+
 
 
 #endif // SORT_ALGORITHM_LIBRARY_H

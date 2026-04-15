@@ -105,6 +105,18 @@ class ShellMethod : public SortMethod<Key> {
     bool trace_;
 };
 
+template <class Key>
+class ModificationMethod : public SortMethod<Key> {
+  public:
+    ModificationMethod(StaticSequence<Key> &sequence, bool trace) : SortMethod<Key>(sequence), trace_(trace) {}
+
+    void Sort() override {
+      QuickSortAndSelectionSort(this->sequence_, 0, this->sequence_.GetSize());
+    }
+
+  private: 
+    bool trace_;
+};
 
 
 #endif // METHODS_H
