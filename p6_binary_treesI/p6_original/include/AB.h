@@ -22,16 +22,17 @@ class AB {
   public:
     AB() : raiz_(nullptr) {}
     
+    virtual ~AB() {}
     // Pure virtual methods
     virtual bool Insertar(const Key &k) = 0;
-    virtual bool Buscar(const Key &k) = 0 const;
+    virtual bool Buscar(const Key &k) const = 0;
 
     // Visualize the tree 
     void Inorden(NodoB<Key> *nodo) const {
       if (nodo != nullptr) {
         Inorden(nodo->GetLeft());
         std::cout << nodo->GetData() << " ";
-        Inorden(nodo->GetLeft());
+        Inorden(nodo->GetRight());
 
       }
     }
@@ -40,7 +41,7 @@ class AB {
     virtual NodoB<Key> *GetRoot() const { return raiz_; }
 
   protected:
-    NodoB<Key> raiz_;
+    NodoB<Key> *raiz_;
 };
 
 template <class Key>

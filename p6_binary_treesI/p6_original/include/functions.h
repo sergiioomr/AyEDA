@@ -24,6 +24,6 @@
 void Usage();
 Options Parse(int argc, char* argv[]);
 void TreeInitialization(AB<Nif> *tree, const Options &config);
-void Main(const Options &program_options);
+void Main(AB<Nif> *tree);
 
 #endif // FUNCTIONS_H

@@ -28,7 +28,7 @@ class ABE : public AB<Key> {
       }
 
       if (this->raiz_ == nullptr) {
-        raiz_ = new NodoB<Key>(k, nullptr, nullptr);
+        this->raiz_ = new NodoB<Key>(k, nullptr, nullptr);
         return true;
       } else {
         return InsertaEquilRama(k, this->raiz_);
@@ -42,7 +42,7 @@ class ABE : public AB<Key> {
 
   private:
 
-    bool InsertaEquilRama(const Key &k, NodoB<Key>*& nodo) {
+    bool InsertaEquilRama(const Key &k, NodoB<Key> *nodo) {
       if (TamRama(nodo->GetLeft()) <= TamRama(nodo->GetRight())) {
         if (nodo->GetLeft() != nullptr) {
           return InsertaEquilRama(k, nodo->GetLeft());

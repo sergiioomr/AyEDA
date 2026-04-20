@@ -21,7 +21,7 @@
 cmake_minimum_required(VERSION 3.5)  # Mandatory
 
 # set the project name 
-project(treesI                # Mandatory
+project(tree               # Mandatory
     VERSION 1.0
     DESCRIPTION "A simple CMake project for the Fibonacci Sum application"
     LANGUAGES CXX)
@@ -41,21 +41,20 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 # Adds an executable target called "trees" to be built from the source files listed in the command invocation.
-add_executable(trees 
+add_executable(tree
 src/main.cc
 src/functions.cc
-include/methods.h
 include/nif.h
 include/functions.h
-include/sequence.h
-include/sort_algorithm_library.h
-include/sort_method.h
-include/static_sequence.h
-include/table_options.h
+include/AB.h
+include/ABB.h
+include/ABE.h
+include/nodoB.h
+include/tree_options.h
 )
 
 # Add expected compiler features to a target.
-target_compile_features(trees PRIVATE cxx_std_17)
+target_compile_features(tree PRIVATE cxx_std_17)
 
 # Add compile options to a target.
-target_compile_options(trees PRIVATE -Wall -Wextra -Wpedantic -Weffc++)
+target_compile_options(tree PRIVATE -Wall -Wextra -Wpedantic -Weffc++)

@@ -93,7 +93,7 @@ void TreeInitialization(AB<Nif> *tree, const Options &config) {
   } else if (config.init == 2) {
     std::cout << "Random mode initialization. Random tree created" << std::endl;
     srand(time(nullptr));
-    for (int i = 0; i < config.number_elements; i++) {
+    for (unsigned i = 0; i < config.number_elements; i++) {
       Nif nif;
       tree->Insertar(nif);
     }
@@ -103,7 +103,7 @@ void TreeInitialization(AB<Nif> *tree, const Options &config) {
       std::cerr << "Error. Couldn't open de file" << std::endl;
       exit(1);
     }
-    for (int i = 0; i < config.number_elements; i++) {
+    for (unsigned i = 0; i < config.number_elements; i++) {
       Nif nif;
       if (!(file >> nif)) {
         std::cerr << "Error reading file data" << std::endl;
@@ -114,6 +114,56 @@ void TreeInitialization(AB<Nif> *tree, const Options &config) {
   }
 }
 
-void Main(const Options &config) {
+void Main(AB<Nif> *tree) {
+  int option = -1;
+  while (option != 0) {
+    std::cout << "\n[0] Exit\n"
+              << "[1] Insert key\n"
+              << "[2] Search key\n"
+              << "[3] Show tree inorden\n"
+              << "Option: ";
+    std::cin >> option;
 
+    switch (option) {
+      case 0 :
+        std::cout << "Closing the simulator..." << std::endl;
+        break;
+      
+      case 1: {
+        Nif nif;
+        std::cout << "Insert a NIF: " << std::endl;
+        std::cin >> nif;
+        if (tree->Insertar(nif)) {
+          std::cout << "Key inserted" << std::endl;
+          std::cout << *tree;
+        } else {
+          std::cout << "That Nif already exists" << std::endl;
+        }
+        
+        break;
+      }
+      
+      case 2: {
+        Nif nif;
+        std::cout << "Enter a NIF to search: ";
+        std::cin >> nif;
+        if (tree->Buscar(nif)) {
+          std::cout << "NIF found" << std::endl;
+        } else {
+          std::cout << "NIF not found" << std::endl;
+        }
+        break;
+      }
+
+      case 3: {
+        tree->Inorden(tree->GetRoot());
+        std::cout << std::endl;
+        break;
+      }
+
+      default : 
+        std::cout << "Invalid option" << std::endl;
+        break;
+    }    
+  }
 }

@@ -20,8 +20,8 @@ class NodoB {
 
     // Getters
     const Key &GetData() const { return dato_; }
-    NodoB *GetLeft() const { return izdo_; }
-    NodoB * GetRight() const { return dcho_; }
+    NodoB *&GetLeft()  { return izdo_; }
+    NodoB *&GetRight()  { return dcho_; }
 
     // Setters
     void SetLeft(NodoB<Key> *left) { izdo_ = left; }

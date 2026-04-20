@@ -1,0 +1,3 @@
+/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p6_binary_treesI/p6_original/build/CMakeFiles/tree.dir
+/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p6_binary_treesI/p6_original/build/CMakeFiles/edit_cache.dir
+/home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p6_binary_treesI/p6_original/build/CMakeFiles/rebuild_cache.dir
