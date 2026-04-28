@@ -22,7 +22,10 @@ class AB {
   public:
     AB() : raiz_(nullptr) {}
     
-    virtual ~AB() {}
+    virtual ~AB() {
+      Remove(raiz_);
+    }
+
     // Pure virtual methods
     virtual bool Insertar(const Key &k) = 0;
     virtual bool Buscar(const Key &k) const = 0;
@@ -35,6 +38,20 @@ class AB {
         Inorden(nodo->GetRight());
 
       }
+    }
+
+    /**
+     * @brief Recursive method to delete all the node pointers of the tree
+     * 
+     * @param nodo 
+     */
+    void Remove(NodoB<Key> *nodo) {
+      if (nodo == nullptr) {
+        return;
+      }
+      Remove(nodo->GetLeft());
+      Remove(nodo->GetRight());
+      delete nodo;
     }
 
     // Getters
@@ -71,6 +88,7 @@ std::ostream& operator<<(std::ostream& os, const AB<Key> &ab) {
     } else {
       os << "[.] ";
     }
+    
   }
   os << "\n";
   return os;
