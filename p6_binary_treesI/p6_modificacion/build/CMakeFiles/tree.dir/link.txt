@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/tree.dir/src/main.cc.o CMakeFiles/tree.dir/src/functions.cc.o -o tree 

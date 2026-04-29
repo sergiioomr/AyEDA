@@ -1,0 +1,3 @@
+/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p6_binary_treesI/p6_modificacion/build/CMakeFiles/tree.dir
+/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p6_binary_treesI/p6_modificacion/build/CMakeFiles/edit_cache.dir
+/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p6_binary_treesI/p6_modificacion/build/CMakeFiles/rebuild_cache.dir
