@@ -17,10 +17,14 @@
 
 template <class Key>
 class NodoAVL : public NodoB<Key> {
+  public:
+    NodoAVL(const Key &data, NodoB<Key> *left = nullptr, NodoB<Key> *right = nullptr, int bal = 0) : NodoB<Key>(data, left, right), bal_(bal) {}
 
-
+    int GetBal() const { return bal_; }
+    void SetBal(int bal) { bal_ = bal; }
+    
   private: 
-    int bal;  
+    int bal_;  
 };
 
 #endif //NODOAVL_H

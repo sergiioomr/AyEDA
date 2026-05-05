@@ -51,7 +51,10 @@ include/ABB.h
 include/ABE.h
 include/nodoB.h
 include/tree_options.h
+include/nodoAVL.h
+include/AVL.h
 )
+
 
 # Add expected compiler features to a target.
 target_compile_features(tree PRIVATE cxx_std_17)

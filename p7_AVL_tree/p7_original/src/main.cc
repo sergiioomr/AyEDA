@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
   } else if (config.tree_type == "abb") {
     tree = new ABB<Nif>();
   } else {
-    tree = new AVL<Nif>();
+    tree = new AVL<Nif>(config.trace);
   }
 
   TreeInitialization(tree, config);

@@ -22,7 +22,7 @@ void Usage() {
             << "Options:\n"
             << "  -ab <abe|abb|avl>   : Tree type\n"
             << "  -init <i> [f] [s]   : How to add the tree data (1 = manual, 2 = random [s = elements number], 3 = file [s = elements number] [f = file name])\n"
-            << "  -trace <y|n         : show the trace or not";
+            << "  -trace <y|n>        : show the trace or not\n";
   std::exit(EXIT_FAILURE);
 } 
 
@@ -89,7 +89,7 @@ Options Parse(int argc, char* argv[]) {
   }
 
   if (config.tree_type != "abe" && config.tree_type != "abb" && config.tree_type != "avl") {
-    std::cerr << "Error. Tree type must be abe or abb" << std::endl;
+    std::cerr << "Error. Tree type must be abe, abb or avl" << std::endl;
     exit(1);
   }
 

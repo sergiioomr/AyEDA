@@ -40,13 +40,17 @@ class AB {
     // Getters
     virtual NodoB<Key> *GetRoot() const { return raiz_; }
 
+    virtual void PrintNode(std::ostream& os, NodoB<Key>* nodo) const;
+
+    virtual void PrintTree(std::ostream& os) const;
+
   protected:
     NodoB<Key> *raiz_;
 };
 
 template <class Key>
-std::ostream& operator<<(std::ostream& os, const AB<Key> &ab) {
-  NodoB<Key> *raiz = ab.GetRoot();
+void AB<Key>::PrintTree(std::ostream& os) const {
+  NodoB<Key> *raiz = this->raiz_;
   std::queue<std::pair<NodoB<Key>*, int>> queue;
   NodoB<Key> *nodo;
   int nivel, nivel_actual = 0;
@@ -65,7 +69,7 @@ std::ostream& operator<<(std::ostream& os, const AB<Key> &ab) {
     }
 
     if (nodo != nullptr) {
-      os << "[" << nodo->GetData() << "] ";
+      PrintNode(os, nodo);
       queue.push({nodo->GetLeft(), nivel + 1});
       queue.push({nodo->GetRight(), nivel + 1});
     } else {
@@ -73,7 +77,22 @@ std::ostream& operator<<(std::ostream& os, const AB<Key> &ab) {
     }
   }
   os << "\n";
+}
+
+template<class Key>
+std::ostream& operator<<(std::ostream& os, const AB<Key>& tree) {
+  tree.PrintTree(os);
   return os;
+}
+
+
+template <class Key>
+void AB<Key>::PrintNode(std::ostream& os, NodoB<Key>* nodo) const {
+  if (nodo == nullptr) {
+    os << "[.]";
+  } else {
+    os << "[" << nodo->GetData() << "]";
+  }
 }
 
 #endif // AB_H
