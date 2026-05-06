@@ -6,7 +6,9 @@
  * @file Binary_tree.h
  * @author Sergio Molina Ríos (alu0101718194@ull.edu.es)
  * @date 2026-04-20
- * @brief 
+ * @brief Define a AB class to represent an simple binary tree. This will be the 
+ *        main class, other types of trees will heritate of the AB class. Define the virtual Insertar and 
+ *        Buscar methods. Implement Inorden method, to print a tree. 
  */
 
 #ifndef AB_H
@@ -22,7 +24,9 @@ class AB {
   public:
     AB() : raiz_(nullptr) {}
     
+    // Virtual destructor
     virtual ~AB() {}
+
     // Pure virtual methods
     virtual bool Insertar(const Key &k) = 0;
     virtual bool Buscar(const Key &k) const = 0;
@@ -40,14 +44,22 @@ class AB {
     // Getters
     virtual NodoB<Key> *GetRoot() const { return raiz_; }
 
+    // Methods to print a node and to print the entire tree
     virtual void PrintNode(std::ostream& os, NodoB<Key>* nodo) const;
 
     virtual void PrintTree(std::ostream& os) const;
 
   protected:
+  // A NodoB attribute to represent the first node of the tree, the root. 
     NodoB<Key> *raiz_;
 };
 
+/**
+ * @brief A method to print the tree by levels
+ * 
+ * @tparam Key 
+ * @param os 
+ */
 template <class Key>
 void AB<Key>::PrintTree(std::ostream& os) const {
   NodoB<Key> *raiz = this->raiz_;
@@ -79,13 +91,27 @@ void AB<Key>::PrintTree(std::ostream& os) const {
   os << "\n";
 }
 
+/**
+ * @brief Operator << overload
+ * 
+ * @tparam Key 
+ * @param os 
+ * @param tree 
+ * @return std::ostream& 
+ */
 template<class Key>
 std::ostream& operator<<(std::ostream& os, const AB<Key>& tree) {
   tree.PrintTree(os);
   return os;
 }
 
-
+/**
+ * @brief Method to print a node, print [.] if the node don't have a value.
+ * 
+ * @tparam Key 
+ * @param os 
+ * @param nodo 
+ */
 template <class Key>
 void AB<Key>::PrintNode(std::ostream& os, NodoB<Key>* nodo) const {
   if (nodo == nullptr) {

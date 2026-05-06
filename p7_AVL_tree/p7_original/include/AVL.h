@@ -44,11 +44,28 @@ class AVL : public ABB<Key> {
       void PrintTraceBeforeRotation(const std::string& rotation, NodoAVL<Key>* nodo) const;
 };
 
+/**
+ * @brief Search a given Key in the tree. 
+ * 
+ * @tparam Key 
+ * @param k 
+ * @return true 
+ * @return false 
+ */
 template <class Key>
 bool AVL<Key>::Buscar(const Key &k) const {
   return buscar_recursivo(this->raiz_, k);
 }
 
+/**
+ * @brief Recursive method to search a given Key in the tree. Buscar will call this method
+ * 
+ * @tparam Key 
+ * @param nodo 
+ * @param k 
+ * @return true 
+ * @return false 
+ */
 template <class Key>
 bool AVL<Key>::buscar_recursivo(NodoB<Key> *nodo, const Key &k) const {
   if (nodo == nullptr) {
@@ -68,6 +85,14 @@ bool AVL<Key>::buscar_recursivo(NodoB<Key> *nodo, const Key &k) const {
   }
 }
 
+/**
+ * @brief Insert a given key in the tree. 
+ * 
+ * @tparam Key 
+ * @param k 
+ * @return true 
+ * @return false 
+ */
 template <class Key>
 bool AVL<Key>::Insertar(const Key &k) {
   NodoAVL<Key> *nuevo = new NodoAVL<Key>(k);
@@ -75,6 +100,16 @@ bool AVL<Key>::Insertar(const Key &k) {
   return insertar_bal(this->raiz_, nuevo, crece);
 }
 
+/**
+ * @brief Recursive method to insert a Key in the tree.
+ * 
+ * @tparam Key 
+ * @param nodo 
+ * @param nuevo 
+ * @param crece 
+ * @return true 
+ * @return false 
+ */
 template <class Key>
 bool AVL<Key>::insertar_bal(NodoB<Key>* &nodo, NodoAVL<Key>* &nuevo, bool &crece) {
   if (nodo == nullptr) {
@@ -106,6 +141,13 @@ bool AVL<Key>::insertar_bal(NodoB<Key>* &nodo, NodoAVL<Key>* &nuevo, bool &crece
   }
 }
 
+/**
+ * @brief This method will corrects imbalances in the left side of the tree
+ * 
+ * @tparam Key 
+ * @param nodo 
+ * @param crece 
+ */
 template <class Key>
 void AVL<Key>::insert_re_balancea_izda(NodoAVL<Key>* &nodo, bool crece) {
   switch (nodo->GetBal()) {
@@ -141,6 +183,13 @@ void AVL<Key>::insert_re_balancea_izda(NodoAVL<Key>* &nodo, bool crece) {
 }
 
 
+/**
+ * @brief This method corrects the imbalances in the right side of the tree
+ * 
+ * @tparam Key 
+ * @param nodo 
+ * @param crece 
+ */
 template <class Key>
 void AVL<Key>::insert_re_balancea_dcha(NodoAVL<Key>* &nodo, bool crece) {
   switch (nodo->GetBal()) {
@@ -176,7 +225,12 @@ void AVL<Key>::insert_re_balancea_dcha(NodoAVL<Key>* &nodo, bool crece) {
 }
 
 
-
+/**
+ * @brief Rotate left-left, to correct the imbalances. 
+ * 
+ * @tparam Key 
+ * @param node 
+ */
 template <class Key>
 void AVL<Key>::RotateII(NodoAVL<Key>* &node) {
   NodoAVL<Key> *nodo1 = reinterpret_cast<NodoAVL<Key>*>(node->GetLeft());
@@ -194,7 +248,12 @@ void AVL<Key>::RotateII(NodoAVL<Key>* &node) {
   node = nodo1;
 }
 
-
+/**
+ * @brief Rotate right-right, correct the imbalances
+ * 
+ * @tparam Key 
+ * @param node 
+ */
 template <class Key>
 void AVL<Key>::RotateDD(NodoAVL<Key>* &node) {
   NodoAVL<Key> *nodo1 = reinterpret_cast<NodoAVL<Key>*>(node->GetRight());
@@ -211,7 +270,12 @@ void AVL<Key>::RotateDD(NodoAVL<Key>* &node) {
   node = nodo1;
 }
 
-
+/**
+ * @brief Rotate Left-Right, correct the imbalances
+ * 
+ * @tparam Key 
+ * @param node 
+ */
 template <class Key>
 void AVL<Key>::RotateID(NodoAVL<Key>* &node) {
   NodoAVL<Key> *nodo1 = reinterpret_cast<NodoAVL<Key>*>(node->GetLeft());
@@ -238,7 +302,12 @@ void AVL<Key>::RotateID(NodoAVL<Key>* &node) {
   node = nodo2;
 }
 
-
+/**
+ * @brief Rotate Right-Left, correct the imbalances
+ * 
+ * @tparam Key 
+ * @param node 
+ */
 template <class Key>
 void AVL<Key>::RotateDI(NodoAVL<Key>* &node) {
   NodoAVL<Key> *nodo1 = reinterpret_cast<NodoAVL<Key>*>(node->GetRight());
@@ -265,6 +334,13 @@ void AVL<Key>::RotateDI(NodoAVL<Key>* &node) {
   node = nodo2;
 }
 
+/**
+ * @brief Print a node with his balance factor. 
+ * 
+ * @tparam Key 
+ * @param os 
+ * @param nodo 
+ */
 template <class Key>
 void AVL<Key>::PrintNode(std::ostream& os, NodoB<Key>* nodo) const {
   if(nodo == nullptr) {
@@ -280,6 +356,13 @@ void AVL<Key>::PrintNode(std::ostream& os, NodoB<Key>* nodo) const {
   }
 }
 
+/**
+ * @brief Print the tree before the rotation. To show the trace
+ * 
+ * @tparam Key 
+ * @param rotation 
+ * @param nodo 
+ */
 template <class Key>
 void AVL<Key>::PrintTraceBeforeRotation(const std::string& rotation, NodoAVL<Key>* nodo) const {
   if(!trace_) return;
