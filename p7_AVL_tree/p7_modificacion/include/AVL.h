@@ -33,8 +33,8 @@ class AVL : public ABB<Key> {
       bool buscar_recursivo(NodoB<Key> *nodo, const Key &k) const;
 
       bool insertar_bal(NodoB<Key>* &nodo, NodoAVL<Key>* &nuevo, bool &crece);
-      void insert_re_balancea_izda(NodoAVL<Key>* &nodo, bool &crece);
-      void insert_re_balancea_dcha(NodoAVL<Key>* &nodo, bool &crece);
+      void insert_re_balancea_izda(NodoAVL<Key>* &nodo, bool crece);
+      void insert_re_balancea_dcha(NodoAVL<Key>* &nodo, bool crece);
 
       void RotateII(NodoAVL<Key>* &node);
       void RotateDD(NodoAVL<Key>* &node);
@@ -149,7 +149,7 @@ bool AVL<Key>::insertar_bal(NodoB<Key>* &nodo, NodoAVL<Key>* &nuevo, bool &crece
  * @param crece 
  */
 template <class Key>
-void AVL<Key>::insert_re_balancea_izda(NodoAVL<Key>* &nodo, bool &crece) {
+void AVL<Key>::insert_re_balancea_izda(NodoAVL<Key>* &nodo, bool crece) {
   switch (nodo->GetBal()) {
     case -1 :
       nodo->SetBal(0);
@@ -191,7 +191,7 @@ void AVL<Key>::insert_re_balancea_izda(NodoAVL<Key>* &nodo, bool &crece) {
  * @param crece 
  */
 template <class Key>
-void AVL<Key>::insert_re_balancea_dcha(NodoAVL<Key>* &nodo, bool &crece) {
+void AVL<Key>::insert_re_balancea_dcha(NodoAVL<Key>* &nodo, bool crece) {
   switch (nodo->GetBal()) {
     case 1 : 
       nodo->SetBal(0);
@@ -279,7 +279,7 @@ void AVL<Key>::RotateDD(NodoAVL<Key>* &node) {
 template <class Key>
 void AVL<Key>::RotateID(NodoAVL<Key>* &node) {
   NodoAVL<Key> *nodo1 = reinterpret_cast<NodoAVL<Key>*>(node->GetLeft());
-  NodoAVL<Key> *nodo2 = reinterpret_cast<NodoAVL<Key>*>(nodo1->GetRight());
+  NodoAVL<Key> *nodo2 = reinterpret_cast<NodoAVL<Key>*>(node->GetRight());
 
   node->SetLeft(nodo2->GetRight());
   nodo2->SetRight(node);
@@ -311,7 +311,7 @@ void AVL<Key>::RotateID(NodoAVL<Key>* &node) {
 template <class Key>
 void AVL<Key>::RotateDI(NodoAVL<Key>* &node) {
   NodoAVL<Key> *nodo1 = reinterpret_cast<NodoAVL<Key>*>(node->GetRight());
-  NodoAVL<Key> *nodo2 = reinterpret_cast<NodoAVL<Key>*>(node->GetLeft());
+  NodoAVL<Key> *nodo2 = reinterpret_cast<NodoAVL<Key>*>(nodo1->GetLeft());
 
   node->SetRight(nodo2->GetLeft());
   nodo2->SetLeft(node);

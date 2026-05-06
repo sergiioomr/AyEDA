@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/functions.cc" "CMakeFiles/tree.dir/src/functions.cc.o" "gcc" "CMakeFiles/tree.dir/src/functions.cc.o.d"
-  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/main.cc" "CMakeFiles/tree.dir/src/main.cc.o" "gcc" "CMakeFiles/tree.dir/src/main.cc.o.d"
+  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_modificacion/src/functions.cc" "CMakeFiles/tree.dir/src/functions.cc.o" "gcc" "CMakeFiles/tree.dir/src/functions.cc.o.d"
+  "/home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_modificacion/src/main.cc" "CMakeFiles/tree.dir/src/main.cc.o" "gcc" "CMakeFiles/tree.dir/src/main.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

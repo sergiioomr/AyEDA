@@ -1,10 +1,10 @@
 CMakeFiles/tree.dir/src/main.cc.o: \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/main.cc \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/main.cc \
  /usr/include/stdc-predef.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/../include/functions.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/../include/ABB.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/../include/AB.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/../include/nodoB.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/../include/functions.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/../include/ABB.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/../include/AB.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/../include/nodoB.h \
  /usr/include/c++/13/queue /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -160,9 +160,9 @@ CMakeFiles/tree.dir/src/main.cc.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/../include/ABE.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/../include/tree_options.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/../include/nif.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/../include/ABE.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/../include/tree_options.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/../include/nif.h \
  /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
  /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
@@ -172,8 +172,8 @@ CMakeFiles/tree.dir/src/main.cc.o: \
  /usr/include/c++/13/bits/locale_conv.h \
  /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/../include/AVL.h \
- /home/sergio/Uni/Segundo_Cuatrimestre/AyEDA/p7_AVL_tree/p7_original/src/../include/nodoAVL.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/../include/AVL.h \
+ /home/molina/SegundoCurso/Segundo_Cuatri/AyEDA/p7_AVL_tree/p7_original/src/../include/nodoAVL.h \
  /usr/include/c++/13/fstream \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
